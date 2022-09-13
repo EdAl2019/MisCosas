@@ -24,6 +24,8 @@ $pregunta1= isset($_POST["1"]) ? limpiarCadena1($_POST["1"]) : "";
 $pregunta2= isset($_POST["2"]) ? limpiarCadena1($_POST["2"]) : "";
 $pregunta3= isset($_POST["3"]) ? limpiarCadena1($_POST["3"]) : "";
 $pregunta4= isset($_POST["4"]) ? limpiarCadena1($_POST["4"]) : "";
+
+$pregunta5= isset($_POST["5"]) ? limpiarCadena1($_POST["5"]) : "";
 $pregunta6= isset($_POST["6"]) ? limpiarCadena1($_POST["6"]) : "";
 $identidad=str_replace("%20","",$identidad);
 $telefono=str_replace("%20","",$telefono);
@@ -102,11 +104,7 @@ switch ($op) {
         # code...
         $pregunta4=$pregunta4.",".$value;
       }
-      $pregunta5="";
-      foreach ($_POST['5'] as $key => $value) {
-        # code...
-        $pregunta5=$pregunta5.",".$value;
-      }
+      
       //respuestas
       $respuestas->registrar_respuesta_menores($id_encuesta->id_encuesta_menor,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,1,2,3,4,5);
      

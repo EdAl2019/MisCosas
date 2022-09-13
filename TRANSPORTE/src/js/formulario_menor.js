@@ -16,6 +16,26 @@ function Parametros() {
   );
 }
 
+function llenar_rutas() {
+
+	cadena = "&activar='activar'"
+
+	$.ajax({
+		url: "../Controlador/encuesta_controlador.php?op=select_ruta",
+		type: "POST",
+		data: cadena,
+		success: function (r) {
+
+
+      
+			$("#5").html(r).fadeIn();
+		}
+
+
+	});
+
+}
+
 $("#formulario").hide();
 $(".3-mas").prop("disabled", true);
 //ready
@@ -36,6 +56,7 @@ $(document).ready(function () {
   $("#check_scan").hide();
 
   $("#comenzar").on("click", function () {
+    llenar_rutas();
     $("#formulario").show();
     $("#contenedor_comenzar").hide();
     $.post(
@@ -86,8 +107,8 @@ $(document).ready(function () {
     
     var pregunta4 = $("input[id=4]:checked").val();
     console.log(pregunta4);
-    var pregunta5 = $("input[id=5]:checked").val();
-    console.log(pregunta5);
+    
+    var pregunta5 = $("#5").children().prop('selected');
 
     if (
       direccion===""||
@@ -102,8 +123,8 @@ $(document).ready(function () {
       pregunta3 === "" ||
       pregunta4 === undefined ||
       pregunta4 === "" ||
-      pregunta5 === undefined ||
-      pregunta5 === ""
+      pregunta5 === true ||
+      pregunta5 === "true"
     ) {
       if (nombres === "" || nombres === null) {
         mensaje_error.push("Completa el campo: NOMBRES<br><br>");
@@ -113,6 +134,9 @@ $(document).ready(function () {
       }
       if (edad === "" || edad === null) {
         mensaje_error.push("Completa el campo: EDAD<br><br>");
+      }
+      if (direccion === "" || direccion === null) {
+        mensaje_error.push("Completa el campo: INGRESE DIRECCIÓN<br><br>");
       }
       if (edad>18) {
         mensaje_error.push("El campo: EDAD, no puede ser mayor o igual a 18<br><br>");
@@ -133,9 +157,9 @@ $(document).ready(function () {
           "Completa el campo: ¿QUÉ OTROS SERVICIOS DE TRANSPORTE UTILIZA FRECUENTEMENTE ? <br><br>"
         );
       }
-      if (pregunta5 === undefined || pregunta5 === "") {
+      if (pregunta5 === true || pregunta5 === "true") {
         mensaje_error.push(
-          "Completa el campo: ¿QUÉ ASPECTOS LE GUSTARÍA QUE MEJOREN EN EL SERVICIO DE TRANSPORTE? <br><br>"
+          "Completa el campo: ¿QUÉ RUTA ESPERA UTILZAR?  <br><br>"
         );
       }
       console.log(datos);

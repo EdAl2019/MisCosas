@@ -244,54 +244,14 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                                     </div>
                                     <br>
                                     <div class="form-group col-md-12">
-                                        <label for="exampleInputPassword1"><strong>¿QUÉ ASPECTOS LE GUSTARÍA QUE MEJOREN
-                                                EN EL
-                                                SERVICIO DE TRANSPORTE?</strong></label><i class="fa fa-thumbs-o-up"
-                                            aria-hidden="true"></i>
-                                        <br>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                value="ATENCIÓN DEL CONDUCTOR Y/O COBRADOR." name="5[]" id="5">
-                                            <label class="form-check-label" for="5">
-                                                ATENCIÓN DEL CONDUCTOR Y/O COBRADOR.
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                value="MÚSICA CON ALTO VOLUMEN." name="5[]" id="5">
-                                            <label class="form-check-label" for="5">
-                                                MÚSICA CON ALTO VOLUMEN.
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                value="TIEMPO DE ESPERA EN ESTACIONES." name="5[]" id="5">
-                                            <label class="form-check-label" for="5">
-                                                TIEMPO DE ESPERA EN ESTACIONES.
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="CONDICIONES FÍSICAS Y MECÁNICAS DE LAS UNIDADES." name="5[]" id="5">
-                                            <label class="form-check-label" for="5">
-                                                CONDICIONES FÍSICAS Y MECÁNICAS DE LAS
-                                                UNIDADES.
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="EXCESO DE PASAJEROS."
-                                                name="5[]" id="5">
-                                            <label class="form-check-label" for="5">
-                                                EXCESO DE PASAJEROS.
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="SEGURIDAD."
-                                                name="5[]" id="5">
-                                            <label class="form-check-label" for="5">
-                                                SEGURIDAD.
-                                            </label>
-                                        </div>
-                                    </div>
+                    <label for="exampleInputPassword1"><strong>¿QUÉ RUTA ESPERA UTILZAR?  </strong> </label> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                    <br>
+                    <select name="5" id="5" class="form-control">
+                     
+
+                    </select>
+                   
+                  </div>
                                 </div>
 
                                 </div>

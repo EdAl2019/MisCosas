@@ -59,6 +59,10 @@
     #login .container #login-row #login-column #login-box #login-form #register-link {
         margin-top: -85px;
     }
+    optgroup[label] {
+    color: blue;
+    
+    }
     </style>
 </head>
 

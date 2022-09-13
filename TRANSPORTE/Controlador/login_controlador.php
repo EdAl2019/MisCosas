@@ -29,7 +29,7 @@ switch ($opcion) {
     
      
     
-    if ($instancia_modelo->login_usuario($usuario, $contraseña)) {
+    if ($instancia_modelo->login($usuario, $contraseña)) {
 
         
     
@@ -91,69 +91,70 @@ switch ($opcion) {
         
         if ($r->id_zona==1) {
           # code...
-          $zona1= $zona1."<option value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+          $zona1= $zona1."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
         if ($r->id_zona==2) {
           # code...
-          $zona2= $zona2."<option value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+          $zona2= $zona2."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
         if ($r->id_zona==3) {
           # code...
-          $zona3= $zona3."<option value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+          $zona3= $zona3."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
         if ($r->id_zona==4) {
           # code...
-          $zona4= $zona4."<option value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+          $zona4= $zona4."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
         if ($r->id_zona==5) {
           # code...
-          $zona5= $zona5."<option value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+          $zona5= $zona5."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
         if ($r->id_zona==6) {
           # code...
-          $zona6= $zona6."<option value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+          $zona6= $zona6."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
         if ($r->id_zona==7) {
           # code...
-          $zona7= $zona7."<option value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+          $zona7= $zona7."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
         if ($r->id_zona==8) {
           # code...
-          $zona8= $zona8."<option value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+          $zona8= $zona8."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
     
         }
 
-        echo "<optgroup label='Zona 1'>";
+        echo "<optgroup  label='ZONA 1'>";
         echo $zona1;
+      
         echo "</optgroup>";
-        echo "<optgroup label='Zona 2'>";
+        echo "<optgroup label='ZONA 2'>";
         echo $zona2;
         echo "</optgroup>";
-        echo "<optgroup label='Zona 3'>";
+        echo "<optgroup label='ZONA 3'>";
         echo $zona3;
         echo "</optgroup>";
-        echo "<optgroup label='Zona 4'>";
+        echo "<optgroup label='ZONA 4'>";
         echo $zona4;
         echo "</optgroup>";
-        echo "<optgroup label='Zona 5'>";
+        echo "<optgroup label='ZONA 5'>";
         echo $zona5;
         echo "</optgroup>";
-        echo "<optgroup label='Zona 6'>";
+        echo "<optgroup label='ZONA 6'>";
         echo $zona6;
         echo "</optgroup>";
-        echo "<optgroup label='Zona 7'>";
+        echo "<optgroup label='ZONA 7'>";
         echo $zona7;
         echo "</optgroup>";
-        echo "<optgroup label='Zona 8'>";
+        echo "<optgroup label='ZONA 8'>";
         echo $zona8;
         echo "</optgroup>";
         
