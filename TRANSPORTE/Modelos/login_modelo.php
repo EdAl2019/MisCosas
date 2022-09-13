@@ -15,7 +15,7 @@ class login
 
         return $consulta;
     }
-    function login($user,$contra){
+    function login_usuario($user,$contra){
         global $instancia_conexion;
        // $resultado=false;
         $sql='select * from TBL_USUARIOS where usuario="'.$user.'" and contrasena="'.$contra.'"';

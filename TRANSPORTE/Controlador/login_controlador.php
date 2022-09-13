@@ -29,7 +29,7 @@ switch ($opcion) {
     
      
     
-    if ($instancia_modelo->login($usuario, $contraseña)) {
+    if ($instancia_modelo->login_usuario($usuario, $contraseña)) {
 
         
     
