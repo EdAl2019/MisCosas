@@ -3,7 +3,7 @@
 define("DB_HOST","10.10.7.20");
 
 //Nombre de la base de datos
-define("DB_NAME", "ihttT");
+define("DB_NAME", "ihtt");
 
 //Usuario de la base de datos
 define("DB_USERNAME", "ihtt");

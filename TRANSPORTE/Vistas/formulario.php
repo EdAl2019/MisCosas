@@ -333,8 +333,6 @@ if (isset($_SESSION['Id_usuario'])) { ?>
  
   
   <?php } else {# code...
-    echo "<script> window.location='https://" .
-        $_SERVER['SERVER_ADDR'] .
-        "/TRANSPORTE/index.php'; </script>";}
+    echo "<script> window.location='https://190.130.9.62/TRANSPORTE/index.php'; </script>";}
 ?>
   
