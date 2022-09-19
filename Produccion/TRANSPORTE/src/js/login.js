@@ -55,7 +55,7 @@ $(document).ready(function () {
 	  
 			Swal.fire({
 			  position: "",
-			  imageUrl: "../src/img/firma.jpg",
+			  imageUrl: "src/img/firma.jpg",
 			  imageWidth: 100,
 			  imageHeight: 100,
 			  imageAlt: "Custom image",
