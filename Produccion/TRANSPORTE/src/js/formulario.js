@@ -252,13 +252,13 @@ $(document).ready(function () {
             });
           }
           else{
-            $("contenedor_scaner").hide();
+            $("#reader").hide();
           }
         }
   
       );
     }else{
-      $("contenedor_scaner").show();
+      $("#reader").show();
     }
   
   }); //consulta identidad
