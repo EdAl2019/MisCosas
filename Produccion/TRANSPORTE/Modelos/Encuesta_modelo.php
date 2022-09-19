@@ -149,6 +149,10 @@ class encuesta
 }
 
 
+$instancia= new encuesta();
+$instancia->registrar_persona('', 'http://www.rnp.hn/valida/00003710790','99999999','Col.14 de marzo');
+
+
 
 
 ?>
