@@ -51,7 +51,7 @@ $(document).ready(function () {
 				"Selecciona el campo: RUTA<br><br>"
 			  );
 			}
-			console.log(datos);
+			
 	  
 			Swal.fire({
 			  position: "",
