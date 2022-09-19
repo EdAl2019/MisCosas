@@ -145,6 +145,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                     <select name="1" id="1" class="form-control">
                       <option value="TRABAJO">TRABAJO.</option>
                       <option value="CENTRO EDUCATIVO">CENTRO EDUCATIVO.</option>
+                      <option value="VISITAS">VISITAS.</option>
                       <option value="OTROS">OTROS.</option>
                     </select>
                   </div>
