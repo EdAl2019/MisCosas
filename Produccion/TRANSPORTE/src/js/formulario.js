@@ -262,12 +262,15 @@ $(document).ready(function () {
           }
           else{
             $("#reader").hide();
+            $("#check_scan").show();
           }
         }
   
       );
     }else{
       $("#reader").show();
+      $("#check_scan").hide();
+      
     }
   
   }); //consulta identidad
