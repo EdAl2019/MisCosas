@@ -34,12 +34,12 @@ class encuesta
            
             if ($identidad===null || $identidad==""|| empty($identidad)) {
                 # code...
-                echo "qr";
+               
                 $info=$instancia_rnp->QR_persona();
                 $identidad= $info->NumInscripcion;
             }
             if ($qr===null || $qr==""|| empty($qr)){
-                echo "identidad";
+                
                 $info=$instancia_rnp->Identidad_persona();
                 
             }
@@ -150,9 +150,6 @@ class encuesta
     
 }
 
-
-$instancia= new encuesta();
-$instancia->registrar_persona('0801199808878', '','99999999','Col.14 de marzo');
 
 
 
