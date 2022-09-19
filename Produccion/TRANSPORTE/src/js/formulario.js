@@ -124,7 +124,13 @@ $(document).ready(function () {
     var mensaje_error = [];
     var qr = $("#QR").val();
     var direccion= $("#DIRECCION").val();
-    var identidad = $("#IDENTIDAD").val();
+   
+    if ($("#IDENTIDAD").prop("disabled")) {
+      identidad="Null";
+      
+    }else{
+      var identidad = $("#IDENTIDAD").val();
+    }
     var telefono = $("#TELEFONO").val();
     var pregunta3 = $("input[id=3]:checked", "#formulario-encuesta").val();
     
