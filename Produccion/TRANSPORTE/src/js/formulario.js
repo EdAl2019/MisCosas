@@ -259,6 +259,8 @@ $(document).ready(function () {
               showConfirmButton: true,
               timer: false,
             });
+            $("#reader").show();
+            $("#check_scan").hide();
           }
           else{
             $("#reader").hide();

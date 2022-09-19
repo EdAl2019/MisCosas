@@ -264,7 +264,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                       <input class="form-check-input" type="checkbox" value='MICRO-BUS "BRUJITOS"' name="5[]"
                         id="5">
                       <label class="form-check-label" for="OTROS_SERVICIOS">
-                        MICRO-BUS "BRUJITOS"
+                        MICRO-BUS "ILEGALES"
                       </label>
                     </div>
                   </div>
