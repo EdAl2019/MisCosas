@@ -27,13 +27,21 @@ class encuesta
         # code...
     }
    
-    function registrar_persona($identidad, $qr=null,$telefono,$direccion)
+    function registrar_persona($identidad=null, $qr=null,$telefono,$direccion)
     {
         global $instancia_conexion;
         $instancia_rnp=new Web_Service_RNP($identidad,$qr);
         
-        
-            $info=$instancia_rnp->Identidad_persona();
+            if ($identidad===null || $identidad="") {
+                # code...
+                $info=$instancia_rnp->QR_persona();
+                $identidad= $info->NumInscripcion;
+            }
+            if ($qr===null || $qr=""){
+                $info=$instancia_rnp->Identidad_persona();
+                
+            }
+            
             $nombres=$info->Nombres;
             $apellidos=$info->PrimerApellido." ".$info->SegundoApellido;
         

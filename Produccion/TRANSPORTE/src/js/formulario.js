@@ -6,6 +6,7 @@ function onScanSuccess(qrCodeMessage) {
   $("contenedor_scaner").hide();
   $("#check_scan").show();
  //Aqui escondo identidad
+  $("#IDENTIDAD").prop("disabled","true");
 }
 
 function Parametros() {
