@@ -25,10 +25,11 @@ $(document).ready(function () {
     $("#entrar").on("click",function () {
 		event.preventDefault();
         
-        datos=$("#login-form").serialize();
-		usuario= $("#usuario").val();
-		contra=$("#contraseña").val();
-		punto_control=$("#id_punto_control").children().prop('selected');
+        var datos=$("#login-form").serialize();
+		var usuario= $("#usuario").val();
+		var contra=$("#contraseña").val();
+		var punto_control=$("#id_punto_control").children().prop('selected');
+		var mensaje_error = [];
 
 		if (
 			usuario === "" ||
