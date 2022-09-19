@@ -113,7 +113,15 @@ class encuesta
     function traer_id_persona($identidad=null,$qr=null)
     {
         global $instancia_conexion;
-        $sql = 'select id_persona from TBL_PERSONAS where identidad="'.$identidad.'" or qr="'.$qr.'";';
+        if (empty($identidad)) {
+            $sql = 'select id_persona from TBL_PERSONAS where qr="'.$qr.'";';
+            # code...
+        }
+        if (empty($qr)) {
+            # code...
+            $sql = 'select id_persona from TBL_PERSONAS where identidad="'.$identidad.'";';
+        }
+        
         return $instancia_conexion->ejecutarConsulta($sql);
     }
     function traer_id_persona_menor($nombre,$apellido,$edad,$telefono){
