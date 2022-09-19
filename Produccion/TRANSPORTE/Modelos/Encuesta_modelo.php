@@ -34,10 +34,12 @@ class encuesta
         
             if ($identidad===null || $identidad="") {
                 # code...
+                echo "qr";
                 $info=$instancia_rnp->QR_persona();
                 $identidad= $info->NumInscripcion;
             }
             if ($qr===null || $qr=""){
+                echo "identidad";
                 $info=$instancia_rnp->Identidad_persona();
                 
             }
