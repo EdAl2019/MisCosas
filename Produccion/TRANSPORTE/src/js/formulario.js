@@ -163,7 +163,7 @@ $(document).ready(function () {
         mensaje_error.push("Completa el campo: ESCANER QR<br><br>");
         
       }
-      if (identidad === "" || identidad === null) {
+      if (identidad === "" || identidad === null || identidad.length<13) {
         if (identidad.length<13) {
           mensaje_error.push("Número incompleto o no válido en el campo: IDENTIDAD<br><br>");
         }else{
