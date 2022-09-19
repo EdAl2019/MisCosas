@@ -31,15 +31,14 @@ class encuesta
     {
         global $instancia_conexion;
         $instancia_rnp=new Web_Service_RNP($identidad,$qr);
-            echo $identidad;
-            echo $qr;
-            if ($identidad===null || $identidad=""|| empty($identidad)) {
+           
+            if ($identidad===null || $identidad==""|| empty($identidad)) {
                 # code...
                 echo "qr";
                 $info=$instancia_rnp->QR_persona();
                 $identidad= $info->NumInscripcion;
             }
-            if ($qr===null || $qr=""|| empty($qr)){
+            if ($qr===null || $qr==""|| empty($qr)){
                 echo "identidad";
                 $info=$instancia_rnp->Identidad_persona();
                 
