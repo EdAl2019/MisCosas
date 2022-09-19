@@ -164,6 +164,7 @@ $(document).ready(function () {
         
       }
       if (identidad === "" || identidad === null || identidad.length<13) {
+        console.log("MENOR")
         if (identidad.length<13) {
           mensaje_error.push("Número incompleto o no válido en el campo: IDENTIDAD<br><br>");
         }else{
