@@ -127,10 +127,11 @@ $(document).ready(function () {
    
     if ($("#IDENTIDAD").prop("disabled")) {
       identidad="Null";
-      
+      qr="vacio";
     }else{
       var identidad = $("#IDENTIDAD").val();
     }
+    console.log("Length "+identidad.length)
     var telefono = $("#TELEFONO").val();
     var pregunta3 = $("input[id=3]:checked", "#formulario-encuesta").val();
     
