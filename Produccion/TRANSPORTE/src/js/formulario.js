@@ -232,25 +232,34 @@ $(document).ready(function () {
   }); //btn guardar.
   $("#IDENTIDAD").on("focusout", function () {
     var identidad = $(this).val();
-    $.post(
-      "../Controlador/encuesta_controlador.php?op=identidad",
-      { IDENTIDAD: identidad },
-      function (data, status) {
-        if (data == 0) {
-          $("#IDENTIDAD").val("");
-          Swal.fire({
-            position: "",
-            imageUrl: "../src/img/firma.jpg",
-            imageWidth: 100,
-            imageHeight: 100,
-            imageAlt: "Custom image",
-            icon: "warning",
-            title: "<h2>Esta persona ya completo el censo</h2>",
-            showConfirmButton: true,
-            timer: false,
-          });
+    if ($(this).val()!=""|| $(this).val()==="undifined") {
+      $.post(
+        "../Controlador/encuesta_controlador.php?op=identidad",
+        { IDENTIDAD: identidad },
+        function (data, status) {
+          if (data == 0) {
+            $("#IDENTIDAD").val("");
+            Swal.fire({
+              position: "",
+              imageUrl: "../src/img/firma.jpg",
+              imageWidth: 100,
+              imageHeight: 100,
+              imageAlt: "Custom image",
+              icon: "warning",
+              title: "<h2>Esta persona ya completo el censo</h2>",
+              showConfirmButton: true,
+              timer: false,
+            });
+          }
+          else{
+            $("contenedor_scaner").hide();
+          }
         }
-      }
-    );
+  
+      );
+    }else{
+      $("contenedor_scaner").show();
+    }
+  
   }); //consulta identidad
 }); //fin de document ready
