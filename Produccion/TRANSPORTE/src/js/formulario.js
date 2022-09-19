@@ -145,6 +145,7 @@ $(document).ready(function () {
     if (
       qr === "" ||
       identidad === "" ||
+      identidad.length<13 ||
       telefono === "" ||
       direccion=== ""||
       pregunta3 === undefined ||
@@ -161,7 +162,12 @@ $(document).ready(function () {
         
       }
       if (identidad === "" || identidad === null) {
-        mensaje_error.push("Completa el campo: IDENTIDAD<br><br>");
+        if (identidad.length<13) {
+          mensaje_error.push("Número incompleto o no válido en el campo: IDENTIDAD<br><br>");
+        }else{
+          mensaje_error.push("Completa el campo: IDENTIDAD<br><br>");
+        }
+       
       }
       if (direccion === "" || direccion === null) {
         mensaje_error.push("Completa el campo: INGRESE DIRECCIÓN <br><br>");
