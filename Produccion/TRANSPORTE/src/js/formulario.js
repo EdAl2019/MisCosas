@@ -126,7 +126,7 @@ $(document).ready(function () {
     var direccion= $("#DIRECCION").val();
    
     if ($("#IDENTIDAD").prop("disabled")) {
-      identidad="Null";
+      identidad="0000000000000";
       
     }else{
       var identidad = $("#IDENTIDAD").val();
