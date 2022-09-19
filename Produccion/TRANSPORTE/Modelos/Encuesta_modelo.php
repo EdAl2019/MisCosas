@@ -110,10 +110,10 @@ class encuesta
         return $consulta;
     }
 
-    function traer_id_persona($identidad)
+    function traer_id_persona($identidad=null,$qr=null)
     {
         global $instancia_conexion;
-        $sql = 'select id_persona from TBL_PERSONAS where identidad="'.$identidad.'";';
+        $sql = 'select id_persona from TBL_PERSONAS where identidad="'.$identidad.'" or qr="'.$qr.'";';
         return $instancia_conexion->ejecutarConsulta($sql);
     }
     function traer_id_persona_menor($nombre,$apellido,$edad,$telefono){
