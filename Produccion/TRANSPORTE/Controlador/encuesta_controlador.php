@@ -56,7 +56,7 @@ switch ($op) {
      $encuesta=$instancia_modelo;
      $respuestas=$instancia_modelo;
       $rspta->registrar_persona($identidad,$qr,$telefono,$direccion);
-    $id_persona=$persona->traer_id_persona($identidad)->fetch_object();
+    $id_persona=$persona->traer_id_persona($identidad,$qr)->fetch_object();
     
     $fecha_f = date('Y-m-d h:i:s', time());  
       
