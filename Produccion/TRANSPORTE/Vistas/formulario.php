@@ -143,9 +143,9 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                         aria-hidden="true"></i>
                     </label>
                     <select name="1" id="1" class="form-control">
-                      <option value="TRABAJO">TRABAJO</option>
-                      <option value="ESCUELA">ESCUELA</option>
-                      <option value="ENTRENIMIENTO U OTROS">ENTRETENIMIENTO U OTROS.</option>
+                      <option value="TRABAJO">TRABAJO.</option>
+                      <option value="CENTRO EDUCATIVO">CENTRO EDUCATIVO.</option>
+                      <option value="OTROS">OTROS.</option>
                     </select>
                   </div>
                   <br>
