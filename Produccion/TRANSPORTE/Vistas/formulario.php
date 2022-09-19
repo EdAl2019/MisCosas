@@ -65,6 +65,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
           </div>
           <div class="form-group col-xl-12 text-center"  id="contenedor_comenzar">
           <br>
+          
           <h5><i class="fa fa-users" aria-hidden="true"></i> MAYORES DE EDAD</h5>
                         <button id="comenzar" class=" btn btn-success btn-xs"><h3>COMENZAR</h3></button>
                         <br><br>
