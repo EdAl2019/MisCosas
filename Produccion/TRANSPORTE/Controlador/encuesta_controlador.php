@@ -70,6 +70,11 @@ switch ($op) {
       # code...
       $pregunta5=$pregunta5.",".$value;
     }
+    $pregunta6="";
+    foreach ($_POST['6'] as $key => $value) {
+      # code...
+      $pregunta6=$pregunta6.",".$value;
+    }
   
     //respuestas
     $respuestas->registrar_respuesta($id_encuesta->id_encuesta,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6,1,2,3,4,5,6);
