@@ -58,7 +58,7 @@ class Web_Service_RNP
           'UsuarioInstitucion' => $this->UsuarioInstitucion,
       ];
       $inscripcion = $cliente->Qry_InscripcionNacimiento($parametros);
-      return $inscripcion->ErrorMsg;
+      return $inscripcion->Qry_InscripcionNacimientoResult->ErrorMsg;
 
     }
     function Domicilio_persona(){
