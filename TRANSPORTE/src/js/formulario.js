@@ -307,6 +307,7 @@ $(document).ready(function () {
             $("#reader").show();
             $("#check_scan").hide();
           } else if (data===2) {
+            console.log(data);
             Swal.fire({
               position: "",
               imageUrl: "../src/img/firma.jpg",
