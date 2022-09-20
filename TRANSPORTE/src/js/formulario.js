@@ -291,6 +291,7 @@ $(document).ready(function () {
         "../Controlador/encuesta_controlador.php?op=identidad",
         { IDENTIDAD: identidad },
         function (data, status) {
+          console.log(data);
           if (data == 0) {
             $("#IDENTIDAD").val("");
             Swal.fire({
