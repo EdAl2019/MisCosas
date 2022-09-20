@@ -146,10 +146,10 @@ switch ($op) {
         $validarnp= $instancia_modelo->validar_id($identidad);
         if ($validarnp===1) {
           // code...
-          echo 0;
+          echo 2;
         }
         else {
-          echo 2;
+          echo 0;
         }
 
 

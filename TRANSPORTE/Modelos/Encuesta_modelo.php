@@ -145,7 +145,9 @@ class encuesta
         // code...
         return 1;
       }
-      else{
+      else {
+        // code...
+      }{
         return 2;
       }
     }
