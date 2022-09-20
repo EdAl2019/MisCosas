@@ -158,6 +158,9 @@ $(document).ready(function () {
     $(".4-mas").val("");
     $(".4-mas").prop("disabled", true);
   });
+  $(".transporte-mas").on("click",function(){
+      $("#contenedor_rutas").html("").fadeIn();
+  })
 
   $("#guardar").on("click", function () {
     datos = $("#formulario-encuesta").serialize();
@@ -303,7 +306,23 @@ $(document).ready(function () {
             });
             $("#reader").show();
             $("#check_scan").hide();
+          } else if (data===2) {
+            Swal.fire({
+              position: "",
+              imageUrl: "../src/img/firma.jpg",
+              imageWidth: 100,
+              imageHeight: 100,
+              imageAlt: "Custom image",
+              icon: "warning",
+              title: "<h2>El número de identidad no es correcto</h2>",
+              showConfirmButton: true,
+              timer: false,
+            });
+            $("#reader").show();
+            $("#check_scan").hide();
+
           }
+
           else{
             $("#reader").hide();
             $("#check_scan").show();

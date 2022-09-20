@@ -137,6 +137,18 @@ class encuesta
         $sql = 'select count(id_persona) as personas from TBL_PERSONAS where identidad="'.$identidad.'";';
         return $instancia_conexion->ejecutarConsulta($sql);
     }
+    function validar_id($identidad){
+      $qr="";
+      $instancia_rnp=new Web_Service_RNP($identidad,$qr);
+      $validar=$instancia_rnp->Valida_persona();
+      if ($validar->TipoDeError==="RNE" || $validar->TipoDeError==="FII") {
+        // code...
+        return 1;
+      }
+      else{
+        return 2
+      }
+    }
     function traer_id_encuesta($id_persona)
     {
         global $instancia_conexion;
