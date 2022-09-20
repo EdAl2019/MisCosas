@@ -46,7 +46,7 @@ class Web_Service_RNP
 
 
     }
-    funcion Valida_persona(){
+    function Valida_persona(){
       $cliente = new SoapClient(
           'https://wstest.rnp.hn:1893/API/WSInscripciones.asmx?wsdl',
           ['trace' => 1, 'exception' => 0]
