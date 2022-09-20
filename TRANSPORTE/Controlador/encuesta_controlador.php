@@ -139,7 +139,7 @@ switch ($op) {
 
       if ($valor->personas==0) {
         # code...
-        echo 1;
+        echo 5;
       }
       elseif ($valor->personas>0) {
         # code...
