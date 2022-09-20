@@ -146,7 +146,7 @@ class encuesta
         return 1;
       }
       else{
-        return 2
+        return 2;
       }
     }
     function traer_id_encuesta($id_persona)
