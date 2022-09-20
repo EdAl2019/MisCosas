@@ -147,8 +147,7 @@ class encuesta
       }
       else {
         // code...
-      }{
-        return 2;
+        return 0
       }
     }
     function traer_id_encuesta($id_persona)
