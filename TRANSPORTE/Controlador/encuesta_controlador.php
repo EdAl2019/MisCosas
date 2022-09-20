@@ -149,7 +149,7 @@ switch ($op) {
           echo 0;
         }
         else {
-          echo 2
+          echo 2;
         }
 
 
