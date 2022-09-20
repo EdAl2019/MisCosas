@@ -307,8 +307,8 @@ $(document).ready(function () {
             });
             $("#reader").show();
             $("#check_scan").hide();
-          } else if (data===2) {
-            console.log(data);
+          } else if (data==2) {
+
             Swal.fire({
               position: "",
               imageUrl: "../src/img/firma.jpg",
