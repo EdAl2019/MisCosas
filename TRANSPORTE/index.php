@@ -2,7 +2,7 @@
     session_start();
     if (isset($_SESSION["Id_usuario"])) {
        // echo "<script> window.location='https://".$_SERVER['SERVER_ADDR']."/TRANSPORTE/Vistas/formulario.php'; </script>";
-       echo "<script> window.location='dddVistas/formulario.php'; </script>";
+       echo "<script> window.location='Vistas/formulario.php'; </script>";
     
     }
     else {

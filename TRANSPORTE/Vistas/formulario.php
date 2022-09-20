@@ -14,7 +14,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
   <link rel="stylesheet" href="../src/dist/fontawesome/font-awesome-4.7.0/css/font-awesome.css">
   <link rel="stylesheet" href="../src/css/estilos.css">
   <link rel="stylesheet" href="../src/dist/sweetalert2/dist/sweetalert2.min.css">
-  
+
 
 
 
@@ -27,13 +27,13 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 <body style="background-color:#57D0E1;">
   <div class="container">
 
-  
+
     <div class="row">
     <?php require 'cabecera.php'; ?>
-      
+
       <div class="col-xl-12">
-      
-        
+
+
         <div class="card card-primary " style="background-color:white ;">
           <div class="card-header "
             style="background-image:url('../src/img/logo.jpg') ; background-repeat: no-repeat; ">
@@ -60,11 +60,12 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 
           </div>
           <div class="row" style="background-color:beige; ">
-            
-         
+
+
           </div>
           <div class="form-group col-xl-12 text-center"  id="contenedor_comenzar">
           <br>
+
           <h5><i class="fa fa-users" aria-hidden="true"></i> MAYORES DE EDAD</h5>
                         <button id="comenzar" class=" btn btn-success btn-xs"><h3>COMENZAR</h3></button>
                         <br><br>
@@ -142,10 +143,9 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                         aria-hidden="true"></i>
                     </label>
                     <select name="1" id="1" class="form-control">
-                      <option value="TRABAJO">TRABAJO</option>
-                      <option value="SUPERMERCADO">SUPERMERCADO</option>
-                      <option value="ESCUELA">ESCUELA</option>
-                      <option value="ENTRENIMIENTO U OTROS">ENTRETENIMIENTO U OTROS.</option>
+                      <option value="TRABAJO">TRABAJO.</option>
+                      <option value="CENTRO EDUCATIVO">CENTRO EDUCATIVO.</option>
+                      <option value="OTROS">OTROS.</option>
                     </select>
                   </div>
                   <br>
@@ -196,12 +196,17 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                       <label class="form-check-label" for="3">
                         Más de 4:
 
-                      </label> <input class="3-mas" type="number" id="3"  name="3" required>
+                      </label> <input class="3-mas" type="number" onkeydown="filtro();" focusout="minimo();"id="3" placeholder="5"  name="3"  min="5" max="15" required>
                     </div>
 
                   </div>
 
-         
+
+                    <div class="form-group col-md-12" id="contenedor_rutas">
+
+                    </div>
+
+
                   <br>
                   <div class="form-group col-xs-12">
                     <label for="exampleInputPassword1"><strong>¿CUÁNTAS PERSONAS UTILIZAN TRANSPORTE EN SU
@@ -235,7 +240,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                     <div class="form-check">
                       <input class="form-check-input transporte-hogar" type="radio" name="4" id="4">
                       <label class="form-check-label" for="hogar_transporte5">
-                                    Más de 4: 
+                                    Más de 4:
                                   </label>
                                   <input type="number" class="4-mas" name="4" id="4" required>
                     </div>
@@ -264,28 +269,20 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                       <input class="form-check-input" type="checkbox" value='MICRO-BUS "BRUJITOS"' name="5[]"
                         id="5">
                       <label class="form-check-label" for="OTROS_SERVICIOS">
-                        MICRO-BUS "BRUJITOS"
+                        MICRO-BUS "ILEGALES"
                       </label>
                     </div>
                   </div>
                   <br>
-                 
-                  <div class="form-group col-md-12">
-                    <label for="exampleInputPassword1"><strong>¿QUÉ RUTA ESPERA UTILZAR?  </strong> </label> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                    <br>
-                    <select name="6" id="6" class="form-control">
-                     
 
-                    </select>
-                   
-                  </div>
-                    
+
+
                   </div>
                   <button type="button" id="guardar" class="btn btn-primary">GUARDAR</button>
                   <br>
-                  
+
                 </div>
-               
+
 
               </div>
  </div>
@@ -317,7 +314,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 
 
       </div>
-      
+
     </div>
 
 
@@ -330,9 +327,8 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 </body>
 
 </html>
- 
-  
+
+
   <?php } else {# code...
-    echo "<script> window.location='https://190.130.9.62/TRANSPORTE/index.php'; </script>";}
+     echo "<script> window.location='https://190.130.9.62/TRANSPORTE/index.php'; </script>";}
 ?>
-  
