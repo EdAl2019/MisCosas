@@ -1,14 +1,13 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
+
 require_once "../Modelos/Encuesta_modelo.php"; //refencia del modelo
 date_default_timezone_set('America/Tegucigalpa');
 
 
 //Variables a recibir y formatear en caso de ser enviadas.
-$identidad = isset($_POST["IDENTIDAD"]) ? limpiarCadena1($_POST["IDENTIDAD"]) : "";
+$identidad = isset($_POST["IDENTIDAD"]) ? limpiarCadena1($_POST["IDENTIDAD"]) : "1111111111111";
 
 $edad = isset($_POST["EDAD"]) ? limpiarCadena1($_POST["EDAD"]) : "";
 
@@ -37,7 +36,7 @@ $ip= isset($_SERVER['REMOTE_ADDR']) ? limpiarCadena1($_SERVER['REMOTE_ADDR']) : 
 
 
 
-$op =  isset($_GET["op"]) ? limpiarCadena1($_GET["op"]) : "";
+$op =  isset($_GET["op"]) ? limpiarCadena1($_GET["op"]) : "identidad";
 
 
 
@@ -57,12 +56,12 @@ switch ($op) {
      $respuestas=$instancia_modelo;
       $rspta->registrar_persona($identidad,$qr,$telefono,$direccion);
     $id_persona=$persona->traer_id_persona($identidad,$qr)->fetch_object();
-    
-    $fecha_f = date('Y-m-d h:i:s', time());  
-      
 
-   
-    
+    $fecha_f = date('Y-m-d h:i:s', time());
+
+
+
+
     $rsencuesta->registrar_encuesta($id_persona->id_persona,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip);
      $id_encuesta=$encuesta->traer_id_encuesta($id_persona->id_persona)->fetch_object();
     $pregunta5="";
@@ -75,22 +74,21 @@ switch ($op) {
       # code...
       $pregunta6=$pregunta6.",".$value;
     }
-  
+
+
     //respuestas
     $respuestas->registrar_respuesta($id_encuesta->id_encuesta,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6,1,2,3,4,5,6);
-   
-    echo 1;
-    
 
-   
+    echo 1;
+
+
+
 
     break;
-    
+
     case 'registrar_menor':
 
-    $pregunta5= isset($_POST["5"]) ? limpiarCadena1($_POST["5"]) : "";
-      
-       
+
         $rspta=$instancia_modelo;
       $persona=$instancia_modelo;
        $rsencuesta=$instancia_modelo;
@@ -98,12 +96,12 @@ switch ($op) {
        $respuestas=$instancia_modelo;
         $rspta->registrar_persona_menor($nombre,$apellido,$telefono,$edad,$direccion);
       $id_persona=$persona->traer_id_persona_menor($nombre,$apellido,$edad,$telefono)->fetch_object();
-      
-      $fecha_f = date('Y-m-d h:i:s', time());  
-        
-  
-     
-      
+
+      $fecha_f = date('Y-m-d h:i:s', time());
+
+
+
+
       $rsencuesta->registrar_encuesta_menor($id_persona->id_persona,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip);
        $id_encuesta=$encuesta->traer_id_encuesta_menor($id_persona->id_persona)->fetch_object();
       $pregunta4="";
@@ -111,72 +109,82 @@ switch ($op) {
         # code...
         $pregunta4=$pregunta4.",".$value;
       }
-      
+
       //respuestas
       $respuestas->registrar_respuesta_menores($id_encuesta->id_encuesta_menor,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,1,2,3,4,5);
-     
+
       echo 1;
-      
-  
-     
-    
-      
+
+
+
+
+
       break;
   case 'inicio':
-   
-  $TiempoHora = date('Y-m-d h:i:s', time());  
+
+  $TiempoHora = date('Y-m-d h:i:s', time());
   echo $TiempoHora;
     break;
 
-  
-    
+
+
   case 'parametros':
     # code...
     echo json_encode($_SESSION);
     break;
 
   case 'identidad':
-     
+
       $valor=$instancia_modelo->verificar_identidad($identidad)->fetch_object();
-      
+
       if ($valor->personas==0) {
         # code...
-        echo 1;
+
+        $validarnp= $instancia_modelo->validar_id($identidad);
+        if ($validarnp===1) {
+          // code...
+          echo 2;
+        }
+        else {
+          echo 1;
+        }
       }
       elseif ($valor->personas>0) {
         # code...
-        echo 0;
+       echo 0;
+
+
       }
-         
+
     break;
     case 'select_ruta':
       if (isset($_POST['activar'])) {
         $data = array();
-       
+
         $respuesta = $instancia_modelo->listar_rutas($_SESSION["Id_zona"]);
         echo '<option value="null" selected="" disabled="true">..SELECCIONE UNA RUTA ..</option>';
-       
+
         while ($r = $respuesta->fetch_object()) {
-          
-         
+
+
             # code...
             echo "<option value='" . $r->ruta . "'> " . $r->ruta . " </option>";
-        
-          
-          
-      
+
+
+
+
           }
-  
-          
-          
-          
-        
+
+
+
+
+
       } else {
         echo 'No hay informacion';
       }
-  
+
       break;
-  
+
 }//Fin del Switch////////////
 
 

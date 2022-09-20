@@ -18,9 +18,11 @@ function Parametros() {
       user: 0,
     },
     function (data, status) {
+
       data = JSON.parse(data);
 
-      
+
+
 
       $("#usuario").html("Encuestador: " + data.Nombres + " " + data.Apellidos);
     }
@@ -49,13 +51,42 @@ function llenar_rutas() {
 		success: function (r) {
 
 
-      
-			$("#6").html(r).fadeIn();
+      $(".rutas").html(r).fadeIn();
+
 		}
 
 
 	});
 
+}
+function crear_select_rutas(obj,cantidad){
+  var i=0;
+  var cuerpo="";
+  console.log(cantidad);
+  for ( var i = 0; i < cantidad ;i++) {
+    cuerpo=cuerpo+'  <label for="exampleInputPassword1"><strong>RUTA '+(i+1)+'  </strong> </label> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  <br>  <select name="6[]" id="6" class="form-control rutas">  </select>';
+
+
+  }
+    $(obj).html(cuerpo).fadeIn();
+    llenar_rutas();
+
+
+}
+function minimo()
+{
+var tecla = event.key;
+
+if (tecla<5)
+  console.log("h");
+   event.preventDefault(5)
+}
+function filtro()
+{
+var tecla = event.key;
+
+if (['.','e'].includes(tecla))
+   event.preventDefault()
 }
 
 $("#formulario").hide();
@@ -76,16 +107,16 @@ $(document).ready(function () {
   $("#check_scan").hide();
 
   $("#comenzar").on("click", function () {
-    llenar_rutas();
+
     $("#formulario").show();
     $("#contenedor_comenzar").hide();
     $.post(
       "../Controlador/encuesta_controlador.php?op=inicio",
       { valor: "" },
       function (data, status) {
-          
+
             $("#FECHAINICIO").val(data);
-        
+
       }
     );
   }); //fin comenzar
@@ -111,38 +142,52 @@ $(document).ready(function () {
   $(".radio3").on("click", function () {
     $(".3-mas").val("");
     $(".3-mas").prop("disabled", true);
+    crear_select_rutas("#contenedor_rutas",$(this).val());
   });
+  $(".3-mas").on("keyup", function(){
+    var v=$(this).val();
+    if (v>15 || v<5) {
+      $(this).val("");
+
+    }
+  })
+  $(".3-mas").on("focusout", function(){
+    crear_select_rutas("#contenedor_rutas",$(this).val());
+  })
   $(".radio4").on("click", function () {
     $(".4-mas").val("");
     $(".4-mas").prop("disabled", true);
   });
+  $(".transporte-mas").on("click",function(){
+      $("#contenedor_rutas").html("").fadeIn();
+  })
 
   $("#guardar").on("click", function () {
     datos = $("#formulario-encuesta").serialize();
-   
+    console.log(datos);
     //validaciones
     var mensaje_error = [];
     var qr = $("#QR").val();
     var direccion= $("#DIRECCION").val();
-   
+
     if ($("#IDENTIDAD").prop("disabled")) {
       identidad="0000000000000";
-      
+
     }else{
       var identidad = $("#IDENTIDAD").val();
       qr="vacio";
     }
-    
+
     var telefono = $("#TELEFONO").val();
     var pregunta3 = $("input[id=3]:checked", "#formulario-encuesta").val();
-    
+
     var pregunta4 = $("input[id=4]:checked", "#formulario-encuesta").val();
-    
+
     var pregunta5 = $("input[id=5]:checked").val();
-    
+
     var pregunta6 = $("#6").children().prop('selected');
-    
-    
+
+
 
     if (
       qr === "" ||
@@ -161,7 +206,7 @@ $(document).ready(function () {
     ) {
       if (qr === "" || qr === null) {
         mensaje_error.push("Completa el campo: ESCANER QR<br><br>");
-        
+
       }
       if (identidad === "" || identidad === null || identidad.length<13) {
         console.log("MENOR")
@@ -170,7 +215,7 @@ $(document).ready(function () {
         }else{
           mensaje_error.push("Completa el campo: IDENTIDAD<br><br>");
         }
-       
+
       }
       if (direccion === "" || direccion === null) {
         mensaje_error.push("Completa el campo: INGRESE DIRECCIÓN <br><br>");
@@ -246,6 +291,7 @@ $(document).ready(function () {
         "../Controlador/encuesta_controlador.php?op=identidad",
         { IDENTIDAD: identidad },
         function (data, status) {
+          console.log(data);
           if (data == 0) {
             $("#IDENTIDAD").val("");
             Swal.fire({
@@ -261,19 +307,36 @@ $(document).ready(function () {
             });
             $("#reader").show();
             $("#check_scan").hide();
+          } else if (data==2) {
+
+            Swal.fire({
+              position: "",
+              imageUrl: "../src/img/firma.jpg",
+              imageWidth: 100,
+              imageHeight: 100,
+              imageAlt: "Custom image",
+              icon: "warning",
+              title: "<h2>El número de identidad no es correcto</h2>",
+              showConfirmButton: true,
+              timer: false,
+            });
+            $("#reader").show();
+            $("#check_scan").hide();
+
           }
+
           else{
             $("#reader").hide();
             $("#check_scan").show();
           }
         }
-  
+
       );
     }else{
       $("#reader").show();
       $("#check_scan").hide();
-      
+
     }
-  
+
   }); //consulta identidad
 }); //fin de document ready

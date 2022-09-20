@@ -139,7 +139,7 @@ switch ($op) {
 
       if ($valor->personas==0) {
         # code...
-      
+
         $validarnp= $instancia_modelo->validar_id($identidad);
         if ($validarnp===1) {
           // code...
