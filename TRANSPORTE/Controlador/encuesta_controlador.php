@@ -139,18 +139,19 @@ switch ($op) {
 
       if ($valor->personas==0) {
         # code...
-        echo 5;
-      }
-      elseif ($valor->personas>0) {
-        # code...
+      
         $validarnp= $instancia_modelo->validar_id($identidad);
         if ($validarnp===1) {
           // code...
           echo 2;
         }
         else {
-          echo 0;
+          echo 1;
         }
+      }
+      elseif ($valor->personas>0) {
+        # code...
+       echo 0;
 
 
       }
