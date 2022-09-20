@@ -105,7 +105,7 @@ class encuesta
     function listar_rutas($id_zona)
     {
         global $instancia_conexion;
-        $consulta = $instancia_conexion->ejecutarConsulta('select * from TBL_RUTAS order by id_zona,ruta;');
+        $consulta = $instancia_conexion->ejecutarConsulta('select * from TBL_RUTAS order by ruta;');
 
         return $consulta;
     }
