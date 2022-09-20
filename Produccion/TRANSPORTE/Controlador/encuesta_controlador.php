@@ -24,7 +24,6 @@ $pregunta1= isset($_POST["1"]) ? limpiarCadena1($_POST["1"]) : "";
 $pregunta2= isset($_POST["2"]) ? limpiarCadena1($_POST["2"]) : "";
 $pregunta3= isset($_POST["3"]) ? limpiarCadena1($_POST["3"]) : "";
 $pregunta4= isset($_POST["4"]) ? limpiarCadena1($_POST["4"]) : "";
-$pregunta5= isset($_POST["5"]) ? limpiarCadena1($_POST["5"]) : "";
 
 //$pregunta5= isset($_POST["5"]) ? limpiarCadena1($_POST["5"]) : "";
 $pregunta6= isset($_POST["6"]) ? limpiarCadena1($_POST["6"]) : "";
@@ -83,6 +82,8 @@ switch ($op) {
     break;
     
     case 'registrar_menor':
+
+    $pregunta5= isset($_POST["5"]) ? limpiarCadena1($_POST["5"]) : "";
       
        
         $rspta=$instancia_modelo;
