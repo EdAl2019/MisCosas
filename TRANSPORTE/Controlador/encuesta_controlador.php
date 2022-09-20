@@ -144,7 +144,7 @@ switch ($op) {
       elseif ($valor->personas>0) {
         # code...
         $validarnp= $instancia_modelo->validar_id($identidad);
-        if ($validarnp===0) {
+        if ($validarnp===1) {
           // code...
           echo 0;
         }
