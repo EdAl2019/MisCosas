@@ -90,6 +90,7 @@ if (['.','e'].includes(tecla))
 }
 
 $("#formulario").hide();
+$(".2-mas").prop("disabled", true);
 $(".3-mas").prop("disabled", true);
 $(".4-mas").prop("disabled", true);
 //ready
@@ -138,13 +139,33 @@ $(document).ready(function () {
       $(".3-mas").removeAttr("disabled");
     }
   });
-
+  $(".frecuencia-mas").on("click", function () {
+    if ($(".2-mas").val() == "") {
+      $(".2-mas").val("");
+      $(".2-mas").removeAttr("disabled");
+    } else;
+    {
+      $(".2-mas").removeAttr("disabled");
+    }
+  });
+  $(".radio2").on("click", function () {
+    $(".2-mas").val("");
+    $(".2-mas").prop("disabled", true);
+    
+  });
   $(".radio3").on("click", function () {
     $(".3-mas").val("");
     $(".3-mas").prop("disabled", true);
     crear_select_rutas("#contenedor_rutas",$(this).val());
   });
   $(".3-mas").on("keyup", function(){
+    var v=$(this).val();
+    if (v>15 || v<5) {
+      $(this).val("");
+
+    }
+  })
+  $(".4-mas").on("keyup", function(){
     var v=$(this).val();
     if (v>15 || v<5) {
       $(this).val("");

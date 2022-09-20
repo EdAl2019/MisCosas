@@ -154,14 +154,67 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                     <label for="FRECUENCIA"><strong>¿CON QUÉ FRECUENCIA UTILIZA TRANSPORTE
                         URBANO? </strong><i class="fa fa-user-o" aria-hidden="true"></i>
                     </label>
-                    <select name="2" id="2" class="form-control">
+                    <select hidden  class="form-control">
                       <option value="DIARIO">DIARIO</option>
                       <option value="3 a 5">3 A 5 DÍAS</option>
                       <option value="FIN DE SEMANA">FIN DE SEMANA</option>
                       <option value="QUINCENAL">QUINCENAL</option>
 
                     </select>
-                  </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="1" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        1
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="2" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        2
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="3" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        3
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="4" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        4
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="5" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        5
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="6" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        6
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="7" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        7
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input frecuencia-mas" type="radio" name="2" id="2">
+                      <label class="form-check-label" for="2">
+                        OTROS:
+
+                      </label> <input class="2-mas" type="text" onkeydown="filtro();" id="2" placeholder="Especifique.."  name="2"  required>
+                    </div>
+
+                   
+                    
+                 
+
                   <br>
                   <div class="form-group col-md-12">
                     <label for="DESTINO"><strong>¿CUÁNTAS UNIDADES DE TRANSPORTE UTILIZA PARA
@@ -243,7 +296,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                       <label class="form-check-label" for="hogar_transporte5">
                                     Más de 4:
                                   </label>
-                                  <input type="number" class="4-mas" name="4" id="4" required>
+                                  <input type="number" onkeydown="filtro();" focusout="minimo();" class="4-mas" name="4" id="4" placeholder="5" min="5" max="15"  required>
                     </div>
 
                   </div>
@@ -300,6 +353,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                     <br>
                     <br>
                     <br>
+                  
                 </div>
 
             </div>
