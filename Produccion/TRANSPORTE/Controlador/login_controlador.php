@@ -84,9 +84,7 @@ switch ($opcion) {
       $zona3="";
       $zona4="";
       $zona5="";
-      $zona6="";
-      $zona7="";
-      $zona8="";
+      
       while ($r = $respuesta->fetch_object()) {
         
         if ($r->id_zona==1) {
@@ -114,49 +112,28 @@ switch ($opcion) {
           $zona5= $zona5."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
-        if ($r->id_zona==6) {
-          # code...
-          $zona6= $zona6."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
-      
-        }
-        if ($r->id_zona==7) {
-          # code...
-          $zona7= $zona7."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
-      
-        }
-        if ($r->id_zona==8) {
-          # code...
-          $zona8= $zona8."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
-      
-        }
+       
     
         }
 
-        echo "<optgroup  label='ZONA 1'>";
-        echo $zona1;
+        echo "<optgroup  label='ZONA CENTRO'>";
+        echo $zona5;
       
         echo "</optgroup>";
-        echo "<optgroup label='ZONA 2'>";
+        echo "<optgroup label='ZONA NORTE'>";
+        echo $zona1;
+        echo "</optgroup>";
+        echo "<optgroup label='ZONA SUR'>";
         echo $zona2;
         echo "</optgroup>";
-        echo "<optgroup label='ZONA 3'>";
+        echo "<optgroup label='ZONA ESTE'>";
         echo $zona3;
         echo "</optgroup>";
-        echo "<optgroup label='ZONA 4'>";
+        echo "<optgroup label='ZONA OESTE'>";
         echo $zona4;
         echo "</optgroup>";
-        echo "<optgroup label='ZONA 5'>";
-        echo $zona5;
-        echo "</optgroup>";
-        echo "<optgroup label='ZONA 6'>";
-        echo $zona6;
-        echo "</optgroup>";
-        echo "<optgroup label='ZONA 7'>";
-        echo $zona7;
-        echo "</optgroup>";
-        echo "<optgroup label='ZONA 8'>";
-        echo $zona8;
-        echo "</optgroup>";
+       
+      
         
         
         
