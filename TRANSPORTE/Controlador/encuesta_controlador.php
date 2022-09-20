@@ -7,7 +7,7 @@ date_default_timezone_set('America/Tegucigalpa');
 
 
 //Variables a recibir y formatear en caso de ser enviadas.
-$identidad = isset($_POST["IDENTIDAD"]) ? limpiarCadena1($_POST["IDENTIDAD"]) : "";
+$identidad = isset($_POST["IDENTIDAD"]) ? limpiarCadena1($_POST["IDENTIDAD"]) : "1111111111111";
 
 $edad = isset($_POST["EDAD"]) ? limpiarCadena1($_POST["EDAD"]) : "";
 
@@ -36,7 +36,7 @@ $ip= isset($_SERVER['REMOTE_ADDR']) ? limpiarCadena1($_SERVER['REMOTE_ADDR']) : 
 
 
 
-$op =  isset($_GET["op"]) ? limpiarCadena1($_GET["op"]) : "";
+$op =  isset($_GET["op"]) ? limpiarCadena1($_GET["op"]) : "identidad";
 
 
 
