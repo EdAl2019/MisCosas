@@ -145,6 +145,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                     <select name="1" id="1" class="form-control">
                       <option value="TRABAJO">TRABAJO.</option>
                       <option value="CENTRO EDUCATIVO">CENTRO EDUCATIVO.</option>
+                      <option value="CENTRO EDUCATIVO">VISITA.</option>
                       <option value="OTROS">OTROS.</option>
                     </select>
                   </div>
@@ -269,7 +270,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                       <input class="form-check-input" type="checkbox" value='MICRO-BUS "BRUJITOS"' name="5[]"
                         id="5">
                       <label class="form-check-label" for="OTROS_SERVICIOS">
-                        MICRO-BUS "ILEGALES"
+                        MICRO-BUS "BRUJITOS"
                       </label>
                     </div>
                   </div>
