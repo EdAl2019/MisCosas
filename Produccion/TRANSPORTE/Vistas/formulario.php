@@ -151,7 +151,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                   </div>
                   <br>
                   <div class="form-group col-md-12">
-                    <label for="FRECUENCIA"><strong>¿CON QUÉ FRECUENCIA UTILIZA TRANSPORTE
+                    <label for="FRECUENCIA"><strong>¿CON QUÉ FRECUENCIA (DÍAS) UTILIZA TRANSPORTE
                         URBANO? </strong><i class="fa fa-user-o" aria-hidden="true"></i>
                     </label>
                     <select hidden  class="form-control">

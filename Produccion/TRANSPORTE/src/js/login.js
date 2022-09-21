@@ -21,7 +21,13 @@ function llenar_puntos_control() {
 llenar_puntos_control();
 
 $(document).ready(function () {
-    $("#entrar")
+    $("#usuario").on("keydown",function () {
+		var tecla = event.key;
+
+		if ([' ','-','@','/',"%",'=','#',"$",'^','&','(',')',']','['].includes(tecla))
+  			 event.preventDefault()
+		
+	})
     $("#entrar").on("click",function () {
 		event.preventDefault();
         

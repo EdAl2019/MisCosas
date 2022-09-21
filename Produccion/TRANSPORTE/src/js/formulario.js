@@ -182,6 +182,21 @@ $(document).ready(function () {
   $(".transporte-mas").on("click",function(){
       $("#contenedor_rutas").html("").fadeIn();
   })
+  $("#DIRECCION").on("keydown",function () {
+		var tecla = event.key;
+
+		if (['-','@','/',"%",'=','#',"$",'^','&','(',')',']','['].includes(tecla))
+          this.setCustomValidity("No se permiten caracteres especiales")
+  			 event.preventDefault()
+		
+	})
+  $("#IDENTIDAD").on("keydown",function () {
+		var tecla = event.key;
+
+		if (['.','e'].includes(tecla))
+  			 event.preventDefault()
+		
+	})
 
   $("#guardar").on("click", function () {
     datos = $("#formulario-encuesta").serialize();
@@ -200,6 +215,8 @@ $(document).ready(function () {
     }
 
     var telefono = $("#TELEFONO").val();
+    var pregunta2 = $("input[id=2]:checked", "#formulario-encuesta").val();
+
     var pregunta3 = $("input[id=3]:checked", "#formulario-encuesta").val();
 
     var pregunta4 = $("input[id=4]:checked", "#formulario-encuesta").val();
@@ -216,6 +233,8 @@ $(document).ready(function () {
       identidad.length<13 ||
       telefono === "" ||
       direccion=== ""||
+      pregunta2 === undefined ||
+      pregunta2 === ""||
       pregunta3 === undefined ||
       pregunta3 === "" ||
       pregunta4 === undefined ||
@@ -243,6 +262,11 @@ $(document).ready(function () {
       }
       if (telefono === "" || telefono === null) {
         mensaje_error.push("Completa el campo: TELÉFONO<br><br>");
+      }
+      if (pregunta2 === undefined || pregunta2 === "") {
+        mensaje_error.push(
+          "Completa el campo: ¿CON QUÉ FRECUENCIA (DÍAS) UTILIZA TRANSPORTE URBANO?<br><br>"
+        );
       }
       if (pregunta3 === undefined || pregunta3 === "") {
         mensaje_error.push(
