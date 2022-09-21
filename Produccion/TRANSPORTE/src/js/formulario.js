@@ -185,8 +185,8 @@ $(document).ready(function () {
   $("#DIRECCION").on("keydown",function () {
 		var tecla = event.key;
 
-		if (['-','@','/',"%",'=','#',"$",'^','&','(',')',']','['].includes(tecla))
-          this.setCustomValidity("No se permiten caracteres especiales")
+		if (['@','/',"%",'=',"$",'^','&','(',')',']','['].includes(tecla))
+          
   			 event.preventDefault()
 		
 	})
