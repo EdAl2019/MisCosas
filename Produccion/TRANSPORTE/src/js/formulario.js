@@ -331,52 +331,90 @@ $(document).ready(function () {
   }); //btn guardar.
   $("#IDENTIDAD").on("focusout", function () {
     var identidad = $(this).val();
+    var anio= identidad[4]+identidad[5]+identidad[6]+identidad[7];
+    console.log(anio);
+   
     if ($(this).val()!=""|| $(this).val()==="undifined") {
-      $.post(
-        "../Controlador/encuesta_controlador.php?op=identidad",
-        { IDENTIDAD: identidad },
-        function (data, status) {
-          console.log(data);
-          if (data == 0) {
-            $("#IDENTIDAD").val("");
-            Swal.fire({
-              position: "",
-              imageUrl: "../src/img/firma.jpg",
-              imageWidth: 100,
-              imageHeight: 100,
-              imageAlt: "Custom image",
-              icon: "warning",
-              title: "<h2>Esta persona ya completo el censo</h2>",
-              showConfirmButton: true,
-              timer: false,
-            });
-            $("#reader").show();
-            $("#check_scan").hide();
-          } else if (data==2) {
-
-            Swal.fire({
-              position: "",
-              imageUrl: "../src/img/firma.jpg",
-              imageWidth: 100,
-              imageHeight: 100,
-              imageAlt: "Custom image",
-              icon: "warning",
-              title: "<h2>El número de identidad no es correcto</h2>",
-              showConfirmButton: true,
-              timer: false,
-            });
-            $("#reader").show();
-            $("#check_scan").hide();
-
-          }
-
-          else{
-            $("#reader").hide();
-            $("#check_scan").show();
-          }
+      if (identidad.length==13) {
+        if ((2022-parseInt(anio))>=18) {
+          $.post(
+            "../Controlador/encuesta_controlador.php?op=identidad",
+            { IDENTIDAD: identidad },
+            function (data, status) {
+              console.log(data);
+              if (data == 0) {
+                $("#IDENTIDAD").val("");
+                Swal.fire({
+                  position: "",
+                  imageUrl: "../src/img/firma.jpg",
+                  imageWidth: 100,
+                  imageHeight: 100,
+                  imageAlt: "Custom image",
+                  icon: "warning",
+                  title: "<h2>Esta persona ya completo el censo</h2>",
+                  showConfirmButton: true,
+                  timer: false,
+                });
+                $("#reader").show();
+                $("#check_scan").hide();
+              } else if (data==2) {
+    
+                Swal.fire({
+                  position: "",
+                  imageUrl: "../src/img/firma.jpg",
+                  imageWidth: 100,
+                  imageHeight: 100,
+                  imageAlt: "Custom image",
+                  icon: "warning",
+                  title: "<h2>El número de identidad no es correcto</h2>",
+                  showConfirmButton: true,
+                  timer: false,
+                });
+                $("#reader").show();
+                $("#check_scan").hide();
+    
+              }
+    
+              else{
+                $("#reader").hide();
+                $("#check_scan").show();
+              }
+            }
+    
+          );
+        
+        
+        }else{
+          Swal.fire({
+            position: "",
+            imageUrl: "../src/img/firma.jpg",
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: "Custom image",
+            icon: "warning",
+            title: "<h2>El número de identidad pertenece a un menor de edad</h2>",
+            showConfirmButton: true,
+            timer: false,
+          });
+          $("#IDENTIDAD").val("")
+  
         }
-
-      );
+        
+      }else{
+        Swal.fire({
+          position: "",
+          imageUrl: "../src/img/firma.jpg",
+          imageWidth: 100,
+          imageHeight: 100,
+          imageAlt: "Custom image",
+          icon: "warning",
+          title: "<h2>El número de identidad esta incompleto</h2>",
+          showConfirmButton: true,
+          timer: false,
+        });
+      }
+      
+      
     }else{
       $("#reader").show();
       $("#check_scan").hide();
