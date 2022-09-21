@@ -370,6 +370,9 @@ $(document).ready(function () {
                   showConfirmButton: true,
                   timer: false,
                 });
+
+                $("#IDENTIDAD").val("")
+
                 $("#reader").show();
                 $("#check_scan").hide();
     
