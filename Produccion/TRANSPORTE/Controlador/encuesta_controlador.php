@@ -17,7 +17,7 @@ $apellido = isset($_POST["APELLIDOS"]) ? limpiarCadena1($_POST["APELLIDOS"]) : "
 $direccion = isset($_POST["DIRECCION"]) ? limpiarCadena1($_POST["DIRECCION"]) : "";
 $estudia = isset($_POST["ESTUDIA"]) ? limpiarCadena1($_POST["ESTUDIA"]) : "";
 $telefono = isset($_POST["TELEFONO"]) ? limpiarCadena1($_POST["TELEFONO"]) : "";
-$qr = isset($_POST["QR"]) ? limpiarCadena1($_POST["QR"]) : "www.sdasd.com";
+$qr = isset($_POST["QR"]) ? limpiarCadena1($_POST["QR"]) : "www.rnp.hn/valida/00003710790";
 $fecha_i = isset($_POST["FECHAINICIO"]) ? limpiarCadena1($_POST["FECHAINICIO"]) : "";
 
 $pregunta1= isset($_POST["1"]) ? limpiarCadena1($_POST["1"]) : "";
