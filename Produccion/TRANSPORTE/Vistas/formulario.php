@@ -1,6 +1,7 @@
 <?php
-session_get_cookie_params();
+
 session_start();
+echo session_get_cookie_params();
 if (isset($_SESSION['Id_usuario'])) { ?>
   <!DOCTYPE html>
 <html lang="es">
