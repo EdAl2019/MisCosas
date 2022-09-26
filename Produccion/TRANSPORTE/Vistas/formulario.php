@@ -1,4 +1,5 @@
 <?php
+session_set_cookie_params(60*60*60*24);
 session_start();
 if (isset($_SESSION['Id_usuario'])) { ?>
   <!DOCTYPE html>
