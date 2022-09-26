@@ -11,6 +11,7 @@ function onScanSuccess(qrCodeMessage) {
 }
 $.getJSON('https://api.ipify.org?format=json', function(data){
     $("#IP").val(data.ip);
+    console.log(data.ip);
 });
 
 
