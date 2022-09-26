@@ -418,6 +418,7 @@ $(document).ready(function () {
             });
             $("#reader").show();
             $("#check_scan").hide();
+            $("#IDENTIDAD").removeAttr("disabled")
           } else if (data == 2) {
             Swal.fire({
               position: "",
