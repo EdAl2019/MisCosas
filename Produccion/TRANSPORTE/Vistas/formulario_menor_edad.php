@@ -1,5 +1,6 @@
 <?php
 session_start();
+$sesion=session_get_cookie_params();
 if (isset($_SESSION['Id_usuario'])) { ?>
     <?php require 'header.php'; ?>
 <body style="background-color:#57D0E1;">

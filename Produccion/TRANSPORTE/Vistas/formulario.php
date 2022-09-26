@@ -2,7 +2,7 @@
 
 session_start();
 $sesion=session_get_cookie_params();
-print_r($sesion['lifetime']);
+
 if (isset($_SESSION['Id_usuario'])) { ?>
   <!DOCTYPE html>
 <html lang="es">
