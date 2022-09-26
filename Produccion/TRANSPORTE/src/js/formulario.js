@@ -394,7 +394,7 @@ $(document).ready(function () {
     }
   }); //consulta identidad
 
-  $("#QR").on("change", function () {
+  $("#QR").change( function () {
     var qr = $(this).val();
 
     if ($(this).val() != "" || $(this).val() === "undifined") {
