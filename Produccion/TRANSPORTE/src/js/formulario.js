@@ -9,6 +9,11 @@ function onScanSuccess(qrCodeMessage) {
   $("#IDENTIDAD").prop("disabled","true");
   $("IDENTIDAD").val("");
 }
+$.getJSON('https://api.ipify.org?format=json', function(data){
+    $("#IP").val(data.ip);
+});
+
+
 
 function Parametros() {
   let punto_control = "";

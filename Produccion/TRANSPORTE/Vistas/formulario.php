@@ -81,6 +81,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 
             ?>
           </h1>
+          <input type="text" id="IP">
           <br>
           <div id="formulario">
           <form id="formulario-encuesta" >
