@@ -67,7 +67,7 @@ class Web_Service_RNP
             ['trace' => 1, 'exception' => 0]
         );
         $parametros = [
-            'NumeroIdentidad' => $this->identidad,
+            'NumeroIdentidad' => $this->qr,
             'CodigoInstitucion' => $this->CodigoInstitucion,
             'CodigoSeguridad' => $this->CodigoSeguridad,
             'UsuarioInstitucion' => $this->UsuarioInstitucion,
