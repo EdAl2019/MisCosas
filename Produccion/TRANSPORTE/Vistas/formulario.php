@@ -73,15 +73,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                         <button id="comenzar" class=" btn btn-success btn-xs"><h3>COMENZAR</h3></button>
                         <br><br>
           </div>
-          <h1>
-            <?php
-            echo $_SERVER['REMOTE_ADDR'];
-            print_r( $_SERVER['HTTP_X_FORWARDED_FOR']);
-            print_r($_SERVER['HTTP_CLIENT_IP']);
-
-            ?>
-          </h1>
-          
+        
           <br>
           <div id="formulario">
           <form id="formulario-encuesta" >
@@ -215,7 +207,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                       <label class="form-check-label" for="2">
                         OTROS:
 
-                      </label> <input class="2-mas" type="text" onkeydown="filtro();" id="2" placeholder="Especifique.."  name="2"  required>
+                      </label> <input class="2-mas" type="text" onkeydown="filtro2();" id="2" placeholder="Especifique.."  name="2"  required>
                     </div>
                   </div>
 
@@ -332,6 +324,13 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                         id="5">
                       <label class="form-check-label" for="OTROS_SERVICIOS">
                         MICRO-BUS "BRUJITOS"
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value='OTROS"' name="5[]"
+                        id="5">
+                      <label class="form-check-label" for="OTROS_SERVICIOS">
+                        OTROS
                       </label>
                     </div>
                   </div>

@@ -94,7 +94,13 @@ var tecla = event.key;
 if (['.','e'].includes(tecla))
    event.preventDefault()
 }
+function filtro2()
+{
+var tecla = event.key;
 
+if (['@','/','+','=','{','}',']'].includes(tecla))
+   event.preventDefault()
+}
 $("#formulario").hide();
 $(".2-mas").prop("disabled", true);
 $(".3-mas").prop("disabled", true);
