@@ -67,15 +67,16 @@ class Web_Service_RNP
             ['trace' => 1, 'exception' => 0]
         );
         $parametros = [
-            'NumeroIdentidad' => $this->qr,
+            'CodigoBarras' => $this->qr,
             'CodigoInstitucion' => $this->CodigoInstitucion,
             'CodigoSeguridad' => $this->CodigoSeguridad,
             'UsuarioInstitucion' => $this->UsuarioInstitucion,
         ];
         $inscripcion = $cliente->Qry_IdentidadxCodigoBarras($parametros);
-        return $inscripcion->Qry_InscripcionNacimientoResult->ErrorMsg;
+        return $inscripcion->Qry_IdentidadxCodigoBarrasResult->Inscripcion->ErrorMsg;
   
       }
+
     function Domicilio_persona(){
         $cliente = new SoapClient(
             'https://wstest.rnp.hn:1893/API/WSInscripciones.asmx?wsdl',
@@ -94,8 +95,5 @@ class Web_Service_RNP
 }
 
 
-$instancia= new Web_Service_RNP('','www.sjasjs.com');
-$re=$instancia->Valida_persona_qr();
-print_r($re);
 
 ?>
