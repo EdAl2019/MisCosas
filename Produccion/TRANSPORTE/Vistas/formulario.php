@@ -73,6 +73,14 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                         <button id="comenzar" class=" btn btn-success btn-xs"><h3>COMENZAR</h3></button>
                         <br><br>
           </div>
+          <h1>
+            <?php
+            echo $_SERVER['REMOTE_ADDR'];
+            echo $_SERVER['HTTP_X_FORWARDED_FOR'];
+            echo $_SERVER['HTTP_CLIENT_IP'];
+
+            ?>
+          </h1>
           <br>
           <div id="formulario">
           <form id="formulario-encuesta" >
