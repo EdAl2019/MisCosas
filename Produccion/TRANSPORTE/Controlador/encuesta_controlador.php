@@ -11,7 +11,7 @@ $identidad = isset($_POST["IDENTIDAD"]) ? limpiarCadena1($_POST["IDENTIDAD"]) : 
 
 $edad = isset($_POST["EDAD"]) ? limpiarCadena1($_POST["EDAD"]) : "";
 
-$nombre = isset($_POST["NOMBRES"]) ? limpiarCadena1($_POST["NOMBRES"]) : "";
+$nombre = isset($_POST["NOMBRES"]) ? limpiarCadena1( $_POST["NOMBRES"]) : "";
 $apellido = isset($_POST["APELLIDOS"]) ? limpiarCadena1($_POST["APELLIDOS"]) : "";
 $direccion = isset($_POST["DIRECCION"]) ? limpiarCadena1($_POST["DIRECCION"]) : "";
 $estudia = isset($_POST["ESTUDIA"]) ? limpiarCadena1($_POST["ESTUDIA"]) : "";
@@ -94,6 +94,8 @@ switch ($op) {
        $rsencuesta=$instancia_modelo;
        $encuesta=$instancia_modelo;
        $respuestas=$instancia_modelo;
+       $nombre=strtoupper($nombre);
+       $apellido=strtoupper($apellido);
         $rspta->registrar_persona_menor($nombre,$apellido,$telefono,$edad,$direccion);
       $id_persona=$persona->traer_id_persona_menor($nombre,$apellido,$edad,$telefono)->fetch_object();
 

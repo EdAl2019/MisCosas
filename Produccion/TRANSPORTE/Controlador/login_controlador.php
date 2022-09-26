@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+session_set_cookie_params(60*60*60*24);
 
 require_once "../Modelos/login_modelo.php"; //refencia del modelo
 

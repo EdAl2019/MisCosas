@@ -145,7 +145,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                     <select name="1" id="1" class="form-control">
                       <option value="TRABAJO">TRABAJO.</option>
                       <option value="CENTRO EDUCATIVO">CENTRO EDUCATIVO.</option>
-                      <option value="CENTRO EDUCATIVO">VISITA.</option>
+                      <option value="VISITA">VISITA.</option>
                       <option value="OTROS">OTROS.</option>
                     </select>
                   </div>
@@ -154,13 +154,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                     <label for="FRECUENCIA"><strong>¿CON QUÉ FRECUENCIA (DÍAS) UTILIZA TRANSPORTE
                         URBANO? </strong><i class="fa fa-user-o" aria-hidden="true"></i>
                     </label>
-                    <select hidden  class="form-control">
-                      <option value="DIARIO">DIARIO</option>
-                      <option value="3 a 5">3 A 5 DÍAS</option>
-                      <option value="FIN DE SEMANA">FIN DE SEMANA</option>
-                      <option value="QUINCENAL">QUINCENAL</option>
-
-                    </select>
+                    
                     <div class="form-check">
                       <input class="form-check-input radio2" type="radio" value="1" name="2" id="2">
                       <label class="form-check-label" for="3">
@@ -210,6 +204,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 
                       </label> <input class="2-mas" type="text" onkeydown="filtro();" id="2" placeholder="Especifique.."  name="2"  required>
                     </div>
+                  </div>
 
                    
                     

@@ -74,29 +74,31 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                                                 <input type="text" id="FECHAINICIO" name="FECHAINICIO" hidden>
                                                 <label for="NOMBRES"><strong> 1. NOMBRES </strong>
 
-                                                    <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                                                    <i class="fa fa-id-card-o" aria-hidden="true"></i><strong style="color: red">*</strong>
                                                 </label>
-                                                <input type="text" class="form-control" id="NOMBRES" name="NOMBRES">
+                                                <input type="text" class="form-control" id="NOMBRES" name="NOMBRES" placeholder="NOMBRES COMPLETOS">
                                             </div>
                                             <br>
                                             <div class="form-group col-xl-6">
                                                 <label for="APELLIDOS"><strong> 2. APELLIDOS </strong>
 
-                                                    <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                                                    <i class="fa fa-id-card-o" aria-hidden="true"></i> <strong style="color: red">*</strong>
                                                 </label>
-                                                <input type="text" class="form-control" id="APELLIDOS" name="APELLIDOS">
+                                                <input type="text" class="form-control" id="APELLIDOS" name="APELLIDOS" placeholder="PRIMER APELLIDO (OBLIGATORIO)">
+                                                <br>
+                                                <input type="text" class="form-control" id="APELLIDOS" name="APELLIDOS" placeholder="SEGUNDO APELLIDO (OPCIONAL)">
                                             </div>
                                             <br>
                                             <div class="form-group col-md-12">
                                                 <label for="TELEFONO"><strong>3. EDAD </strong><i
-                                                        class="fa fa-id-card-o" aria-hidden="true"></i>
+                                                        class="fa fa-id-card-o" aria-hidden="true"></i><strong style="color: red">*</strong>
                                                 </label>
                                                 <input type="number" class="form-control" id="EDAD" name="EDAD" max="99"
                                                     required>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="TELEFONO"><strong>4. NÚMERO DE TELÉFONO </strong><i
-                                                        class="fa fa-mobile" aria-hidden="true"></i>
+                                                        class="fa fa-mobile" aria-hidden="true"></i><strong style="color: red">*</strong>
                                                 </label>
                                                 <input type="number" class="form-control" id="TELEFONO"
                                                     placeholder="0000-0000" name="TELEFONO" min="1" max="99999999"
@@ -106,13 +108,13 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                                             <div class="form-group col-xl-6">
                                                 <label for="DIRECCION"><strong> 5. INGRESE DIRECCIÓN </strong>
 
-                                                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                                                    <i class="fa fa-location-arrow" aria-hidden="true"></i><strong style="color: red">*</strong>
                                                 </label>
                                                 <textarea type="text" class="form-control" id="DIRECCION"
                                                     name="DIRECCION"></textarea>
                                             </div>
                                             <label for="ESTUDIA"><strong>¿ESTUDIA? </strong><i
-                                                    class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                                    class="fa fa-graduation-cap" aria-hidden="true"></i><strong style="color: red">*</strong>
                                             </label>
                                             <div class="form-check">
                                                 <input class="form-check-input radio3 " type="radio"
@@ -152,23 +154,66 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                                                 class="fa fa-location-arrow" aria-hidden="true"></i>
                                         </label>
                                         <select name="1" id="1" class="form-control">
-                                            <option value="ESCUELA">ESCUELA</option>
-                                            <option value="SUPERMERCADO">SUPERMERCADO</option>
-                                            <option value="ENTRENIMIENTO U OTROS">ENTRETENIMIENTO U OTROS.</option>
+                                            <option value="CENTRO DE ESTUDIO">CENTRO DE ESTUDIO.</option>
+                                            <option value="VISITA">VISITA.</option>
+                                            <option value="OTROS">OTROS.</option>
                                         </select>
                                     </div>
                                     <br>
                                     <div class="form-group col-md-12">
-                                        <label for="FRECUENCIA"><strong>¿CON QUÉ FRECUENCIA UTILIZA TRANSPORTE
-                                                URBANO? </strong><i class="fa fa-user-o" aria-hidden="true"></i>
-                                        </label>
-                                        <select name="2" id="2" class="form-control">
-                                        <option value="DIARIO">DIARIO</option>
-                                        <option value="3 a 5">3 A 5 DÍAS</option>
-                                        <option value="FIN DE SEMANA">FIN DE SEMANA</option>
-                                        <option value="QUINCENAL">QUINCENAL</option>
+                                    <label for="FRECUENCIA"><strong>¿CON QUÉ FRECUENCIA (DÍAS) UTILIZA TRANSPORTE
+                        URBANO? </strong><i class="fa fa-user-o" aria-hidden="true"></i>
+                    </label>
+                    
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="1" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        1
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="2" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        2
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="3" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        3
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="4" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        4
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="5" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        5
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="6" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        6
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio2" type="radio" value="7" name="2" id="2">
+                      <label class="form-check-label" for="3">
+                        7
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input frecuencia-mas" type="radio" name="2" id="2">
+                      <label class="form-check-label" for="2">
+                        OTROS:
 
-                                        </select>
+                      </label> <input class="2-mas" type="text" onkeydown="filtro();" id="2" placeholder="Especifique.."  name="2"  required>
+                    </div>
                                     </div>
                                     <br>
                                     <div class="form-group col-md-12">
@@ -307,7 +352,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 
 
 <?php } else {# code...
-    
+
     echo "<script> window.location='../index.php'; </script>";}
 
 ?>
