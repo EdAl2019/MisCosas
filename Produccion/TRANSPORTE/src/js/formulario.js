@@ -393,7 +393,7 @@ $(document).ready(function () {
       $("#check_scan").hide();
     }
   }); //consulta identidad
-
+  $("#QR").val();
   $("#QR").on("change", function () {
     var qr = $(this).val();
     console.log("Cambie")
