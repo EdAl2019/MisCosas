@@ -94,5 +94,8 @@ class Web_Service_RNP
 }
 
 
+$instancia= new Web_Service_RNP('','www.sjasjs.com');
+$re=$instancia->Valida_persona_qr();
+print_r($re);
 
 ?>
