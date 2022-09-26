@@ -137,6 +137,12 @@ class encuesta
         $sql = 'select count(id_persona) as personas from TBL_PERSONAS where identidad="'.$identidad.'";';
         return $instancia_conexion->ejecutarConsulta($sql);
     }
+    function verificar_qr($qr)
+    {
+        global $instancia_conexion;
+        $sql = 'select count(id_persona) as personas from TBL_PERSONAS where qr="'.$qr.'";';
+        return $instancia_conexion->ejecutarConsulta($sql);
+    }
     function validar_id($identidad){
       $qr="";
       $instancia_rnp=new Web_Service_RNP($identidad,$qr);
@@ -150,6 +156,19 @@ class encuesta
         return 0;
       }
     }
+    function validar_qr($qr){
+        $identidad="";
+        $instancia_rnp=new Web_Service_RNP($identidad,$qr);
+        $validar=$instancia_rnp->Valida_persona_qr();
+        if ($validar->TipoDeError==="RNE" || $validar->TipoDeError==="FII") {
+          // code...
+          return 1;
+        }
+        else {
+          // code...
+          return 0;
+        }
+      }
     function traer_id_encuesta($id_persona)
     {
         global $instancia_conexion;

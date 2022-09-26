@@ -61,6 +61,21 @@ class Web_Service_RNP
       return $inscripcion->Qry_InscripcionNacimientoResult->ErrorMsg;
 
     }
+    function Valida_persona_qr(){
+        $cliente = new SoapClient(
+            'https://wstest.rnp.hn:1893/API/WSInscripciones.asmx?wsdl',
+            ['trace' => 1, 'exception' => 0]
+        );
+        $parametros = [
+            'NumeroIdentidad' => $this->identidad,
+            'CodigoInstitucion' => $this->CodigoInstitucion,
+            'CodigoSeguridad' => $this->CodigoSeguridad,
+            'UsuarioInstitucion' => $this->UsuarioInstitucion,
+        ];
+        $inscripcion = $cliente->Qry_IdentidadxCodigoBarras($parametros);
+        return $inscripcion->Qry_InscripcionNacimientoResult->ErrorMsg;
+  
+      }
     function Domicilio_persona(){
         $cliente = new SoapClient(
             'https://wstest.rnp.hn:1893/API/WSInscripciones.asmx?wsdl',

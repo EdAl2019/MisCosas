@@ -159,6 +159,30 @@ switch ($op) {
       }
 
     break;
+    case 'qr':
+
+      $valor=$instancia_modelo->verificar_qr($qr)->fetch_object();
+
+      if ($valor->personas==0) {
+        # code...
+
+        $validarnp= $instancia_modelo->validar_qr($identidad);
+        if ($validarnp===1) {
+          // code...
+          echo 2;
+        }
+        else {
+          echo 1;
+        }
+      }
+      elseif ($valor->personas>0) {
+        # code...
+       echo 0;
+
+
+      }
+
+    break;
     case 'select_ruta':
       if (isset($_POST['activar'])) {
         $data = array();

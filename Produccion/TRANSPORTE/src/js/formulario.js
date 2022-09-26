@@ -5,16 +5,14 @@ function onScanSuccess(qrCodeMessage) {
   $("#Detener").click();
   $("contenedor_scaner").hide();
   $("#check_scan").show();
- //Aqui escondo identidad
-  $("#IDENTIDAD").prop("disabled","true");
+  //Aqui escondo identidad
+  $("#IDENTIDAD").prop("disabled", "true");
   $("IDENTIDAD").val("");
 }
-$.getJSON('https://api.ipify.org?format=json', function(data){
-    $("#IP").val(data.ip);
-    console.log(data.ip);
+$.getJSON("https://api.ipify.org?format=json", function (data) {
+  $("#IP").val(data.ip);
+  console.log(data.ip);
 });
-
-
 
 function Parametros() {
   let punto_control = "";
@@ -24,11 +22,7 @@ function Parametros() {
       user: 0,
     },
     function (data, status) {
-
       data = JSON.parse(data);
-
-
-
 
       $("#usuario").html("Encuestador: " + data.Nombres + " " + data.Apellidos);
     }
@@ -45,61 +39,48 @@ var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
 });
 html5QrcodeScanner.render(onScanSuccess, onScanError);
 
-
 function llenar_rutas() {
+  cadena = "&activar='activar'";
 
-	cadena = "&activar='activar'"
-
-	$.ajax({
-		url: "../Controlador/encuesta_controlador.php?op=select_ruta",
-		type: "POST",
-		data: cadena,
-		success: function (r) {
-
-
+  $.ajax({
+    url: "../Controlador/encuesta_controlador.php?op=select_ruta",
+    type: "POST",
+    data: cadena,
+    success: function (r) {
       $(".rutas").html(r).fadeIn();
-
-		}
-
-
-	});
-
+    },
+  });
 }
-function crear_select_rutas(obj,cantidad){
-  var i=0;
-  var cuerpo="";
+function crear_select_rutas(obj, cantidad) {
+  var i = 0;
+  var cuerpo = "";
   console.log(cantidad);
-  for ( var i = 0; i < cantidad ;i++) {
-    cuerpo=cuerpo+'  <label for="exampleInputPassword1"><strong>RUTA '+(i+1)+'  </strong> </label> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  <br>  <select name="6[]" id="6" class="form-control rutas">  </select>';
-
-
+  for (var i = 0; i < cantidad; i++) {
+    cuerpo =
+      cuerpo +
+      '  <label for="exampleInputPassword1"><strong>RUTA ' +
+      (i + 1) +
+      '  </strong> </label> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  <br>  <select name="6[]" id="6" class="form-control rutas">  </select>';
   }
-    $(obj).html(cuerpo).fadeIn();
-    llenar_rutas();
-
-
+  $(obj).html(cuerpo).fadeIn();
+  llenar_rutas();
 }
-function minimo()
-{
-var tecla = event.key;
+function minimo() {
+  var tecla = event.key;
 
-if (tecla<5)
-  console.log("h");
-   event.preventDefault(5)
+  if (tecla < 5) console.log("h");
+  event.preventDefault(5);
 }
-function filtro()
-{
-var tecla = event.key;
+function filtro() {
+  var tecla = event.key;
 
-if (['.','e'].includes(tecla))
-   event.preventDefault()
+  if ([".", "e"].includes(tecla)) event.preventDefault();
 }
-function filtro2()
-{
-var tecla = event.key;
+function filtro2() {
+  var tecla = event.key;
 
-if (['@','/','+','=','{','}',']'].includes(tecla))
-   event.preventDefault()
+  if (["@", "/", "+", "=", "{", "}", "]"].includes(tecla))
+    event.preventDefault();
 }
 $("#formulario").hide();
 $(".2-mas").prop("disabled", true);
@@ -120,16 +101,13 @@ $(document).ready(function () {
   $("#check_scan").hide();
 
   $("#comenzar").on("click", function () {
-
     $("#formulario").show();
     $("#contenedor_comenzar").hide();
     $.post(
       "../Controlador/encuesta_controlador.php?op=inicio",
       { valor: "" },
       function (data, status) {
-
-            $("#FECHAINICIO").val(data);
-
+        $("#FECHAINICIO").val(data);
       }
     );
   }); //fin comenzar
@@ -163,52 +141,45 @@ $(document).ready(function () {
   $(".radio2").on("click", function () {
     $(".2-mas").val("");
     $(".2-mas").prop("disabled", true);
-    
   });
   $(".radio3").on("click", function () {
     $(".3-mas").val("");
     $(".3-mas").prop("disabled", true);
-    crear_select_rutas("#contenedor_rutas",$(this).val());
+    crear_select_rutas("#contenedor_rutas", $(this).val());
   });
-  $(".3-mas").on("keyup", function(){
-    var v=$(this).val();
-    if (v>15 || v<5) {
+  $(".3-mas").on("keyup", function () {
+    var v = $(this).val();
+    if (v > 15 || v < 5) {
       $(this).val("");
-
     }
-  })
-  $(".4-mas").on("keyup", function(){
-    var v=$(this).val();
-    if (v>15 || v<5) {
+  });
+  $(".4-mas").on("keyup", function () {
+    var v = $(this).val();
+    if (v > 15 || v < 5) {
       $(this).val("");
-
     }
-  })
-  $(".3-mas").on("focusout", function(){
-    crear_select_rutas("#contenedor_rutas",$(this).val());
-  })
+  });
+  $(".3-mas").on("focusout", function () {
+    crear_select_rutas("#contenedor_rutas", $(this).val());
+  });
   $(".radio4").on("click", function () {
     $(".4-mas").val("");
     $(".4-mas").prop("disabled", true);
   });
-  $(".transporte-mas").on("click",function(){
-      $("#contenedor_rutas").html("").fadeIn();
-  })
-  $("#DIRECCION").on("keydown",function () {
-		var tecla = event.key;
+  $(".transporte-mas").on("click", function () {
+    $("#contenedor_rutas").html("").fadeIn();
+  });
+  $("#DIRECCION").on("keydown", function () {
+    var tecla = event.key;
 
-		if (['@','/',"%",'=',"$",'^','&','(',')',']','['].includes(tecla))
-          
-  			 event.preventDefault()
-		
-	})
-  $("#IDENTIDAD").on("keydown",function () {
-		var tecla = event.key;
+    if (["@", "/", "%", "=", "$", "^", "&", "(", ")", "]", "["].includes(tecla))
+      event.preventDefault();
+  });
+  $("#IDENTIDAD").on("keydown", function () {
+    var tecla = event.key;
 
-		if (['.','e'].includes(tecla))
-  			 event.preventDefault()
-		
-	})
+    if ([".", "e"].includes(tecla)) event.preventDefault();
+  });
 
   $("#guardar").on("click", function () {
     datos = $("#formulario-encuesta").serialize();
@@ -216,14 +187,13 @@ $(document).ready(function () {
     //validaciones
     var mensaje_error = [];
     var qr = $("#QR").val();
-    var direccion= $("#DIRECCION").val();
+    var direccion = $("#DIRECCION").val();
 
     if ($("#IDENTIDAD").prop("disabled")) {
-      identidad="0000000000000";
-
-    }else{
+      identidad = "0000000000000";
+    } else {
       var identidad = $("#IDENTIDAD").val();
-      qr="vacio";
+      qr = "vacio";
     }
 
     var telefono = $("#TELEFONO").val();
@@ -235,18 +205,16 @@ $(document).ready(function () {
 
     var pregunta5 = $("input[id=5]:checked").val();
 
-    var pregunta6 = $("#6").children().prop('selected');
-
-
+    var pregunta6 = $("#6").children().prop("selected");
 
     if (
       qr === "" ||
       identidad === "" ||
-      identidad.length<13 ||
+      identidad.length < 13 ||
       telefono === "" ||
-      direccion=== ""||
+      direccion === "" ||
       pregunta2 === undefined ||
-      pregunta2 === ""||
+      pregunta2 === "" ||
       pregunta3 === undefined ||
       pregunta3 === "" ||
       pregunta4 === undefined ||
@@ -258,16 +226,16 @@ $(document).ready(function () {
     ) {
       if (qr === "" || qr === null) {
         mensaje_error.push("Completa el campo: ESCANER QR<br><br>");
-
       }
-      if (identidad === "" || identidad === null || identidad.length<13) {
-        console.log("MENOR")
-        if (identidad.length<13) {
-          mensaje_error.push("Número incompleto o no válido en el campo: IDENTIDAD<br><br>");
-        }else{
+      if (identidad === "" || identidad === null || identidad.length < 13) {
+        console.log("MENOR");
+        if (identidad.length < 13) {
+          mensaje_error.push(
+            "Número incompleto o no válido en el campo: IDENTIDAD<br><br>"
+          );
+        } else {
           mensaje_error.push("Completa el campo: IDENTIDAD<br><br>");
         }
-
       }
       if (direccion === "" || direccion === null) {
         mensaje_error.push("Completa el campo: INGRESE DIRECCIÓN <br><br>");
@@ -343,12 +311,12 @@ $(document).ready(function () {
   }); //btn guardar.
   $("#IDENTIDAD").on("focusout", function () {
     var identidad = $(this).val();
-    var anio= identidad[4]+identidad[5]+identidad[6]+identidad[7];
+    var anio = identidad[4] + identidad[5] + identidad[6] + identidad[7];
     console.log(anio);
-   
-    if ($(this).val()!=""|| $(this).val()==="undifined") {
-      if (identidad.length==13) {
-        if ((2022-parseInt(anio))>=18) {
+
+    if ($(this).val() != "" || $(this).val() === "undifined") {
+      if (identidad.length == 13) {
+        if (2022 - parseInt(anio) >= 18) {
           $.post(
             "../Controlador/encuesta_controlador.php?op=identidad",
             { IDENTIDAD: identidad },
@@ -369,8 +337,7 @@ $(document).ready(function () {
                 });
                 $("#reader").show();
                 $("#check_scan").hide();
-              } else if (data==2) {
-    
+              } else if (data == 2) {
                 Swal.fire({
                   position: "",
                   imageUrl: "../src/img/firma.jpg",
@@ -383,23 +350,17 @@ $(document).ready(function () {
                   timer: false,
                 });
 
-                $("#IDENTIDAD").val("")
+                $("#IDENTIDAD").val("");
 
                 $("#reader").show();
                 $("#check_scan").hide();
-    
-              }
-    
-              else{
+              } else {
                 $("#reader").hide();
                 $("#check_scan").show();
               }
             }
-    
           );
-        
-        
-        }else{
+        } else {
           Swal.fire({
             position: "",
             imageUrl: "../src/img/firma.jpg",
@@ -407,15 +368,14 @@ $(document).ready(function () {
             imageHeight: 100,
             imageAlt: "Custom image",
             icon: "warning",
-            title: "<h2>El número de identidad pertenece a un menor de edad</h2>",
+            title:
+              "<h2>El número de identidad pertenece a un menor de edad</h2>",
             showConfirmButton: true,
             timer: false,
           });
-          $("#IDENTIDAD").val("")
-  
+          $("#IDENTIDAD").val("");
         }
-        
-      }else{
+      } else {
         Swal.fire({
           position: "",
           imageUrl: "../src/img/firma.jpg",
@@ -428,13 +388,63 @@ $(document).ready(function () {
           timer: false,
         });
       }
-      
-      
-    }else{
+    } else {
       $("#reader").show();
       $("#check_scan").hide();
-
     }
-
   }); //consulta identidad
+
+  $("#QR").on("change", function () {
+    var qr = $(this).val();
+
+    if ($(this).val() != "" || $(this).val() === "undifined") {
+      $.post(
+        "../Controlador/encuesta_controlador.php?op=qr",
+        { QR: qr },
+        function (data, status) {
+          console.log(data);
+          if (data == 0) {
+            $("#QR").val("");
+            Swal.fire({
+              position: "",
+              imageUrl: "../src/img/firma.jpg",
+              imageWidth: 100,
+              imageHeight: 100,
+              imageAlt: "Custom image",
+              icon: "warning",
+              title: "<h2>Esta persona ya completo el censo</h2>",
+              showConfirmButton: true,
+              timer: false,
+            });
+            $("#reader").show();
+            $("#check_scan").hide();
+          } else if (data == 2) {
+            Swal.fire({
+              position: "",
+              imageUrl: "../src/img/firma.jpg",
+              imageWidth: 100,
+              imageHeight: 100,
+              imageAlt: "Custom image",
+              icon: "warning",
+              title: "<h2>El qr no es correcto</h2>",
+              showConfirmButton: true,
+              timer: false,
+            });
+
+            $("#IDENTIDAD").val("");
+
+            $("#reader").show();
+            $("#check_scan").hide();
+          } else {
+            $("#reader").hide();
+            $("#check_scan").show();
+          }
+        }
+      );
+    } else {
+      $("#reader").show();
+      $("#check_scan").hide();
+      $("#IDENTIDAD").prop("disabled", false);
+    }
+  }); //consulta QR
 }); //fin de document ready
