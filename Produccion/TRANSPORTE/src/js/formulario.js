@@ -11,7 +11,7 @@ function onScanSuccess(qrCodeMessage) {
 }
 $.getJSON("https://api.ipify.org?format=json", function (data) {
   $("#IP").val(data.ip);
-  console.log(data.ip);
+  
 });
 
 function Parametros() {
@@ -394,9 +394,9 @@ $(document).ready(function () {
     }
   }); //consulta identidad
 
-  $("#QR").change( function () {
+  $("#QR").on("change", function () {
     var qr = $(this).val();
-
+    console.log("Cambie")
     if ($(this).val() != "" || $(this).val() === "undifined") {
       $.post(
         "../Controlador/encuesta_controlador.php?op=qr",
