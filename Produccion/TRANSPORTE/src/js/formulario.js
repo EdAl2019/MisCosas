@@ -1,6 +1,6 @@
 var today = new Date();
 function onScanSuccess(qrCodeMessage) {
-  $("#QR").val(qrCodeMessage);
+  $("#QR").val(qrCodeMessage).triggerHandler('change');
   $("#reader").hide();
   $("#Detener").click();
   $("contenedor_scaner").hide();
