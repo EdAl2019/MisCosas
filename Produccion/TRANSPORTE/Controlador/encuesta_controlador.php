@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
 require_once "../Modelos/Encuesta_modelo.php"; //refencia del modelo
 date_default_timezone_set('America/Tegucigalpa');
@@ -166,7 +167,7 @@ switch ($op) {
       if ($valor->personas==0) {
         # code...
 
-        $validarnp= $instancia_modelo->validar_qr($identidad);
+        $validarnp= $instancia_modelo->validar_qr($qr);
         if ($validarnp===1) {
           // code...
           echo 2;
