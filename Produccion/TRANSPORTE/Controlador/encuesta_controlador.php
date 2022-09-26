@@ -32,7 +32,7 @@ $telefono=str_replace("%20","",$telefono);
 $id_usuario= isset($_SESSION['Id_usuario']) ? limpiarCadena1($_SESSION['Id_usuario']) : "";
 
 $id_punto_control= isset($_SESSION['Id_punto_control']) ? limpiarCadena1($_SESSION['Id_punto_control']) : "";
-$ip= isset($_SERVER['REMOTE_ADDR']) ? limpiarCadena1($_SERVER['REMOTE_ADDR']) : "";
+$ip= isset($_POST['IP']) ? limpiarCadena1($_POST['IP']) : "";
 
 
 

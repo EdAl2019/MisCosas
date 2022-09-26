@@ -81,7 +81,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 
             ?>
           </h1>
-          <input type="text" id="IP">
+          
           <br>
           <div id="formulario">
           <form id="formulario-encuesta" >
@@ -101,6 +101,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                 <div class="card-body">
 
                   <div class="form-group col-md-12" id="contenedor_scaner">
+                  <input type="text" id="IP" name="IP" hidden>
                     <input type="text" id="FECHAINICIO" name="FECHAINICIO" hidden>
 
                     <label><strong>1. ESCANER QR </strong><i class="fa fa-qrcode" aria-hidden="true"></i>
