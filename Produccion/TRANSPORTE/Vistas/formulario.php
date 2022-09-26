@@ -76,8 +76,8 @@ if (isset($_SESSION['Id_usuario'])) { ?>
           <h1>
             <?php
             echo $_SERVER['REMOTE_ADDR'];
-            echo $_SERVER['HTTP_X_FORWARDED_FOR'];
-            echo $_SERVER['HTTP_CLIENT_IP'];
+            print_r( $_SERVER['HTTP_X_FORWARDED_FOR']);
+            print_r($_SERVER['HTTP_CLIENT_IP']);
 
             ?>
           </h1>
