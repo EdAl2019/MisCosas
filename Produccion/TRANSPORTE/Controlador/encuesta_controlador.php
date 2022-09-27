@@ -1,7 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
 
 require_once "../Modelos/Encuesta_modelo.php"; //refencia del modelo
 date_default_timezone_set('America/Tegucigalpa');
@@ -37,7 +35,7 @@ $ip= isset($_POST['IP']) ? limpiarCadena1($_POST['IP']) : "";
 
 
 
-$op =  isset($_GET["op"]) ? limpiarCadena1($_GET["op"]) : "qr";
+$op =  isset($_GET["op"]) ? limpiarCadena1($_GET["op"]) : "";
 
 
 
@@ -216,6 +214,9 @@ switch ($op) {
       } else {
         echo 'No hay informacion';
       }
+
+      break;
+      default:
 
       break;
 

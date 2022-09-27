@@ -22,7 +22,9 @@ function Parametros() {
       user: 0,
     },
     function (data, status) {
+      console.log(data);
       data = JSON.parse(data);
+      
 
       $("#usuario").html("Encuestador: " + data.Nombres + " " + data.Apellidos);
     }

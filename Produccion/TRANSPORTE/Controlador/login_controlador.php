@@ -1,7 +1,8 @@
 <?php
 session_set_cookie_params(60*60*24*1);
 session_start();
-
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
 require_once "../Modelos/login_modelo.php"; //refencia del modelo
 
@@ -39,9 +40,19 @@ switch ($opcion) {
     
         $datos = $instancia_modelo->traerdatos($usuario);
         $zona=  $instancia_modelo->id_zona($id_punto_control);
-    
-    
-        while ($res = $datos->fetch_object()) {
+        $id_u=$instancia_modelo->traerdatos($usuario);
+          $id_u=$id_u->fetch_object();
+        if ($id_u->estado_session>0) {
+          echo 3;
+          # code...
+        }else{
+          
+
+        $activar_estado=$instancia_modelo->estado_session($id_u->id_usuario);
+          
+        
+        while ($res=$datos->fetch_object()) {
+          
     
           $_SESSION['Id_usuario'] = $res->id_usuario;
     
@@ -57,7 +68,7 @@ switch ($opcion) {
         $zona=$zona->fetch_object();
         $_SESSION["Id_zona"]=$zona->id_zona;
         echo 1;
-    
+      }
       } else {
         
         echo 0;

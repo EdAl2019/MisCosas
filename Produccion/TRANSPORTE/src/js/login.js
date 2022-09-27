@@ -112,8 +112,23 @@ $(document).ready(function () {
 							timer: false,
 						  });
 						
+					}else if (data==3) {
+						
+						Swal.fire({
+							position: "",
+							imageUrl: "src/img/firma.jpg",
+							imageWidth: 100,
+							imageHeight: 100,
+							imageAlt: "Custom image",
+							icon: "error",
+							title: "Este usuario ya tiene una sesión activa",
+							showConfirmButton: true,
+							timer: false,
+						  });
+						
 					}
 					 else {
+						console.log(data)
 						Swal.fire({
 							position: "",
 							imageUrl: "src/img/firma.jpg",

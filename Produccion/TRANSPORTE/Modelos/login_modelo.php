@@ -6,7 +6,20 @@ $instancia_conexion = new conexion();
 class login
 { // Clase para gestionar las consultas del Login
     
-   
+    function estado_session($id)
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta("update TBL_USUARIOS set estado_session=1 where id_usuario=$id;");
+
+        return $consulta;
+    }
+    function desactivar_sesion($id)
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta("update TBL_USUARIOS set estado_session=0 where id_usuario=$id;");
+
+        return $consulta;
+    }
     
     function listar_puntos_de_control()
     {
