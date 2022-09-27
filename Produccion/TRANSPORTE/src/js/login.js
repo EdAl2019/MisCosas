@@ -17,6 +17,12 @@ function llenar_puntos_control() {
 	});
 
 }
+function eliminarCookies() {
+	document.cookie.split(";").forEach(function(c) {
+	  document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+	});
+  }
+  eliminarCookies();
 
 llenar_puntos_control();
 
