@@ -32,7 +32,19 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 
 
     <div class="row">
-    <?php require 'cabecera.php'; ?>
+    <?php require 'cabecera.php';
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL,  'https://api.ipify.org?format=json'); /** Ingresamos la url de la api o servicio a consumir */
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); /**Permitimos recibir respuesta*/
+    curl_setopt($curl, CURLOPT_HTTPGET,true);
+    curl_setopt($curl, CURLOPT_HEADER, 0);
+    curl_setopt($curl, CURLOPT_POST, false);
+    curl_setopt( $curl, CURLOPT_COOKIEFILE, __DIR__.'/cookies.txt' ); /** Archivo donde guardamos datos de sesion */
+    $data = curl_exec($curl); /** Ejecutamos petición*/
+    $data=json_decode($data)->ip;   
+    curl_close($curl);
+    
+    ?>
 
       <div class="col-xl-12">
 
@@ -93,7 +105,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                 <div class="card-body">
 
                   <div class="form-group col-md-12" id="contenedor_scaner">
-                  <input type="text" id="IP" name="IP" hidden>
+                  <input type="text" id="IP" name="IP" value="<?php $data; ?>" hidden>
                     <input type="text" id="FECHAINICIO" name="FECHAINICIO" hidden>
 
                     <label><strong>1. ESCANER QR </strong><i class="fa fa-qrcode" aria-hidden="true"></i>
