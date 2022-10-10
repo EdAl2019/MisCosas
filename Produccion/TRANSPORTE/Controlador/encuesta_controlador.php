@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting('E_ALL');
+
 error_reporting('E_ALL');
 require_once "../Modelos/Encuesta_modelo.php"; //refencia del modelo
 date_default_timezone_set('America/Tegucigalpa');
