@@ -105,7 +105,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                 <div class="card-body">
 
                   <div class="form-group col-md-12" id="contenedor_scaner">
-                  <input type="text" id="IP" name="IP" value="<?php $data; ?>" hidden>
+                  <input type="text" id="IP" name="IP" value="<?php echo $data; ?>" hidden>
                     <input type="text" id="FECHAINICIO" name="FECHAINICIO" hidden>
 
                     <label><strong>1. ESCANER QR </strong><i class="fa fa-qrcode" aria-hidden="true"></i>
