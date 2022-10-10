@@ -1,12 +1,13 @@
 <?php
 session_start();
-
+error_reporting('E_ALL');
+error_reporting('E_ALL');
 require_once "../Modelos/Encuesta_modelo.php"; //refencia del modelo
 date_default_timezone_set('America/Tegucigalpa');
 
 
 //Variables a recibir y formatear en caso de ser enviadas.
-$identidad = isset($_POST["IDENTIDAD"]) ? limpiarCadena1($_POST["IDENTIDAD"]) : "1111111111111";
+$identidad = isset($_POST["IDENTIDAD"]) ? limpiarCadena1($_POST["IDENTIDAD"]) : "";
 
 $edad = isset($_POST["EDAD"]) ? limpiarCadena1($_POST["EDAD"]) : "";
 
@@ -15,7 +16,7 @@ $apellido = isset($_POST["APELLIDOS"]) ? limpiarCadena1($_POST["APELLIDOS"]) : "
 $direccion = isset($_POST["DIRECCION"]) ? limpiarCadena1($_POST["DIRECCION"]) : "";
 $estudia = isset($_POST["ESTUDIA"]) ? limpiarCadena1($_POST["ESTUDIA"]) : "";
 $telefono = isset($_POST["TELEFONO"]) ? limpiarCadena1($_POST["TELEFONO"]) : "";
-$qr = isset($_POST["QR"]) ? limpiarCadena1($_POST["QR"]) : "www.rnp.hn/valida/00003710790";
+$qr = isset($_POST["QR"]) ? limpiarCadena1($_POST["QR"]) : "";
 $fecha_i = isset($_POST["FECHAINICIO"]) ? limpiarCadena1($_POST["FECHAINICIO"]) : "";
 
 $pregunta1= isset($_POST["1"]) ? limpiarCadena1($_POST["1"]) : "";
