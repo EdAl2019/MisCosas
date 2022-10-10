@@ -73,7 +73,7 @@ class Web_Service_RNP
             'UsuarioInstitucion' => $this->UsuarioInstitucion,
         ];
         $inscripcion = $cliente->Qry_IdentidadxCodigoBarras($parametros);
-        return $inscripcion->Qry_IdentidadxCodigoBarrasResult->Inscripcion->ErrorMsg;
+        return $inscripcion->Qry_IdentidadxCodigoBarrasResult->Inscripcion;
   
       }
 

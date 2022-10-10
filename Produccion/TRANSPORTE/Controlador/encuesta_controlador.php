@@ -160,9 +160,7 @@ switch ($op) {
     break;
     case 'qr':
 
-      $valor=$instancia_modelo->verificar_qr($qr)->fetch_object();
-
-      if ($valor->personas==0) {
+     
         # code...
         try {
           $validarnp= $instancia_modelo->validar_qr($qr);
@@ -171,7 +169,19 @@ switch ($op) {
             echo 2;
           }
           else {
-            echo 1;
+            $valor=$instancia_modelo->verificar_qr($validarnp)->fetch_object();
+            if ($valor->personas==0) {
+              # code...
+              echo 1;
+             //retornar todo esta bien
+              
+            }
+            elseif ($valor->personas>0) {
+              # code...
+             echo 0;//todo esta mal
+      
+      
+            }
           }
           
         } catch(\Throwable $th) {
@@ -180,13 +190,7 @@ switch ($op) {
         }
        
         
-      }
-      elseif ($valor->personas>0) {
-        # code...
-       echo 0;
-
-
-      }
+     
 
     break;
     case 'select_ruta':

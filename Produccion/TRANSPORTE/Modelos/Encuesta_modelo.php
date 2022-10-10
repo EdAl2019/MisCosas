@@ -140,7 +140,7 @@ class encuesta
     function verificar_qr($qr)
     {
         global $instancia_conexion;
-        $sql = 'select count(id_persona) as personas from TBL_PERSONAS where qr="'.$qr.'";';
+        $sql = 'select count(id_persona) as personas from TBL_PERSONAS where identidad="'.$qr.'";';
         return $instancia_conexion->ejecutarConsulta($sql);
     }
     function validar_id($identidad){
@@ -160,13 +160,13 @@ class encuesta
         $identidad="";
         $instancia_rnp=new Web_Service_RNP($identidad,$qr);
         $validar=$instancia_rnp->Valida_persona_qr();
-        if ($validar->TipoDeError==="RNE" || $validar->TipoDeError==="FII") {
+        if ($validar->ErrorMsg->TipoDeError==="RNE" || $validar->ErrorMsg->TipoDeError==="FII") {
           // code...
           return 1;
         }
         else {
           // code...
-          return 0;
+          return $validar->NumInscripcion;
         }
       }
     function traer_id_encuesta($id_persona)
