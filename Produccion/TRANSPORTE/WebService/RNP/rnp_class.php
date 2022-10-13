@@ -4,9 +4,11 @@ class Web_Service_RNP
 {
     protected ?string $identidad;
     protected ?string $qr;
-    protected string $CodigoInstitucion="PRUEBAS";
-    protected string $CodigoSeguridad='T3$T1NG';
-    protected string $UsuarioInstitucion="Usuario13";
+    protected string $CodigoInstitucion="IHTT";
+    protected string $CodigoSeguridad='80353E6A658D4C248566938EA820E6D8';
+    protected string $UsuarioInstitucion="0801198814764";
+    protected string $url='https://rcm.rnp.hn/API/WSInscripciones.asmx?wsdl';
+
 
 
     public function __construct(string $id=null,string $qrb=null) {
@@ -18,7 +20,7 @@ class Web_Service_RNP
     function Identidad_persona(){
 
         $cliente = new SoapClient(
-            'https://wstest.rnp.hn:1893/API/WSInscripciones.asmx?wsdl',
+            $this->url,
             ['trace' => 1, 'exception' => 0]
         );
         $parametros = [
@@ -32,7 +34,7 @@ class Web_Service_RNP
     }
     function QR_persona(){
         $cliente = new SoapClient(
-            'https://wstest.rnp.hn:1893/API/WSInscripciones.asmx?wsdl',
+            $this->url,
             ['trace' => 1, 'exception' => 0]
         );
         $parametros = [
@@ -48,7 +50,7 @@ class Web_Service_RNP
     }
     function Valida_persona(){
       $cliente = new SoapClient(
-          'https://wstest.rnp.hn:1893/API/WSInscripciones.asmx?wsdl',
+         $this->url,
           ['trace' => 1, 'exception' => 0]
       );
       $parametros = [
@@ -63,7 +65,7 @@ class Web_Service_RNP
     }
     function Valida_persona_qr(){
         $cliente = new SoapClient(
-            'https://wstest.rnp.hn:1893/API/WSInscripciones.asmx?wsdl',
+            $this->url,
             ['trace' => 1, 'exception' => 0]
         );
         $parametros = [
@@ -79,7 +81,7 @@ class Web_Service_RNP
 
     function Domicilio_persona(){
         $cliente = new SoapClient(
-            'https://wstest.rnp.hn:1893/API/WSInscripciones.asmx?wsdl',
+           $this->url,
             ['trace' => 1, 'exception' => 0]
         );
         $parametros = [

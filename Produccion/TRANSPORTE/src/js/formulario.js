@@ -141,7 +141,7 @@ $(document).ready(function () {
     $(".2-mas").prop("disabled", true);
   });
   $(".radio3").on("click", function () {
-    $(".3-mas").val("");
+    $(".3-mas").val("5");
     $(".3-mas").prop("disabled", true);
     crear_select_rutas("#contenedor_rutas", $(this).val());
   });
@@ -166,6 +166,8 @@ $(document).ready(function () {
   });
   $(".transporte-mas").on("click", function () {
     $("#contenedor_rutas").html("").fadeIn();
+    crear_select_rutas("#contenedor_rutas", $('.3-mas').val());
+
   });
   $("#DIRECCION").on("keydown", function () {
     var tecla = event.key;

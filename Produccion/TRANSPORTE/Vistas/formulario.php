@@ -262,7 +262,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                       <label class="form-check-label" for="3">
                         Más de 4:
 
-                      </label> <input class="3-mas" type="number" onkeydown="filtro();" focusout="minimo();"id="3" placeholder="5"  name="3"  min="5" max="15" required>
+                      </label> <input class="3-mas" type="number" onkeydown="filtro();" focusout="minimo();"id="3" value="5" placeholder="5"  name="3"  min="5" max="15" required>
                     </div>
 
                   </div>
