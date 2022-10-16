@@ -33,6 +33,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 
     <div class="row">
     <?php require 'cabecera.php';
+    date_default_timezone_set('America/Tegucigalpa');
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL,  'https://api.ipify.org?format=json'); /** Ingresamos la url de la api o servicio a consumir */
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); /**Permitimos recibir respuesta*/
@@ -131,7 +132,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 
                                                     <i class="fa fa-location-arrow" aria-hidden="true"></i>
                                                 </label>
-                                                <textarea type="text" class="form-control" id="DIRECCION"
+                                                <textarea onkeyup="this.value=this.value.replace('  ',' ');" type="text" class="form-control" id="DIRECCION"
                                                     name="DIRECCION"></textarea>
                                             </div>
                                             <br>
@@ -160,6 +161,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                         aria-hidden="true"></i>
                     </label>
                     <select name="1" id="1" class="form-control">
+                    <option value="HOGAR">HOGAR.</option>
                       <option value="TRABAJO">TRABAJO.</option>
                       <option value="CENTRO EDUCATIVO">CENTRO EDUCATIVO.</option>
                       <option value="VISITA">VISITA.</option>
@@ -219,7 +221,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                       <label class="form-check-label" for="2">
                         OTROS:
 
-                      </label> <input class="2-mas" type="text" onkeydown="filtro2();" id="2" placeholder="Especifique.."  name="2"  required>
+                      </label> <input class="2-mas" type="text" onkeyup="this.value=this.value.replace('  ',' ');" onkeydown="filtro2();" id="2" placeholder="Especifique.."  name="2"  required>
                     </div>
                   </div>
 
@@ -308,7 +310,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
                       <label class="form-check-label" for="hogar_transporte5">
                                     Más de 4:
                                   </label>
-                                  <input type="number" onkeydown="filtro();" focusout="minimo();" class="4-mas" name="4" id="4" placeholder="5" min="5" max="15"  required>
+                                  <input type="number" onkeydown="filtro();" focusout="minimo();" class="4-mas" name="4" id="4" placeholder="5" min="5" max="15" value="5" required>
                     </div>
 
                   </div>

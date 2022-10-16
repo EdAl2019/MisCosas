@@ -31,6 +31,7 @@ function onScanError(errorMessage) {
   //handle scan error
 }
 
+
 var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
   fps: 10,
   qrbox: 250,
@@ -46,8 +47,37 @@ function llenar_rutas() {
     data: cadena,
     success: function (r) {
       $(".rutas").html(r).fadeIn();
+      $('.rutas').children('option').on('click',function () { 
+      
+      
+        var validaop=$('select [value="'+$(this).val()+'"]:selected').each(function(index,Element){
+  
+        }).length 
+        if (validaop>1) {
+          console.log($(this).parent())
+          $(this).prop('selected',false)
+          $(this).parent().val('null')
+          $(this).parent().attr('elegido',false)
+          Swal.fire({
+            position: "",
+            imageUrl: "../src/img/firma.jpg",
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: "Custom image",
+            icon: "error",
+            title: "<h6 style='color:red;'>No se puede repetir la ruta</h6>",
+            showConfirmButton: true,
+            timer: false,
+          });
+          
+        }else{
+          $(this).parent().removeAttr('elegido')
+        }
+        
+      });
     },
   });
+ 
 }
 function crear_select_rutas(obj, cantidad) {
   var i = 0;
@@ -62,11 +92,12 @@ function crear_select_rutas(obj, cantidad) {
   }
   $(obj).html(cuerpo).fadeIn();
   llenar_rutas();
+ 
 }
 function minimo() {
   var tecla = event.key;
 
-  if (tecla < 5) console.log("h");
+  if (tecla < 5) ;
   event.preventDefault(5);
 }
 function filtro() {
@@ -158,7 +189,16 @@ $(document).ready(function () {
     }
   });
   $(".3-mas").on("focusout", function () {
+    if($(this).val()<5 || $(this).val()==""){
+      $(this).val(5)
+    }
     crear_select_rutas("#contenedor_rutas", $(this).val());
+  });
+  $(".4-mas").on("focusout", function () {
+    if($(this).val()<5 || $(this).val()==""){
+      $(this).val(5)
+    }
+   
   });
   $(".radio4").on("click", function () {
     $(".4-mas").val("");
@@ -183,7 +223,7 @@ $(document).ready(function () {
 
   $("#guardar").on("click", function () {
     datos = $("#formulario-encuesta").serialize();
-    console.log(datos);
+    
     //validaciones
     var mensaje_error = [];
     var qr = $("#QR").val();
@@ -204,8 +244,21 @@ $(document).ready(function () {
     var pregunta4 = $("input[id=4]:checked", "#formulario-encuesta").val();
 
     var pregunta5 = $("input[id=5]:checked").val();
-
-    var pregunta6 = $("#6").children().prop("selected");
+    var valida6=0
+    
+    if ($("input[id=2]:disabled").attr('disabled')!='disabled'){
+      if($('.2-mas').val()==""||$('.2-mas').val()==" "){
+          console.log('valida input')
+          pregunta2=undefined;
+      }
+      }
+    $('.rutas').each(function(index,element){
+      if($(element).attr('elegido')=='false'){
+        valida6=valida6+1
+      }
+    })
+  
+    var pregunta6 = $(".rutas").children().prop("selected");
 
     if (
       qr === "" ||
@@ -222,7 +275,9 @@ $(document).ready(function () {
       pregunta5 === undefined ||
       pregunta5 === "" ||
       pregunta6 === true ||
-      pregunta6 === "true"
+      pregunta6 === "true" ||
+      valida6>0
+     
     ) {
       if (qr === "" || qr === null) {
         mensaje_error.push("Completa el campo: ESCANER QR<br><br>");
@@ -263,7 +318,7 @@ $(document).ready(function () {
           "Completa el campo: ¿QUÉ OTROS SERVICIOS DE TRANSPORTE UTILIZA FRECUENTEMENTE ? <br><br>"
         );
       }
-      if (pregunta6 === true || pregunta6 === "true") {
+      if (pregunta6 === true || pregunta6 === "true" || valida6>0) {
         mensaje_error.push(
           "Completa el campo: ¿QUÉ RUTA ESPERA UTILZAR? <br><br>"
         );
@@ -448,4 +503,7 @@ $(document).ready(function () {
       $("#IDENTIDAD").prop("disabled", false);
     }
   }); //consulta QR
+
+
+ 
 }); //fin de document ready
