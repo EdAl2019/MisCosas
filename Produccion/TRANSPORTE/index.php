@@ -1,4 +1,7 @@
 <?php
+    if (isset($_SERVER['HTTPS'])) {
+        # code...
+    
     session_start();
     if (isset($_SESSION["Id_usuario"])) {
        // echo "<script> window.location='https://".$_SERVER['SERVER_ADDR']."/TRANSPORTE/Vistas/formulario.php'; </script>";
@@ -144,4 +147,7 @@
 <?php
         # code...
     }
+}else {
+    header('location: https://190.130.9.62/TRANSPORTE/');
+}
 ?>

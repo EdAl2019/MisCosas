@@ -44,7 +44,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
     $data = curl_exec($curl); /** Ejecutamos petición*/
     $data=json_decode($data)->ip;   
     curl_close($curl);
-    
+   
     ?>
 
       <div class="col-xl-12">
@@ -66,7 +66,7 @@ if (isset($_SESSION['Id_usuario'])) { ?>
             <br>
             <br>
             <br>
-            <h2 class="card-title text-center" style="color:darkblue ;"><strong> CENSO USUARIO DE TRANSPORTE</strong>
+            <h2 class="card-title text-center" style="color:darkblue ;"><strong> CENSO USUARIO DE TRANSPORTE</strong> 
             </h2>
 
 
