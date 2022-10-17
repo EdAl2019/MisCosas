@@ -3,7 +3,7 @@ if (isset($_SESSION['Usuario'])) {
 
 }else{
 
-  header('location: index.php');
+  header('location: https://190.130.9.62/repositorios/MisCosas/REPORTES/');
 }
 
 ?>
