@@ -142,6 +142,22 @@ $(document).ready(function () {
         var div=document.getElementById("contenedor");
        imprimirElemento(div); 
     });
+    
+    $("#CERRAR_SESION").on('click',function () {
+        console.log('salir');
+        $.ajax({
+          type: "GET",
+          url: "../controlador_login.php?op=cerrar",
+         
+          success: function (response) {
+           console.log(response);
+           if (response==1) {
+            window.location='../index.php'
+            
+           }
+          }
+      });
+      })
     $(".btn-primary").on("click", function () {
         if ($(this).attr("tipo")) {
             var tipo = $(this).attr("tipo")
