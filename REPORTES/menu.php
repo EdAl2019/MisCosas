@@ -1,7 +1,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-light">
   
-  <a class="navbar-brand" id="home" aria-current="page" href="http://localhost/REPORTES/index.php"><?php echo $_SESSION['Usuario'];?></a>
+  <a class="navbar-brand" id="home" aria-current="page" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/index.php"><?php echo $_SESSION['Usuario'];?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,22 +9,22 @@
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     
     <li class="nav-item">
-      <a class="nav-link" id="1" tipo="bar" href="http://localhost/REPORTES/preguntas/pregunta1.php">PREGUNTA 1</a>
+      <a class="nav-link" id="1" tipo="bar" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta1.php">PREGUNTA 1</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="2" tipo="doughnut" href="http://localhost/REPORTES/preguntas/pregunta2.php">PREGUNTA 2</a>
+      <a class="nav-link" id="2" tipo="doughnut" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta2.php">PREGUNTA 2</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="3" tipo="line" href="http://localhost/REPORTES/preguntas/pregunta3.php">PREGUNTA 3</a>
+      <a class="nav-link" id="3" tipo="line" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta3.php">PREGUNTA 3</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="4" tipo="line" href="http://localhost/REPORTES/preguntas/pregunta4.php">PREGUNTA 4</a>
+      <a class="nav-link" id="4" tipo="line" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta4.php">PREGUNTA 4</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link " id="5" tipo="bar" href="http://localhost/REPORTES/preguntas/pregunta5.php">PREGUNTA 5</a>
+      <a class="nav-link " id="5" tipo="bar" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta5.php">PREGUNTA 5</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link " id="6" aria-current="page" tipo="doughnut" href="http://localhost/REPORTES/preguntas/pregunta6.php">PREGUNTA 6</a>
+      <a class="nav-link " id="6" aria-current="page" tipo="doughnut" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta6.php">PREGUNTA 6</a>
     </li>
     <li class="nav-item">
     <button id="CERRAR_SESION" class="btn btn-warning">CERRAR SESIÓN</button>
