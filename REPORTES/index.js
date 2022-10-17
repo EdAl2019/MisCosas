@@ -143,6 +143,18 @@ $(document).ready(function () {
     });
     })
 
+    $("#grupo").on("change",function () {
+      console.log("cambie");
+      $("#contenedor_tabla").html(" ");
+      $("#contenedor_tabla").load('tabla_e.php');
+      
+     
+      
+      
+  })
+
+    
+
 
 
 });

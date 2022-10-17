@@ -4,6 +4,7 @@
     $op=isset($_POST["op"])? $_POST["op"] : "";
     $fecha_e=isset($_POST["fecha_e"])? $_POST["fecha_e"] : "";
     $fecha_g=isset($_POST["fecha_g"])? $_POST["fecha_g"] : "";
+    $gop=isset($_POST["gop"])? $_POST["gop"] : "";
     $instancia_modelo= new encuesta();
 
 
@@ -160,7 +161,7 @@
                 break;
                 case "encuestadores":
                    
-                    $rspta = $instancia_modelo->listar_encuestadores($fecha_e); //instancia a la funcion listar
+                    $rspta = $instancia_modelo->listar_encuestadores($fecha_e,$gop); //instancia a la funcion listar
                 
                     //  
                     //Vamos a declarar un array

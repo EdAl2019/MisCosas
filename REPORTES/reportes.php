@@ -54,14 +54,14 @@ if (isset($_SESSION['Usuario'])) { ?>
                 <div class="card-title">REPORTE ENCUESTADORES</div>
                 
                 <div> <input type="date" class="form-control" value="2022" min="2022-10-13" max="2022-12-30" name="fecha_encuestadores" id="fecha_encuestadores"> </div>
-                <div><select class="form-control" name="" id="" > 
-                   <option selected disable style="color: gray;">Por Grupo</option>
-                   <option value="">GRUPO 1</option>
-                   <option value="">GRUPO 2</option>
-                   <option value="">GRUPO 3</option>
-                   <option value=""> GRUPO 4</option>
-                   <option value="">GRUPO 5</option>
-                   <option value="">GRUPO 6 </option>
+                <div><select class="form-control" name="grupo" id="grupo" > 
+                   <option selected disable value="" style="color: gray;">Por Grupo</option>
+                   <option value="1">GRUPO 1</option>
+                   <option value="2">GRUPO 2</option>
+                   <option value="3">GRUPO 3</option>
+                   <option value="4"> GRUPO 4</option>
+                   <option value="5">GRUPO 5</option>
+                   <option value="6">GRUPO 6 </option>
 </select></div>
                   
                  </div>

@@ -59,7 +59,7 @@ function listar_encuestadores() {
         "ajax": {
             url: 'controlador.php?op=encuestadores',
             type: "post",
-            data: { op: "encuestadores",fecha_e:$("#fecha_encuestadores").val() },
+            data: { op: "encuestadores",fecha_e:$("#fecha_encuestadores").val(),gop:$("#grupo").val() },
             dataType: "json",
             error: function (e) {
                 console.log(e.responseText);
