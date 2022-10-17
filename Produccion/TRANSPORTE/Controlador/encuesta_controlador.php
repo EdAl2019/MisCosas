@@ -199,13 +199,13 @@ switch ($op) {
         $data = array();
 
         $respuesta = $instancia_modelo->listar_rutas($_SESSION["Id_zona"]);
-        echo '<option value="null" selected="" disabled="true">..SELECCIONE UNA RUTA ..</option>';
+        echo '<option  value="null" selected="" disabled="true">..SELECCIONE UNA RUTA ..</option>';
 
         while ($r = $respuesta->fetch_object()) {
 
 
             # code...
-            echo "<option value='" . $r->ruta . "'> " . $r->ruta . " </option>";
+            echo "<option class='optr' value='" . $r->ruta . "'> " . $r->ruta . " </option>";
 
 
 

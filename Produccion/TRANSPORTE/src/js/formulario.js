@@ -47,34 +47,37 @@ function llenar_rutas() {
     data: cadena,
     success: function (r) {
       $(".rutas").html(r).fadeIn();
-      $('.rutas').children('option').on('click',function () { 
-      
-      
-        var validaop=$('select [value="'+$(this).val()+'"]:selected').each(function(index,Element){
-  
-        }).length 
-        if (validaop>1) {
-          console.log($(this).parent())
-          $(this).prop('selected',false)
-          $(this).parent().val('null')
-          $(this).parent().attr('elegido',false)
-          Swal.fire({
-            position: "",
-            imageUrl: "../src/img/firma.jpg",
-            imageWidth: 100,
-            imageHeight: 100,
-            imageAlt: "Custom image",
-            icon: "error",
-            title: "<h6 style='color:red;'>No se puede repetir la ruta</h6>",
-            showConfirmButton: true,
-            timer: false,
-          });
+      $('.rutas').on('change', function() {
+	
+        console.log("validaop")
+       
+         var validaop=$('select [value="'+$(this).val()+'"]:selected').each(function(index,Element){ }).length ;
+       
+         if (validaop>1) {
           
-        }else{
-          $(this).parent().removeAttr('elegido')
-        }
-        
-      });
+          
+           $(this).val('null')
+           $(this).attr('elegido',false)
+           Swal.fire({
+             position: "",
+             imageUrl: "../src/img/firma.jpg",
+             imageWidth: 100,
+             imageHeight: 100,
+             imageAlt: "Custom image",
+             icon: "error",
+             title: "<h6 style='color:red;'>No se puede repetir la ruta</h6>",
+             showConfirmButton: true,
+             timer: false,
+           });
+           
+         }else{
+           $(this).removeAttr('elegido')
+         }
+       
+       
+       }); 
+     
+  
     },
   });
  
@@ -115,8 +118,13 @@ $("#formulario").hide();
 $(".2-mas").prop("disabled", true);
 $(".3-mas").prop("disabled", true);
 $(".4-mas").prop("disabled", true);
-//ready
+
+
 $(document).ready(function () {
+  
+ 
+  
+ 
   var input_identidad = document.getElementById("IDENTIDAD");
   input_identidad.addEventListener("input", function () {
     if (this.value.length > 13) this.value = this.value.slice(0, 13);
@@ -323,8 +331,8 @@ $(document).ready(function () {
           "Completa el campo: ¿QUÉ RUTA ESPERA UTILZAR? <br><br>"
         );
       }
-      console.log(datos);
-
+     
+     
       Swal.fire({
         position: "",
         imageUrl: "../src/img/firma.jpg",
@@ -337,6 +345,7 @@ $(document).ready(function () {
         timer: false,
       });
     } else {
+      $("#guardar").prop("disabled",true)
       $.ajax({
         url: "../Controlador/encuesta_controlador.php?op=registrar",
         type: "POST",
