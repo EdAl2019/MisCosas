@@ -209,7 +209,7 @@ $(document).ready(function () {
    
   });
   $(".radio4").on("click", function () {
-    $(".4-mas").val("");
+    $(".4-mas").val(5);
     $(".4-mas").prop("disabled", true);
   });
   $(".transporte-mas").on("click", function () {
