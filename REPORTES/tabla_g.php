@@ -88,7 +88,16 @@ function listar_general() {
             'csv',
             {
                 extend:'excel',
-                filename: 'REPORTE GENERAL'
+                filename: function () {
+                    var today = new Date();
+                    
+                    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    options.timeZone = 'UTC';
+                    options.timeZoneName = 'short';
+                    
+                    var now = today.toLocaleString('es-ES', options);
+                    return now
+                }
             },
             'pdf',
             {
