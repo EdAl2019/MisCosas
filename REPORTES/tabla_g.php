@@ -96,7 +96,7 @@ function listar_general() {
                 orientation: 'landscape',
                 exportOptions: {
                     modifier: {
-                        selected: null
+                        selected: true
                     },
                     orientation: 'landscape',
                      pageSize: 'A0',
