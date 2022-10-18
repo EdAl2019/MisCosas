@@ -100,7 +100,7 @@ function listar_general() {
                     },
                     orientation: 'landscape',
                      pageSize: 'A0',
-                     pageMargin:[10,10,10,10],
+                     pageMargin:[0,0,0,0],
                      fontSize: 10
                 }
             },
