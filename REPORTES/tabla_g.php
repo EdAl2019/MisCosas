@@ -29,7 +29,7 @@ function listar_general() {
     datos = "$op=general";
     //console.log('ejecutandose');
     $('#reporte_general').DataTable({
-        autoWidth: false,
+        autoWidth: true,
         columnDefs: [
             {
                 width: "300px",
@@ -99,7 +99,7 @@ function listar_general() {
                         selected: true
                     },
                     orientation: 'landscape',
-                     pageSize: 'A0',
+                     pageSize: 'LEGAL',
                      pageMargin:[0,0,0,0],
                      fontSize: 10
                 }
