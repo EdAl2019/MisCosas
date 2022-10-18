@@ -46,7 +46,7 @@ class login
         global $instancia_conexion;
 
         $sql='select * from TBL_USUARIOS u, TBL_PERSONAS e where u.id_persona=e.id_persona and u.USUARIO="'.$user.'" and u.contrasena="'.$contra.'";';
-        echo $sql;
+       
         return $instancia_conexion->ejecutarConsulta($sql);
     }
     function id_zona($id_punto_c){

@@ -40,7 +40,7 @@ switch ($opcion) {
     
         $datos = $instancia_modelo->traerdatos($usuario,$contraseña);
         $zona=  $instancia_modelo->id_zona($id_punto_control);
-        $id_u=$instancia_modelo->traerdatos($usuario);
+        $id_u=$instancia_modelo->traerdatos($usuario,$contraseña);
           $id_u=$id_u->fetch_object();
         if ($id_u->estado_session>0) {
           echo 3;
