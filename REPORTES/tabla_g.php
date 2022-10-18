@@ -88,7 +88,7 @@ function listar_general() {
             'csv',
             {
                 extend:'excel',
-                fileName: 'REPORTE GENERAL'
+                filename: 'REPORTE GENERAL'
             },
             'pdf',
             {
