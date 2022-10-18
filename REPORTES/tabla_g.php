@@ -87,7 +87,8 @@ function listar_general() {
             'copy',
             'csv',
             {
-                extend:'excel'
+                extend:'excel',
+                fileName: 'REPORTE GENERAL'
             },
             'pdf',
             {
@@ -98,6 +99,7 @@ function listar_general() {
                     modifier: {
                         selected: true
                     },
+                    
                     orientation: 'landscape',
                      pageSize: 'LEGAL',
                      pageMargin:[0,0,0,0],
