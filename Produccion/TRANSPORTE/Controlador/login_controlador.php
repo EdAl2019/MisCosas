@@ -38,7 +38,7 @@ switch ($opcion) {
         $_SESSION['Usuario'] = $usuario;
     
     
-        $datos = $instancia_modelo->traerdatos($usuario);
+        $datos = $instancia_modelo->traerdatos($usuario,$contraseña);
         $zona=  $instancia_modelo->id_zona($id_punto_control);
         $id_u=$instancia_modelo->traerdatos($usuario);
           $id_u=$id_u->fetch_object();

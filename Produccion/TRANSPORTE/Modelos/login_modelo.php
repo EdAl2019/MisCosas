@@ -41,11 +41,11 @@ class login
            return false;
        }
     }
-    function traerdatos($user){
+    function traerdatos($user,$contra){
 
         global $instancia_conexion;
 
-        $sql='select * from TBL_USUARIOS u, TBL_PERSONAS e where u.id_persona=e.id_persona and u.USUARIO="'.$user.'";';
+        $sql='select * from TBL_USUARIOS u, TBL_PERSONAS e where u.id_persona=e.id_persona and u.USUARIO="'.$user.'" and u.CONTRASEÑA="'.$contra.'";';
         return $instancia_conexion->ejecutarConsulta($sql);
     }
     function id_zona($id_punto_c){
