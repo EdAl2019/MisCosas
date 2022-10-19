@@ -52,6 +52,7 @@ if (isset($_SESSION['Usuario'])) { ?>
             <div class="card">
               <div class="card-header">
                 <div class="card-title">REPORTE ENCUESTADORES</div>
+                <input type="text" hidden id="total_encuestas">
                 
                 <div> <input type="date" class="form-control" value="2022" min="2022-10-13" max="2022-12-30" name="fecha_encuestadores" id="fecha_encuestadores"> </div>
                 <div><select class="form-control" name="grupo" id="grupo" > 

@@ -178,11 +178,17 @@
                         
                       );
                     }
+                    $suma=0;
+                    for ($i=0; $i < count($data) ; $i++) { 
+                      # code...
+                      $suma=$suma+ $data[$i][5];
+                    }
                     $results = array(
                       "sEcho" => 1, //Información para el datatables
                       "iTotalRecords" => count($data), //enviamos el total registros al datatable
                       "iTotalDisplayRecords" => count($data), //enviamos el total registros a visualizar
-                      "aaData" => $data
+                      "aaData" => $data,
+                      "total"=> $suma,
                     );
                     echo json_encode($results); //enviamos los datos en formato JSON
                 

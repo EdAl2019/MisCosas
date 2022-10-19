@@ -85,7 +85,22 @@ function listar_general() {
         "dom": "Bfrtip",
         buttons: [
             'copy',
-            'csv',
+          {
+                extend:'print',
+                filename: function () {
+                    var today = new Date();
+                    
+                    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    options.timeZone = 'UTC';
+                    options.timeZoneName = 'short';
+                    
+                    var now = today.toLocaleString('es-ES', options);
+                    return "REPORTE GENERAL - "+now
+                },
+            
+            },
+           
+         
             {
                 extend:'excel',
                 filename: function () {
@@ -96,21 +111,30 @@ function listar_general() {
                     options.timeZoneName = 'short';
                     
                     var now = today.toLocaleString('es-ES', options);
-                    return now
+                    return "REPORTE GENERAL - "+now
                 }
             },
-            'pdf',
+          
             {
                 extend: 'pdf',
-                text: 'Print all (not just selected)',
+                filename: function () {
+                    var today = new Date();
+                    
+                    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    options.timeZone = 'UTC';
+                    options.timeZoneName = 'short';
+                    
+                    var now = today.toLocaleString('es-ES', options);
+                    return "REPORTE GENERAL - "+now
+                },
+            
+                text: 'PDF',
                 orientation: 'landscape',
                 exportOptions: {
-                    modifier: {
-                        selected: true
-                    },
+                   
                     
                     orientation: 'landscape',
-                     pageSize: 'LEGAL',
+                     pageSize: 'legal',
                      pageMargin:[0,0,0,0],
                      fontSize: 10
                 }
