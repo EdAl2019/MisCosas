@@ -11,7 +11,7 @@ class login
     function login_user($user,$contra){
         global $instancia_conexion;
        // $resultado=false;
-        $sql='select * from TBL_USUARIOS where usuario="'.$user.'" and contrasena="'.$contra.'"';
+        $sql='select * from TBL_USUARIOS where usuario="'.$user.'" and contrasena="'.$contra.'" and id_rol=3';
 
         if ($instancia_conexion->validar_select($sql)) {
         

@@ -10,6 +10,8 @@ $(document).ready(function () {
            if (response==1) {
             console.log(response);
             window.location='reportes.php';
+           }else{
+            alert("Usuario o contraseña incorrectos")
            }
         }
     });
