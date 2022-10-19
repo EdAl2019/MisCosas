@@ -4,6 +4,7 @@
     $op=isset($_POST["op"])? $_POST["op"] : "";
     $fecha_e=isset($_POST["fecha_e"])? $_POST["fecha_e"] : "";
     $fecha_g=isset($_POST["fecha_g"])? $_POST["fecha_g"] : "";
+    $fecha_gra=isset($_POST["fecha_gra"])? $_POST["fecha_gra"] : "";
     $gop=isset($_POST["gop"])? $_POST["gop"] : "";
     $instancia_modelo= new encuesta();
 
@@ -108,7 +109,7 @@
                       break;
                       case 'equipos':
                         # code...
-                        $res=$instancia_modelo->e_equipos();
+                        $res=$instancia_modelo->e_equipos($fecha_gra);
                         $result=array(); 
                       
                         while ($r=$res->fetch_object()) {

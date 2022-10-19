@@ -77,6 +77,7 @@
                         return "REPORTE GRUPO " + nombre + " - " + now
                     },
                     title: 'ENCUESTADORES',
+                    download: 'open',
 
 
 
@@ -141,7 +142,7 @@
                 complete: function(e) {
                     e = JSON.parse(e.responseText);
                     $("#total_encuestas").val(e.total)
-                    llenar_grafico_equipo();
+                    llenar_grafico_equipo($("#fecha_grafica_e").val());
 
                 },
             }

@@ -30,32 +30,8 @@ function listar_general() {
     //console.log('ejecutandose');
     $('#reporte_general').DataTable({
         autoWidth: true,
-        columnDefs: [
-            {
-                width: "300px",
-                targets: 7
-            },
-            {
-                width: "500px",
-                targets: 8
-            },
-            {
-                width: "500px",
-                targets: 9
-            },
-            {
-                width: "500px",
-                targets: 10
-            },
-            {
-                width: "500px",
-                targets: 11
-            },
-            {
-                width: "500px",
-                targets: 12
-            }
-        ],
+       
+        
         "language": {
             "sProcessing": "Procesando...",
             "sLengthMenu": "Mostrar _MENU_ registros",

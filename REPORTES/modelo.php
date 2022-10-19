@@ -58,10 +58,10 @@ class encuesta
 
         return $consulta;
     }
-    function e_equipos()
+    function e_equipos($fecha)
     {
         global $instancia_conexion;
-        $consulta = $instancia_conexion->ejecutarConsulta('select u.grupo, count(e.id_usuario) as cantidad  from tbl_usuarios u, tbl_encuestas e where e.id_usuario=u.id_usuario and u.grupo>0 group by u.grupo order by u.grupo');
+        $consulta = $instancia_conexion->ejecutarConsulta('select u.grupo, count(e.id_usuario) as cantidad  from tbl_usuarios u, tbl_encuestas e where e.id_usuario=u.id_usuario and u.grupo>0 and e.fecha_inicial LIKE "%'.$fecha.'%" group by u.grupo order by u.grupo');
 
         return $consulta;
     }

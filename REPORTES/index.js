@@ -64,12 +64,17 @@ function colorRGB() {
   var coolor = "(" + generarNumero(255) + "," + generarNumero(255) + "," + generarNumero(255) + ")";
   return "rgb" + coolor;
 }
-function llenar_grafico_equipo() {
-  $.post("controlador.php", { op: 'equipos' },
+function llenar_grafico_equipo(fecha) {
+   
+  fecha=$("#fecha_grafica_e").val()
+  console.log(fecha);
+  $.post("controlador.php", { op: 'equipos', fecha_gra:fecha },
   function (data, status) {
       arreglotitulos = [];
       arreglodatos = [];
+      arreglosuma=0;
 
+      console.log(data)
       datos = JSON.parse(data)
      
       
@@ -77,6 +82,7 @@ function llenar_grafico_equipo() {
          
           arreglotitulos.push(datos[i].grupo)
           arreglodatos.push(datos[i].cantidad)
+          arreglosuma=arreglosuma+parseInt(datos[i].cantidad);
 
 
       }
@@ -84,7 +90,7 @@ function llenar_grafico_equipo() {
      
       
      
-      crear_grafico('equipos','bar',arreglotitulos,arreglodatos,"ENCUESTAS "+$("#total_encuestas").val());
+      crear_grafico('equipos','bar',arreglotitulos,arreglodatos,"ENCUESTAS "+arreglosuma);
 
   }
 
@@ -98,7 +104,11 @@ $(document).ready(function () {
     $("#contenedor_tabla").load('tabla_e.php');
     $("#contenedor_tabla_general").load('tabla_g.php')
     
-  
+    $("#fecha_grafica_e").on("change",function () {
+      var fecha =$(this).val(); 
+      llenar_grafico_equipo(fecha);
+      
+    })
   
   
   

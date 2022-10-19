@@ -3,10 +3,10 @@ table th {
     color: white;
 
 }
-table>tbody>tr>td {
+/* table>tbody>tr>td {
     vertical-align: middle !important;
    
-}
+} */
 
 .btn-group, .btn-group-vertcal{
     position: absolute !important;

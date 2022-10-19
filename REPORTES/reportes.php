@@ -98,6 +98,8 @@ if (isset($_SESSION['Usuario'])) { ?>
             <div class="card">
               <div class="card-header">
                 <div class="card-title">GRÁFICA ENCUESTADORES</div>
+                
+                <div><input type="date" id="fecha_grafica_e" name="fecha_grafica_e"  min="2022-10-13" max="2022-12-30" value='2022' class="form-control"> </div>
 
               </div>
               <div class="card-body">
