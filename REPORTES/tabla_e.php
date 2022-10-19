@@ -14,11 +14,8 @@
 </table>
 
 <script>
-   
     function listar_encuestadores() {
-        //console.log('ejecutandose');
 
-        //console.log('ejecutandose');
         var today = new Date();
 
         var options = {
@@ -27,7 +24,7 @@
             month: 'long',
             day: 'numeric'
         };
-        options.timeZone = 'UTC';
+
         options.timeZoneName = 'short';
         var nombre = $("#grupo").val();
 
@@ -68,7 +65,9 @@
                     filename: function() {
 
                         return "REPORTE GRUPO " + nombre + " - " + now
-                    }
+                    },
+                    title: 'ENCUESTADORES',
+
                 },
 
                 {
@@ -83,12 +82,44 @@
 
                     customize: function(doc) {
                         doc.content.splice(1, 0, {
+                            
+                                columns: [{
+                                    margin: [10, 15],
+                                    text: 'TOTAL DE ENCUESTAS: ' + $("#total_encuestas").val(),
+                                    fontSize: 12,
+                                    bold: true
+
+                                },{
+                                margin: [10, 15],
+                                 text:now,
+                                 fontSize: 12,
+                                 bold:true
+                                }],
+
+
+
+                            },
+                     
+                             
+                          
+                            );
+                            doc.content.splice(4, 0, {
+                            
                             columns: [{
                                 margin: [10, 15],
-                                text: 'TOTAL DE ENCUESTAS '+$("#total_encuestas").val(),
-                                fontSize: 10
-                            }]
-                        });
+                                text: 'TOTAL DE ENCUESTAS: ' + $("#total_encuestas").val(),
+                                fontSize: 12,
+                                bold: true
+
+                            }],
+
+
+
+                        },
+                 
+                         
+                      
+                        );
                     }
                 },
             ],
@@ -108,16 +139,17 @@
                 },
                 dataType: "json",
                 complete: function(e) {
-                  e= JSON.parse(e.responseText);
-                  $("#total_encuestas").val(e.total)
-                   
+                    e = JSON.parse(e.responseText);
+                    $("#total_encuestas").val(e.total)
+                    llenar_grafico_equipo();
+
                 },
             }
         });
-       
-        
+
+
 
     }
-   
+
     listar_encuestadores();
 </script>

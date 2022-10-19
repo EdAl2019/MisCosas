@@ -84,7 +84,7 @@ function llenar_grafico_equipo() {
      
       
      
-      crear_grafico('equipos','bar',arreglotitulos,arreglodatos,"ENCUESTAS POR EQUIPO");
+      crear_grafico('equipos','bar',arreglotitulos,arreglodatos,"ENCUESTAS "+$("#total_encuestas").val());
 
   }
 
@@ -94,9 +94,14 @@ function llenar_grafico_equipo() {
 }
 
 $(document).ready(function () {
-  llenar_grafico_equipo();
+  
     $("#contenedor_tabla").load('tabla_e.php');
-    $("#contenedor_tabla_general").load('tabla_g.php');
+    $("#contenedor_tabla_general").load('tabla_g.php')
+    
+  
+  
+  
+  
     
   // listar_encuestadores();
     $("#imprimir").on('click',function () {

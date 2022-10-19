@@ -134,11 +134,12 @@ function listar_general() {
                    
                     
                     orientation: 'landscape',
-                     pageSize: 'legal',
+                     pageSize: 'TABLOID',
                      pageMargin:[0,0,0,0],
                      fontSize: 10
                 }
             },
+            'colvis',
         ],
         select: true,
        
