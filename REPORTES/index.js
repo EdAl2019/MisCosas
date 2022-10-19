@@ -28,31 +28,63 @@ function imprimirElemento(elemento){
         window.grafica.destroy();
     }
     let ctx = document.getElementById(canva).getContext('2d');
-   
+    Chart.defaults.set('plugins.datalabels', {
+      color:colort
+    });
     window.grafica = new Chart(ctx, {
         type: tipo,
         data: {
             labels: titulos,
             datasets: [{
-                label: label,
+               
+                label:[],
                 data: datos,
                 backgroundColor: colort,
                 borderColor: colort,
-                borderWidth: 6
+                borderWidth: 6,
+                datalabels: {
+                  label:titulos,
+                  color: colort
+                }
             },
           ],
+        
+          
             
              
          
             
         },
+       
         options: {
           scales: {
               y: {
                   beginAtZero: true
               }
-          }
-      }
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                font: {
+                    size: 30
+                }
+            }
+        },
+          plugins: {
+            datalabels: {
+              label:label,
+              color: '#FFCE56'
+            },
+            title: {
+                display: true,
+                text: label,
+                font:{
+                  size:20
+                }
+            }
+        },
+      },
+      
     });
     
 }
