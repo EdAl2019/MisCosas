@@ -82,7 +82,7 @@ if (isset($_SESSION['Usuario'])) { ?>
           <div class="col-sm-12" style="padding-top:20px;">
             <div class="card">
               <div class="card-header">
-                <div class="card-title">GRÁFICA GENERAL</div>
+                <div class="card-title hidden">GRÁFICA GENERAL</div>
 
               </div>
               <div class="card-body">
