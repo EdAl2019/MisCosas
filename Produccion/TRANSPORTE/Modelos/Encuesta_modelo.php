@@ -6,6 +6,21 @@ $instancia_conexion = new conexion();
 
 class encuesta
 { // Clase para gestionar las consultas de las encuestas
+    
+function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip,$r1,$r2,$r3,$r4,$r5,$r6){
+    global $instancia_conexion;
+    if (empty($qr)) {
+        $qr="null";
+        # code...
+    }
+    if (empty($identidad)) {
+        $identidad="null";
+        # code...
+    }
+    $sql = "call guardar_encuesta('$identidad','$qr',$id_usuario,$id_punto_control,'$fecha_i','$fecha_f','$ip','$r1','$r2','$r3','$r4','$r5','$r6');";
+    return $instancia_conexion->ejecutarConsulta($sql);
+
+}
     function registrar_encuesta($id_persona,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip)
     {
         global $instancia_conexion;

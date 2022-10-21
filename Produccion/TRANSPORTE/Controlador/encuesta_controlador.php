@@ -50,20 +50,14 @@ switch ($op) {
     //Listar en una tabla los objetos
   case "registrar":
     $rspta=$instancia_modelo;
-    $persona=$instancia_modelo;
+   
      $rsencuesta=$instancia_modelo;
-     $encuesta=$instancia_modelo;
-     $respuestas=$instancia_modelo;
+   
       $rspta->registrar_persona($identidad,$qr,$telefono,$direccion);
-    $id_persona=$persona->traer_id_persona($identidad,$qr)->fetch_object();
+
 
     $fecha_f = date('Y-m-d h:i:s', time());
 
-
-
-
-    $rsencuesta->registrar_encuesta($id_persona->id_persona,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip);
-     $id_encuesta=$encuesta->traer_id_encuesta($id_persona->id_persona)->fetch_object();
     $pregunta5="";
     foreach ($_POST['5'] as $key => $value) {
       # code...
@@ -74,10 +68,9 @@ switch ($op) {
       # code...
       $pregunta6=$pregunta6.",".$value;
     }
+    $rsencuesta->guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6);
 
-
-    //respuestas
-    $respuestas->registrar_respuesta($id_encuesta->id_encuesta,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6,1,2,3,4,5,6);
+    //
 
     echo 1;
 
