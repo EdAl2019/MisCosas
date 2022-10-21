@@ -21,7 +21,7 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
         # code...
     }
     $sql = "call guardar_encuesta('$identidad','$qr',$id_usuario,$id_punto_control,'$fecha_i','$fecha_f','$ip','$r1','$r2','$r3','$r4','$r5','$r6');";
-    echo $sql;
+   
     return $instancia_conexion->ejecutarConsulta($sql);
 
 }

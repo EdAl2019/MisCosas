@@ -1,7 +1,7 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-error_reporting('E_ALL');
+// ini_set('display_errors', 1);
+// error_reporting('E_ALL');
 require_once "../Modelos/Encuesta_modelo.php"; //refencia del modelo
 date_default_timezone_set('America/Tegucigalpa');
 
@@ -71,13 +71,13 @@ switch ($op) {
     $rsencuesta->guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6);
     if ($rsencuesta) {
       # code...
-      echo $rsencuesta;
+      echo 1;
     }else{
-      echo $rsencuesta;
+    
     }
     //
 
-    echo 1;
+   
 
 
 
