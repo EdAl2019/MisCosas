@@ -77,8 +77,7 @@
                         return "REPORTE GRUPO " + nombre + " - " + now
                     },
                     title: 'ENCUESTADORES',
-                    download: 'open',
-
+                   
 
 
                     customize: function(doc) {
