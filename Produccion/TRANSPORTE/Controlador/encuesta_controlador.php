@@ -69,7 +69,11 @@ switch ($op) {
       $pregunta6=$pregunta6.",".$value;
     }
     $rsencuesta->guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6);
-
+    if ($rsencuesta) {
+      # code...
+    }else{
+      echo $rsencuesta;
+    }
     //
 
     echo 1;
