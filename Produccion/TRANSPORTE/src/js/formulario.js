@@ -18,7 +18,7 @@ function Parametros() {
       user: 0,
     },
     function (data, status) {
-      console.log(data);
+      
       data = JSON.parse(data);
       
 
@@ -49,7 +49,7 @@ function llenar_rutas() {
       $(".rutas").html(r).fadeIn();
       $('.rutas').on('change', function() {
 	
-        console.log("validaop")
+       
        
          var validaop=$('select [value="'+$(this).val()+'"]:selected').each(function(index,Element){ }).length ;
        
@@ -85,7 +85,7 @@ function llenar_rutas() {
 function crear_select_rutas(obj, cantidad) {
   var i = 0;
   var cuerpo = "";
-  console.log(cantidad);
+ 
   for (var i = 0; i < cantidad; i++) {
     cuerpo =
       cuerpo +
@@ -256,7 +256,7 @@ $(document).ready(function () {
     
     if ($("input[id=2]:disabled").attr('disabled')!='disabled'){
       if($('.2-mas').val()==""||$('.2-mas').val()==" "){
-          console.log('valida input')
+         
           pregunta2=undefined;
       }
       }
@@ -291,7 +291,7 @@ $(document).ready(function () {
         mensaje_error.push("Completa el campo: ESCANER QR<br><br>");
       }
       if (identidad === "" || identidad === null || identidad.length < 13) {
-        console.log("MENOR");
+   
         if (identidad.length < 13) {
           mensaje_error.push(
             "Número incompleto o no válido en el campo: IDENTIDAD<br><br>"
@@ -352,7 +352,7 @@ $(document).ready(function () {
         data: datos,
         async:true,
         success: function (data) {
-          console.log(data);
+          
           if (data == 1) {
             Swal.fire({
               position: "top-center",
@@ -377,7 +377,7 @@ $(document).ready(function () {
   $("#IDENTIDAD").on("focusout", function () {
     var identidad = $(this).val();
     var anio = identidad[4] + identidad[5] + identidad[6] + identidad[7];
-    console.log(anio);
+   
 
     if ($(this).val() != "" || $(this).val() === "undifined") {
       if (identidad.length == 13) {
@@ -386,7 +386,7 @@ $(document).ready(function () {
             "../Controlador/encuesta_controlador.php?op=identidad",
             { IDENTIDAD: identidad },
             function (data, status) {
-              console.log(data);
+            
               if (data == 0) {
                 $("#IDENTIDAD").val("");
                 Swal.fire({
@@ -461,13 +461,13 @@ $(document).ready(function () {
   $("#QR").val();
   $("#QR").on("change", function () {
     var qr = $(this).val();
-    console.log("Cambie")
+
     if ($(this).val() != "" || $(this).val() === "undifined") {
       $.post(
         "../Controlador/encuesta_controlador.php?op=qr",
         { QR: qr },
         function (data, status) {
-          console.log(data);
+        
           if (data == 0) {
             $("#QR").val("");
             Swal.fire({
