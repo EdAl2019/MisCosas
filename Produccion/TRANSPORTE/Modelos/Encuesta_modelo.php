@@ -1,4 +1,7 @@
 <?php
+
+use encuesta as GlobalEncuesta;
+
 require_once('../Config/conexion.php');
 require_once('../WebService/RNP/rnp_class.php');
 $instancia_conexion = new conexion();
@@ -206,6 +209,8 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
 }
 
 
+$instancia=new encuesta();
+$r=$instancia->guardar_encuesta('0000000000008','',1,127,'2022-10-13 01:53:36','2022-10-13 02:53:36','190.130.9.50','TRABAJO','2','2','1',',OTROS',',Carrizal - La Sosa,Carrizal - Metromall -UNAH -Sosa');
 
 
 
