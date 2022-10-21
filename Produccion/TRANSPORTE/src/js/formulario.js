@@ -350,6 +350,7 @@ $(document).ready(function () {
         url: "../Controlador/encuesta_controlador.php?op=registrar",
         type: "POST",
         data: datos,
+        async:true,
         success: function (data) {
           console.log(data);
           if (data == 1) {
