@@ -37,6 +37,7 @@ function listar_general() {
         };
 
         options.timeZoneName = 'short';
+        var now = today.toLocaleString('es-ES', options);
     datos = "$op=general";
     //console.log('ejecutandose');
     $('#reporte_general').DataTable({
