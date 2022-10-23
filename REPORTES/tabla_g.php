@@ -27,6 +27,16 @@
 <script>
 
 function listar_general() {
+    var today = new Date();
+
+        var options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+
+        options.timeZoneName = 'short';
     datos = "$op=general";
     //console.log('ejecutandose');
     $('#reporte_general').DataTable({
@@ -81,13 +91,8 @@ function listar_general() {
             {
                 extend:'excel',
                 filename: function () {
-                    var today = new Date();
                     
-                    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                    options.timeZone = 'UTC';
-                    options.timeZoneName = 'short';
-                    
-                    var now = today.toLocaleString('es-ES', options);
+                   
                     return "REPORTE GENERAL - "+now
                 }
             },
@@ -96,12 +101,7 @@ function listar_general() {
                 extend: 'pdf',
                 filename: function () {
                     var today = new Date();
-                    
-                    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                    options.timeZone = 'UTC';
-                    options.timeZoneName = 'short';
-                    
-                    var now = today.toLocaleString('es-ES', options);
+                 
                     return "REPORTE GENERAL - "+now
                 },
             
