@@ -141,13 +141,14 @@
                     "5" => $reg->nombres,
                     "6" => $reg->apellidos,
                     "7" => $reg->identidad,
-                    "8" => $reg->pregunta1,
-                    "9" => $reg->pregunta2,
-                    "10" => $reg->pregunta3,
-                    "11" => $reg->pregunta4,
-                    "12" => $reg->pregunta5,
-                    "13" => $reg->pregunta6,
-                    "14" => $reg->usuario,
+                    "8"=> $reg->telefono, 
+                    "9"=> $reg->pregunta1,
+                    "10" => $reg->pregunta2,
+                    "11" => $reg->pregunta3,
+                    "12" => $reg->pregunta4,
+                    "13" => $reg->pregunta5,
+                    "14" => $reg->pregunta6,
+                    "15" => $reg->usuario,
 
                   );
                 }

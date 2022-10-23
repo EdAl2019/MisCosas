@@ -9,6 +9,7 @@
                         <th>NOMBRE </th>
                         <th>APELLIDO</th>
                         <th>IDENTIDAD</th>
+                        <th>TELÉFONO</th>
                         <th>¿A DÓNDE SE DIRIGE?</th>
                         <th>¿CON QUÉ FRECUENCIA UTILIZA TRANSPORTE URBANO?</th>
                         <th>¿CUÁNTAS UNIDADES DE TRANSPORTE UTILIZA PARA LLEGAR A SU DESTINO?</th>
