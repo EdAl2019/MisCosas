@@ -18,9 +18,9 @@ function Parametros() {
       user: 0,
     },
     function (data, status) {
-      
+
       data = JSON.parse(data);
-      
+
 
       $("#usuario").html("Encuestador: " + data.Nombres + " " + data.Apellidos);
     }
@@ -37,55 +37,62 @@ var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
   qrbox: 250,
 });
 html5QrcodeScanner.render(onScanSuccess, onScanError);
-
-function llenar_rutas() {
+var rutas = [];
+function asignar_rutas() {
   cadena = "&activar='activar'";
-
   $.ajax({
     url: "../Controlador/encuesta_controlador.php?op=select_ruta",
     type: "POST",
     data: cadena,
     success: function (r) {
-      $(".rutas").html(r).fadeIn();
-      $('.rutas').on('change', function() {
-	
-       
-       
-         var validaop=$('select [value="'+$(this).val()+'"]:selected').each(function(index,Element){ }).length ;
-       
-         if (validaop>1) {
-          
-          
-           $(this).val('null')
-           $(this).attr('elegido',false)
-           Swal.fire({
-             position: "",
-             imageUrl: "../src/img/firma.jpg",
-             imageWidth: 100,
-             imageHeight: 100,
-             imageAlt: "Custom image",
-             icon: "error",
-             title: "<h6 style='color:red;'>No se puede repetir la ruta</h6>",
-             showConfirmButton: true,
-             timer: false,
-           });
-           
-         }else{
-           $(this).removeAttr('elegido')
-         }
-       
-       
-       }); 
-     
-  
+      rutas = r;
+
+
     },
   });
- 
+
+}
+
+function llenar_rutas() {
+  cadena = "&activar='activar'";
+  $(".rutas").html(rutas).fadeIn();
+  $('.rutas').on('change', function () {
+
+
+
+    var validaop = $('select [value="' + $(this).val() + '"]:selected').each(function (index, Element) { }).length;
+
+    if (validaop > 1) {
+
+
+      $(this).val('null')
+      $(this).attr('elegido', false)
+      Swal.fire({
+        position: "",
+        imageUrl: "../src/img/firma.jpg",
+        imageWidth: 100,
+        imageHeight: 100,
+        imageAlt: "Custom image",
+        icon: "error",
+        title: "<h6 style='color:red;'>No se puede repetir la ruta</h6>",
+        showConfirmButton: true,
+        timer: false,
+      });
+
+    } else {
+      $(this).removeAttr('elegido')
+    }
+
+
+  });
+
+
+
 }
 function crear_select_rutas(obj, cantidad) {
   var i = 0;
   var cuerpo = "";
- 
+
   for (var i = 0; i < cantidad; i++) {
     cuerpo =
       cuerpo +
@@ -95,12 +102,12 @@ function crear_select_rutas(obj, cantidad) {
   }
   $(obj).html(cuerpo).fadeIn();
   llenar_rutas();
- 
+
 }
 function minimo() {
   var tecla = event.key;
 
-  if (tecla < 5) ;
+  if (tecla < 5);
   event.preventDefault(5);
 }
 function filtro() {
@@ -121,10 +128,11 @@ $(".4-mas").prop("disabled", true);
 
 
 $(document).ready(function () {
-  
- 
-  
- 
+
+
+  asignar_rutas();
+
+
   var input_identidad = document.getElementById("IDENTIDAD");
   input_identidad.addEventListener("input", function () {
     if (this.value.length > 13) this.value = this.value.slice(0, 13);
@@ -197,16 +205,16 @@ $(document).ready(function () {
     }
   });
   $(".3-mas").on("focusout", function () {
-    if($(this).val()<5 || $(this).val()==""){
+    if ($(this).val() < 5 || $(this).val() == "") {
       $(this).val(5)
     }
     crear_select_rutas("#contenedor_rutas", $(this).val());
   });
   $(".4-mas").on("focusout", function () {
-    if($(this).val()<5 || $(this).val()==""){
+    if ($(this).val() < 5 || $(this).val() == "") {
       $(this).val(5)
     }
-   
+
   });
   $(".radio4").on("click", function () {
     $(".4-mas").val(5);
@@ -231,7 +239,7 @@ $(document).ready(function () {
 
   $("#guardar").on("click", function () {
     datos = $("#formulario-encuesta").serialize();
-    
+
     //validaciones
     var mensaje_error = [];
     var qr = $("#QR").val();
@@ -252,20 +260,20 @@ $(document).ready(function () {
     var pregunta4 = $("input[id=4]:checked", "#formulario-encuesta").val();
 
     var pregunta5 = $("input[id=5]:checked").val();
-    var valida6=0
-    
-    if ($("input[id=2]:disabled").attr('disabled')!='disabled'){
-      if($('.2-mas').val()==""||$('.2-mas').val()==" "){
-         
-          pregunta2=undefined;
+    var valida6 = 0
+
+    if ($("input[id=2]:disabled").attr('disabled') != 'disabled') {
+      if ($('.2-mas').val() == "" || $('.2-mas').val() == " ") {
+
+        pregunta2 = undefined;
       }
-      }
-    $('.rutas').each(function(index,element){
-      if($(element).attr('elegido')=='false'){
-        valida6=valida6+1
+    }
+    $('.rutas').each(function (index, element) {
+      if ($(element).attr('elegido') == 'false') {
+        valida6 = valida6 + 1
       }
     })
-  
+
     var pregunta6 = $(".rutas").children().prop("selected");
 
     if (
@@ -284,14 +292,14 @@ $(document).ready(function () {
       pregunta5 === "" ||
       pregunta6 === true ||
       pregunta6 === "true" ||
-      valida6>0
-     
+      valida6 > 0
+
     ) {
       if (qr === "" || qr === null) {
         mensaje_error.push("Completa el campo: ESCANER QR<br><br>");
       }
       if (identidad === "" || identidad === null || identidad.length < 13) {
-   
+
         if (identidad.length < 13) {
           mensaje_error.push(
             "Número incompleto o no válido en el campo: IDENTIDAD<br><br>"
@@ -326,13 +334,13 @@ $(document).ready(function () {
           "Completa el campo: ¿QUÉ OTROS SERVICIOS DE TRANSPORTE UTILIZA FRECUENTEMENTE ? <br><br>"
         );
       }
-      if (pregunta6 === true || pregunta6 === "true" || valida6>0) {
+      if (pregunta6 === true || pregunta6 === "true" || valida6 > 0) {
         mensaje_error.push(
           "Completa el campo: ¿QUÉ RUTA ESPERA UTILZAR? <br><br>"
         );
       }
-     
-     
+
+
       Swal.fire({
         position: "",
         imageUrl: "../src/img/firma.jpg",
@@ -345,39 +353,64 @@ $(document).ready(function () {
         timer: false,
       });
     } else {
-      $("#guardar").prop("disabled",true)
+      $("#guardar").prop("disabled", true)
       $.ajax({
         url: "../Controlador/encuesta_controlador.php?op=registrar",
         type: "POST",
         data: datos,
-        async:true,
+        async: true,
         success: function (data) {
-          
-          if (data == 1) {
-            Swal.fire({
-              position: "top-center",
-              imageUrl: "../src/img/firma.jpg",
-              imageWidth: 100,
-              imageHeight: 100,
-              imageAlt: "Custom image",
-              icon: "success",
-              title:
-                "Datos guardados correctamente.<br> ¡Gracias por participar!",
-              showConfirmButton: false,
-              footer: "<a class='btn btn-primary' href='formulario.php'>Ok</a>",
-              timer: false,
-            });
-          } else {
-            console.log(data);
-          }
+          //esto es para dar un tiempo
+          let timerInterval
+          Swal.fire({
+            title: 'PROCESANDO',
+            html: 'Espera.. se esta enviando la encuesta.',
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading()
+              const b = Swal.getHtmlContainer().querySelector('b')
+              timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+              }, 100)
+            },
+            willClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+          // esto ocurre despues del swall
+            if (data == 1) {
+              Swal.fire({
+                position: "top-center",
+                imageUrl: "../src/img/firma.jpg",
+                imageWidth: 100,
+                imageHeight: 100,
+                imageAlt: "Custom image",
+                icon: "success",
+                title:
+                  "Datos guardados correctamente.<br> ¡Gracias por participar!",
+                showConfirmButton: false,
+                footer: "<a class='btn btn-primary' href='formulario.php'>Ok</a>",
+                timer: false,
+              });
+            } else {
+              console.log(data);
+            }
+          })// fin de dar un tiempo
+
+
+         
         },
       }); //fin del ajax
     }
   }); //btn guardar.
+
+
+  // Identidad
   $("#IDENTIDAD").on("focusout", function () {
     var identidad = $(this).val();
     var anio = identidad[4] + identidad[5] + identidad[6] + identidad[7];
-   
+
 
     if ($(this).val() != "" || $(this).val() === "undifined") {
       if (identidad.length == 13) {
@@ -386,7 +419,7 @@ $(document).ready(function () {
             "../Controlador/encuesta_controlador.php?op=identidad",
             { IDENTIDAD: identidad },
             function (data, status) {
-            
+
               if (data == 0) {
                 $("#IDENTIDAD").val("");
                 Swal.fire({
@@ -467,7 +500,7 @@ $(document).ready(function () {
         "../Controlador/encuesta_controlador.php?op=qr",
         { QR: qr },
         function (data, status) {
-        
+
           if (data == 0) {
             $("#QR").val("");
             Swal.fire({
@@ -515,5 +548,7 @@ $(document).ready(function () {
   }); //consulta QR
 
 
- 
+
 }); //fin de document ready
+
+
