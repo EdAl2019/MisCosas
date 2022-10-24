@@ -10,6 +10,10 @@ if (isset($_SESSION['Usuario'])) { ?>
   require("head.php");
   ?>
 
+  <style type="text/css">
+
+
+  </style>
 
 </head>
 
@@ -25,26 +29,10 @@ if (isset($_SESSION['Usuario'])) { ?>
 
 
 
-        <div class="col-sm-6">
+        <div class="col-sm-12">
 
-          <div class="col-sm-12" style="padding-top:20px;">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">REPORTE GENERAL</div>
-                <div> <input type="date" class="form-control" value="2022" min="2022-10-13" max="2022-12-30" name="fecha_general" id="fecha_general"> </div>
-               
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div id="contenedor_tabla_general"></div>
-                  </div>
-                  <div class="col-sm-12">
-                    <h1>____________________________________________________________________________________</h1>
-                  </div>
-
-                </div>
-              </div>
-            </div>
+          <div class="col-sm-12" style="">
+            
             <div class="card">
               <div class="card-header">
                 <div class="card-title">REPORTE ENCUESTADORES</div>
@@ -64,32 +52,20 @@ if (isset($_SESSION['Usuario'])) { ?>
                  </div>
               </div>
               <div class="card-body">
-                <div class="col-sm-12">
-                  <div id="contenedor_tabla"></div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div id="contenedor_tabla" class=""></div>
 
                 </div>
+              </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-sm-6" style="margin-left:0%; margin-right:0%;">
+        <div class="col-sm-12" style="margin-left:0%; margin-right:0%;">
 
-          <div class="col-sm-12" style="padding-top:20px;" hidden>
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title ">GRÁFICA GENERAL</div>
-
-              </div>
-              <div class="card-body">
-                <div class="col-sm-12">
-                  <canvas></canvas>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
+        
           <div class="col-sm-12" style="float: left;">
             <div class="card">
               <div class="card-header">
@@ -123,7 +99,7 @@ if (isset($_SESSION['Usuario'])) { ?>
   ?>
   <!-- JavaScript Bundle with Popper -->
 
-  <script src="index.js"></script>
+  <script src="supervisores.js"></script>
 
 </body>
 

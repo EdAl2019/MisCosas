@@ -1,4 +1,4 @@
-<table id="reporte_encuestadores" class="table table-bordered table-striped">
+<table id="reporte_encuestadores" class="table-bordered table-striped display">
     <thead>
         <tr>
             <th>GRUPO</th>
@@ -125,8 +125,8 @@
             ],
 
             select: true,
-
-            
+           
+            scrollX: true,
 
             "ajax": {
                 url: 'controlador.php?op=encuestadores',

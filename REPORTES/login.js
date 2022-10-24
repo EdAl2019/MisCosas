@@ -10,8 +10,11 @@ $(document).ready(function () {
            if (response==1) {
             console.log(response);
             window.location='reportes.php';
+           }else if(response==2){
+            window.location='reportes_supervisores.php';
            }else{
-            alert("Usuario o contraseña incorrectos")
+            alert("Usuario o contraseña incorrectos"+ response)
+
            }
         }
     });
