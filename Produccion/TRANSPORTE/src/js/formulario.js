@@ -504,7 +504,7 @@ $(document).ready(function () {
         "../Controlador/encuesta_controlador.php?op=qr",
         { QR: qr },
         function (data, status) {
-
+          console.log(data)
           if (data == 0) {
             $("#QR").val("");
             Swal.fire({
@@ -554,5 +554,29 @@ $(document).ready(function () {
 
 
 }); //fin de document ready
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

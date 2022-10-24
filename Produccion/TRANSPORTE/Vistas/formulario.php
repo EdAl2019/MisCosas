@@ -3,7 +3,22 @@
 session_start();
 $sesion=session_get_cookie_params();
 
-if (isset($_SESSION['Id_usuario'])) { ?>
+if (isset($_SESSION['Id_usuario'])) { 
+  date_default_timezone_set('America/Tegucigalpa');
+
+
+
+
+  $f_a = date('H:i:s', time());
+
+  $f_i = date('06:00:00', time());
+
+  $f_f = date('18:00:00', time());
+
+  echo $f_a;
+
+  
+  ?>
   <!DOCTYPE html>
 <html lang="es">
 
@@ -405,6 +420,34 @@ if (isset($_SESSION['Id_usuario'])) { ?>
 </html>
 
 
-  <?php } else {# code...
+  <?php
+ 
+  if ($f_a<$f_f && $f_a>$f_i) {
+  
+       # code...
+   }else  {
+       # code...
+       echo "<script>
+       Swal.fire({
+         position: 'top-center',
+         imageUrl: '../src/img/firma.jpg',
+         imageWidth: 100,
+         imageHeight: 100,
+         imageAlt: 'Custom image',
+         icon: 'alert',
+         title:
+           'Ya se termino la jornada de encuestas, se cerrará la sesión.',
+         showConfirmButton: false,
+         footer: '".'<a class='.'"btn btn-primary"'.' href="'.'../Controlador/logout_controlador.php'.'">Ok</a>'."',
+         timer: false,
+       });
+       
+       </script>";  
+    
+   }
+ 
+} else {# code...
+     
+  
      echo "<script> window.location='https://190.130.9.62/TRANSPORTE/index.php'; </script>";}
 ?>
