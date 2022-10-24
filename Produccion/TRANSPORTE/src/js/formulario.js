@@ -37,7 +37,10 @@ var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
   qrbox: 250,
 });
 html5QrcodeScanner.render(onScanSuccess, onScanError);
+
+//Guardar rutas en una variable
 var rutas = [];
+
 function asignar_rutas() {
   cadena = "&activar='activar'";
   $.ajax({
@@ -51,8 +54,9 @@ function asignar_rutas() {
     },
   });
 
-}
+}// fin
 
+//Usamos la variable rutas para asignarlas a los selects
 function llenar_rutas() {
   cadena = "&activar='activar'";
   $(".rutas").html(rutas).fadeIn();
