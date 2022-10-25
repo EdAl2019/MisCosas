@@ -436,10 +436,14 @@ if (isset($_SESSION['Id_usuario'])) {
          imageAlt: 'Custom image',
          icon: 'alert',
          title:
-           'Ya se termino la jornada de encuestas, se cerrará la sesión.',
+           'Ya se terminó la jornada de encuestas, se cerrará la sesión.',
          showConfirmButton: false,
          footer: '".'<a class='.'"btn btn-primary"'.' href="'.'../Controlador/logout_controlador.php'.'">Ok</a>'."',
-         timer: false,
+         timer: 2000,
+         timerProgressBar: true,
+       }).then(()=>{
+        window.location='../Controlador/logout_controlador.php';
+
        });
        
        </script>";  

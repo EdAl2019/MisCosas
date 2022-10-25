@@ -187,7 +187,7 @@ const funcionInit = () => {
 	const onErrorDeUbicacion = err => {
 
 	
-		alert("Error obteniendo ubicación: ", err);
+		
        denegado=true;
      
       
