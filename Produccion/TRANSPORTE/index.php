@@ -137,6 +137,7 @@
                             <div class="card-footer text-center">
                                 <button type="submit" name="entrar" id="entrar"
                                     class="submit btn btn-primary" <?php echo $input; ?>><h4>ENTRAR</h4></button>
+                                   
                             </div>
                           
                            
@@ -162,6 +163,51 @@
    
 
     <script src="src/js/login.js"></script>
+    <script>
+        $("#permisoGPS").click(function(){
+          location.reload()
+            
+        });
+var denegado
+const funcionInit = () => {
+	if (!"geolocation" in navigator) {
+		return alert("Tu navegador no soporta el acceso a la ubicación. Intenta con otro");
+	}
+
+
+
+
+	const onUbicacionConcedida = ubicacion => {
+		console.log("Tengo la ubicación: ", ubicacion);
+		const coordenadas = ubicacion.coords;
+	    coordenadas.latitude;
+		 coordenadas.longitude;
+		
+	}
+	const onErrorDeUbicacion = err => {
+
+	
+		alert("Error obteniendo ubicación: ", err);
+       denegado=true;
+     
+      
+	}
+
+	const opcionesDeSolicitud = {
+		enableHighAccuracy: true, // Alta precisión
+		maximumAge: 0, // No queremos caché
+		timeout: 5000 // Esperar solo 5 segundos
+	};
+
+	
+	navigator.geolocation.getCurrentPosition(onUbicacionConcedida, onErrorDeUbicacion, opcionesDeSolicitud);
+
+};
+document.addEventListener("DOMContentLoaded", funcionInit);
+
+
+
+    </script>
 
 </body>
 

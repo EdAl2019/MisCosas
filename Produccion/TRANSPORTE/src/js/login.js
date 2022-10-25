@@ -27,6 +27,7 @@ function eliminarCookies() {
 llenar_puntos_control();
 
 $(document).ready(function () {
+	
     $("#usuario").on("keydown",function () {
 		var tecla = event.key;
 
