@@ -10,10 +10,10 @@ class model{
        
         return $instancia_conexion->ejecutarConsulta($sql);
     }
-    function edad($id,$edad)
+    function edad($id,$edad,$sexo)
     {
-        global $instancia_conexion;
-        $sql="update TBL_PERSONAS set edad=$edad where id_persona=$id;";
+       // global $instancia_conexion;
+        $sql="update TBL_PERSONAS set edad=$edad, sexo='$sexo' where id_persona=$id;";
         //$consulta = $instancia_conexion->ejecutarConsulta($sql);
 
         echo $sql;
@@ -85,7 +85,7 @@ while ($a= $rsp->fetch_object()) {
     $edad=2022-intval($edad);
     $sexo=$info->Sexo;
   
-    $updates=$updates. "<p style='color:red;'>$i</p>:  ". $a->identidad." ".$edad." ".$sexo."<br>";
+    $updates=$updates. "<p style='color:red;'>$i</p>:  ". $a->identidad." ".$edad." ".$sexo." query: ".$instancia->edad($a->id_persona,$edad,$sexo)."<br>";
     $i++;
    
         # code...
