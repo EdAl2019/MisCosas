@@ -6,7 +6,7 @@ class model{
 
         global $instancia_conexion;
 
-        $sql='select id_persona,edad, identidad from TBL_PERSONAS where id_persona>6682 and id_persona<6692';
+        $sql='select id_persona,edad, identidad from TBL_PERSONAS where id_persona>6682 and id_persona<7682';
        
         return $instancia_conexion->ejecutarConsulta($sql);
     }
@@ -85,7 +85,7 @@ while ($a= $rsp->fetch_object()) {
     $edad=2022-intval($edad);
     $sexo=$r->Sexo;
   
-    $updates=$updates. "<p style='color:red;'>$i</p>:  ". $a->identidad." ".$edad." ".$sexo." query: ".$instancia->edad($a->id_persona,$edad,$sexo)."<br>";
+    $updates=$updates. "<p style='color:red;'> ".$instancia->edad($a->id_persona,$edad,$sexo)."</p><br>";
     $i++;
    
         # code...
