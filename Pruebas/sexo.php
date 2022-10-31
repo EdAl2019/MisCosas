@@ -83,7 +83,7 @@ while ($a= $rsp->fetch_object()) {
     $r=$ins->Identidad_persona();
     $edad=substr($r->FechaDeNacimiento,0,4);
     $edad=2022-intval($edad);
-    $sexo=$info->Sexo;
+    $sexo=$r->Sexo;
   
     $updates=$updates. "<p style='color:red;'>$i</p>:  ". $a->identidad." ".$edad." ".$sexo." query: ".$instancia->edad($a->id_persona,$edad,$sexo)."<br>";
     $i++;
