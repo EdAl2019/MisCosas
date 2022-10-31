@@ -16,7 +16,7 @@ class model{
         $sql="update TBL_PERSONAS set edad=$edad, sexo='$sexo' where id_persona=$id;";
         //$consulta = $instancia_conexion->ejecutarConsulta($sql);
 
-        echo $sql;
+        return $sql;
     }
 }
 class Web_Service_RNP
