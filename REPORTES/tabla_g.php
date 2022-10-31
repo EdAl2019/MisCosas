@@ -9,6 +9,7 @@
                         <th>NOMBRE </th>
                         <th>APELLIDO</th>
                         <th>IDENTIDAD</th>
+                        <th>EDAD</th>
                         <th>TELÉFONO</th>
                         <th>¿A DÓNDE SE DIRIGE?</th>
                         <th>¿CON QUÉ FRECUENCIA UTILIZA TRANSPORTE URBANO?</th>

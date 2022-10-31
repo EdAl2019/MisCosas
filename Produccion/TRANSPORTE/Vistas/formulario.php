@@ -1,10 +1,14 @@
 <?php
-
+session_set_cookie_params(60*60*24*1);
 session_start();
-$sesion=session_get_cookie_params();
+$id_usuario=$_SESSION['Id_usuario'];
+
+
 
 if (isset($_SESSION['Id_usuario'])) { 
   date_default_timezone_set('America/Tegucigalpa');
+  
+echo "<script> var id_user=$id_usuario</script>";
 
 
 
@@ -453,5 +457,5 @@ if (isset($_SESSION['Id_usuario'])) {
 } else {# code...
      
   
-     echo "<script> window.location='https://190.130.9.62/TRANSPORTE/index.php'; </script>";}
+     echo "<script> window.location='https://190.130.9.62/TRANSPORTE/Controlador/logout_controlador.php?id=$id_usuario '; </script>";}
 ?>

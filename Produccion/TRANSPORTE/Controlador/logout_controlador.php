@@ -2,9 +2,10 @@
 
 session_start();
 require_once "../Modelos/login_modelo.php"; //refencia del modelo
-
+$id_usuario=isset($_GET["id"]) ? limpiarCadena1($_GET["id"]) : $_SESSION['Id_usuario'];
 $instacia_modelo=new login();
-$instacia_modelo->desactivar_sesion($_SESSION['Id_usuario']);
+$instacia_modelo->desactivar_sesion($id_usuario);
+
         unset($_SESSION['usuario']);
         $_SESSION = array();
         if (ini_get("session.use_cookies")) {
@@ -20,7 +21,7 @@ $instacia_modelo->desactivar_sesion($_SESSION['Id_usuario']);
             );
             session_destroy();
             
-         header("location: https://190.130.9.62/TRANSPORTE/index.php");
+        header("location: https://190.130.9.62/TRANSPORTE/index.php");
    
             
         }

@@ -1,8 +1,8 @@
 <?php
 session_set_cookie_params(60*60*24*1);
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 require_once "../Modelos/login_modelo.php"; //refencia del modelo
 

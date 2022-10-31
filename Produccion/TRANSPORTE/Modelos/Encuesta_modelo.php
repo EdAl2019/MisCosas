@@ -65,10 +65,13 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
 
             $nombres=$info->Nombres;
             $apellidos=$info->PrimerApellido." ".$info->SegundoApellido;
+            $edad=substr($info->FechaDeNacimiento,0,4);
+            $edad=2022-intval($edad);
+            $sexo=$info->Sexo;
 
 
-        $sql = "insert into TBL_PERSONAS (nombres,apellidos,identidad,qr,telefono,direccion)
-        values('$nombres','$apellidos','$identidad','$qr','$telefono','$direccion');";
+        $sql = "insert into TBL_PERSONAS (nombres,apellidos,identidad,qr,telefono,direccion,edad,sexo)
+        values('$nombres','$apellidos','$identidad','$qr','$telefono','$direccion','$edad','$sexo');";
         return $instancia_conexion->ejecutarConsulta($sql);
         # code...
     }

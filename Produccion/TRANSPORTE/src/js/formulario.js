@@ -21,7 +21,7 @@ function Parametros() {
 
       data = JSON.parse(data);
 
-
+      
       $("#usuario").html("Encuestador: " + data.Nombres + " " + data.Apellidos);
     }
   );

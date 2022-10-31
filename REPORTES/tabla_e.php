@@ -74,9 +74,10 @@
                     extend: 'pdf',
                     filename: function() {
 
-                        return "REPORTE GRUPO " + nombre + " - " + now
+                        return "REPORTE GRUPO " + nombre + " - " + now;
                     },
                     title: 'ENCUESTADORES',
+                    body:'',
                    
 
 
