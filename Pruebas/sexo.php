@@ -76,6 +76,7 @@ class Web_Service_RNP
 $instancia= new model();
 $rsp=$instancia->traerdatos();
 $i=1;
+$updates="";
 while ($a= $rsp->fetch_object()) {
     if (!empty($a) and $a->edad=="") {
     $ins=new Web_Service_RNP($a->identidad,'');
@@ -84,10 +85,9 @@ while ($a= $rsp->fetch_object()) {
     $edad=2022-intval($edad);
     $sexo=$info->Sexo;
   
-    echo "<p style='color:red;'>$i</p>:  ". $a->identidad." ".$edad." ".$sexo."<br>";
+    $updates=$updates. "<p style='color:red;'>$i</p>:  ". $a->identidad." ".$edad." ".$sexo."<br>";
     $i++;
-    $edads=$instancia->edad($a->id_persona,$edad);
-    echo "<br>";
+   
         # code...
     }# code...
 }
