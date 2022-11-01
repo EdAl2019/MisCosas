@@ -21,7 +21,7 @@
                             <a class="dropdown-item" href="formulario.php"><i class="fa fa-users" aria-hidden="true"></i> MAYORES DE EDAD</a>
                             <div class="dropdown-divider"></div>
                             
-                            <a class="dropdown-item" href="formulario_menor_edad.php"><i class="fa fa-child" aria-hidden="true"></i> MENORES DE EDAD</a>
+                            <a class="dropdown-item" href="formulario_menor_edad.php"><i class="fa fa-child" aria-hidden="true" hidden></i> MENORES DE EDAD</a>
                             
                         </div>
                     </li>
