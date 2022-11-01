@@ -187,7 +187,7 @@ const funcionInit = () => {
 	}
 	const onErrorDeUbicacion = err => {
 
-        alert("FALLO LA UBICACION")
+        //("FALLO LA UBICACION")
 		
        denegado=true;
      
