@@ -100,9 +100,9 @@ function crear_select_rutas(obj, cantidad) {
   for (var i = 0; i < cantidad; i++) {
     cuerpo =
       cuerpo +
-      '  <label for="exampleInputPassword1"><strong>RUTA ' +
+      '  <label for=""><strong>RUTA ' +
       (i + 1) +
-      '  </strong> </label> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  <br>  <select name="6[]" id="6" class="form-control rutas">  </select>';
+      '  </strong> </label> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  <br>  <select name="6[]" id="6" class="form-control rutas" elegido="false">  </select>';
   }
   $(obj).html(cuerpo).fadeIn();
   llenar_rutas();
@@ -240,6 +240,23 @@ $(document).ready(function () {
 
     if ([".", "e"].includes(tecla)) event.preventDefault();
   });
+  $("#TELEFONO").on("focusout",function () {
+    if ($(this).val().length!=8 || $(this).val()<80000000 || $(this).val()> 100000000 ) {
+      Swal.fire({
+        position: "",
+        imageUrl: "../src/img/firma.jpg",
+        imageWidth: 100,
+        imageHeight: 100,
+        imageAlt: "Custom image",
+        icon: "error",
+        title: "<h6 style='color:red;'>NÚMERO DE TELÉFONO INCOMPLETO</h6>",
+        showConfirmButton: true,
+        timer: false,
+      });
+      $(this).val('')
+    }
+    
+  })
 
   $("#guardar").on("click", function () {
     datos = $("#formulario-encuesta").serialize();

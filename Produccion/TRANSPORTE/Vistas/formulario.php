@@ -195,49 +195,49 @@ echo "<script> var id_user=$id_usuario</script>";
                     
                     <div class="form-check">
                       <input class="form-check-input radio2" type="radio" value="1" name="2" id="2">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         1
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio2" type="radio" value="2" name="2" id="2">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         2
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio2" type="radio" value="3" name="2" id="2">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         3
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio2" type="radio" value="4" name="2" id="2">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         4
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio2" type="radio" value="5" name="2" id="2">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         5
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio2" type="radio" value="6" name="2" id="2">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         6
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio2" type="radio" value="7" name="2" id="2">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         7
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input frecuencia-mas" type="radio" name="2" id="2">
-                      <label class="form-check-label" for="2">
+                      <label class="form-check-label" for="">
                         OTROS:
 
                       </label> <input class="2-mas" type="text" onkeyup="this.value=this.value.replace('  ',' ');" onkeydown="filtro2();" id="2" placeholder="Especifique.."  name="2"  required>
@@ -256,31 +256,31 @@ echo "<script> var id_user=$id_usuario</script>";
                     </label>
                     <div class="form-check">
                       <input class="form-check-input radio3" type="radio" value="1" name="3" id="3">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         1
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio3" type="radio" value="2" name="3" id="3">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         2
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio3" type="radio" value="3" name="3" id="3">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         3
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio3" value="4" type="radio" name="3" id="3">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         4
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input transporte-mas" type="radio" name="3" id="3">
-                      <label class="form-check-label" for="3">
+                      <label class="form-check-label" for="">
                         Más de 4:
 
                       </label> <input class="3-mas" type="number" onkeydown="filtro();" focusout="minimo();"id="3" value="5" placeholder="5"  name="3"  min="5" max="15" required>
@@ -302,25 +302,25 @@ echo "<script> var id_user=$id_usuario</script>";
                     </label>
                     <div class="form-check">
                       <input class="form-check-input radio4" type="radio" value="1" name="4" id="4">
-                      <label class="form-check-label" for="4">
+                      <label class="form-check-label" for="">
                         1
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio4" type="radio" value="2" name="4" id="4">
-                      <label class="form-check-label" for="4">
+                      <label class="form-check-label" for="">
                         2
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio4" type="radio" value="3" name="4" id="4">
-                      <label class="form-check-label" for="4">
+                      <label class="form-check-label" for="">
                         3
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input radio4" type="radio" value="4" name="4" id="4">
-                      <label class="form-check-label" for="4">
+                      <label class="form-check-label" for="">
                         4
                       </label>
                     </div>
@@ -341,28 +341,28 @@ echo "<script> var id_user=$id_usuario</script>";
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="COLECTIVOS" name="5[]"
                         id="5">
-                      <label class="form-check-label" for="flexCheckDefault">
+                      <label class="form-check-label" for="">
                         COLECTIVOS
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="MOTO-TAXIS" name="5[]"
                         id="5">
-                      <label class="form-check-label" for="OTROS_SERVICIOS">
+                      <label class="form-check-label" for="">
                         MOTO-TAXIS
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value='MICRO-BUS "BRUJITOS"' name="5[]"
                         id="5">
-                      <label class="form-check-label" for="OTROS_SERVICIOS">
+                      <label class="form-check-label" for="">
                         MICRO-BUS "BRUJITOS"
                       </label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value='OTROS"' name="5[]"
                         id="5">
-                      <label class="form-check-label" for="OTROS_SERVICIOS">
+                      <label class="form-check-label" for="">
                         OTROS
                       </label>
                     </div>

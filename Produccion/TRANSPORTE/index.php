@@ -182,11 +182,12 @@ const funcionInit = () => {
 		const coordenadas = ubicacion.coords;
 	    coordenadas.latitude;
 		 coordenadas.longitude;
+    
 		
 	}
 	const onErrorDeUbicacion = err => {
 
-	
+        alert("FALLO LA UBICACION")
 		
        denegado=true;
      
