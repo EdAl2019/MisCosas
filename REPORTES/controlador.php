@@ -1,6 +1,7 @@
 <?php 
     require 'modelo.php';
      ini_set('display_errors', 1);
+     ini_set('memory_limit', '512M');
    // error_reporting('E_ALL');
     $op=isset($_POST["op"])? $_POST["op"] : "";
     $fecha_e=isset($_POST["fecha_e"])? $_POST["fecha_e"] : "";
