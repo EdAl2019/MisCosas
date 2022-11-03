@@ -1,6 +1,7 @@
 <?php 
     require 'modelo.php';
-    
+     ini_set('display_errors', 1);
+    error_reporting('E_ALL');
     $op=isset($_POST["op"])? $_POST["op"] : "";
     $fecha_e=isset($_POST["fecha_e"])? $_POST["fecha_e"] : "";
     $fecha_g=isset($_POST["fecha_g"])? $_POST["fecha_g"] : "";
