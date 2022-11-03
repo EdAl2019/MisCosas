@@ -68,10 +68,11 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
             $edad=substr($info->FechaDeNacimiento,0,4);
             $edad=2022-intval($edad);
             $sexo=$info->Sexo;
+            $estado_civil=$info->EstadoCivil;
 
 
-        $sql = "insert into TBL_PERSONAS (nombres,apellidos,identidad,qr,telefono,direccion,edad,sexo)
-        values('$nombres','$apellidos','$identidad','$qr','$telefono','$direccion','$edad','$sexo');";
+        $sql = "insert into TBL_PERSONAS (nombres,apellidos,identidad,qr,telefono,direccion,edad,sexo,estado_civil)
+        values('$nombres','$apellidos','$identidad','$qr','$telefono','$direccion','$edad','$sexo','$estado_civil');";
         return $instancia_conexion->ejecutarConsulta($sql);
         # code...
     }
@@ -169,7 +170,7 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
       $qr="";
       $instancia_rnp=new Web_Service_RNP($identidad,$qr);
       $validar=$instancia_rnp->Valida_persona();
-      if ($validar->TipoDeError==="RNE" || $validar->TipoDeError==="FII") {
+      if ($validar->TipoDeError==="RNE" || $validar->TipoDeError==="FII" ) {
         // code...
         return 1;
       }

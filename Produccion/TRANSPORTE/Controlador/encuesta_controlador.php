@@ -53,7 +53,7 @@ switch ($op) {
    
      $rsencuesta=$instancia_modelo;
    
-      $rspta->registrar_persona($identidad,$qr,$telefono,$direccion);
+      $rspta->registrar_persona($identidad,$qr,$telefono,$direccion);//registra una persona
 
 
     $fecha_f = date('Y-m-d h:i:s', time());

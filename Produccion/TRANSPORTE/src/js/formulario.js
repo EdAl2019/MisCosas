@@ -1,6 +1,9 @@
-var today = new Date();
+var today = new Date();// Define la hora y fecha inicial de la encuesta
+
+//Esta funcion es para activar la camara QR
 function onScanSuccess(qrCodeMessage) {
-  $("#QR").val(qrCodeMessage).triggerHandler('change');
+  //Se ocultan campos en caso de escanear con exito
+  $("#QR").val(qrCodeMessage).triggerHandler('change');//Agrego un evento change despues de escanear
   $("#reader").hide();
   $("#Detener").click();
   $("contenedor_scaner").hide();
@@ -10,8 +13,9 @@ function onScanSuccess(qrCodeMessage) {
   $("IDENTIDAD").val("");
 }
 
+//trae parametros del usuario, como su nombre y estado de sesión
 function Parametros() {
-  let punto_control = "";
+ 
   $.post(
     "../Controlador/encuesta_controlador.php?op=parametros",
     {
@@ -28,19 +32,20 @@ function Parametros() {
 }
 
 function onScanError(errorMessage) {
-  //handle scan error
+  //Un caso que falle al activar la camara QR
 }
 
-
+//inicia el objeto de camara scanner
 var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
   fps: 10,
   qrbox: 250,
 });
-html5QrcodeScanner.render(onScanSuccess, onScanError);
+html5QrcodeScanner.render(onScanSuccess, onScanError);//le pasamos las funciones de exito y fracaso
 
 //Guardar rutas en una variable
-var rutas = [];
+var rutas = [];// array que guardara las rutas.
 
+//Asignan las rutas al array rutas
 function asignar_rutas() {
   cadena = "&activar='activar'";
   $.ajax({
@@ -64,9 +69,9 @@ function llenar_rutas() {
 
 
 
-    var validaop = $('select [value="' + $(this).val() + '"]:selected').each(function (index, Element) { }).length;
+    var validaop = $('select [value="' + $(this).val() + '"]:selected').each(function (index, Element) { }).length;//calcula cuantos objetos selects hay y compara rutas repetidas
 
-    if (validaop > 1) {
+    if (validaop > 1) {// si encuetra más de un valor repetido arroja error 
 
 
       $(this).val('null')
@@ -93,6 +98,8 @@ function llenar_rutas() {
 
 
 }
+
+//Construye los objetos selects que contienen las rutas
 function crear_select_rutas(obj, cantidad) {
   var i = 0;
   var cuerpo = "";
@@ -108,48 +115,55 @@ function crear_select_rutas(obj, cantidad) {
   llenar_rutas();
 
 }
+
+//Validaciones para los inputs en tamaño
 function minimo() {
   var tecla = event.key;
 
   if (tecla < 5);
   event.preventDefault(5);
 }
-function filtro() {
+function filtro() {//limpia los inputs numericos para los casos de decimales y exponenciales
   var tecla = event.key;
 
   if ([".", "e"].includes(tecla)) event.preventDefault();
 }
-function filtro2() {
+function filtro2() {//Limpia caracteres no requeridos
   var tecla = event.key;
 
   if (["@", "/", "+", "=", "{", "}", "]"].includes(tecla))
     event.preventDefault();
 }
+//ocultamos el formulario antes de cargar pagina
 $("#formulario").hide();
+
+//Desactivamos inputs de opciones especiales
 $(".2-mas").prop("disabled", true);
 $(".3-mas").prop("disabled", true);
 $(".4-mas").prop("disabled", true);
 
 
-$(document).ready(function () {
+$(document).ready(function () {//Funcion que se ejecuta al leer el formulario en navegador.
 
 
-  asignar_rutas();
+  asignar_rutas();//se hace un unico llamado para asignar las rutas al array rutas
 
-
+//valida el tamaño maximo de la identidad
   var input_identidad = document.getElementById("IDENTIDAD");
   input_identidad.addEventListener("input", function () {
     if (this.value.length > 13) this.value = this.value.slice(0, 13);
   });
+  //valida el tamaño maximo del telefono
   var input_telefono = document.getElementById("TELEFONO");
   input_telefono.addEventListener("input", function () {
     if (this.value.length > 8) this.value = this.value.slice(0, 8);
   });
+  //reiniciar el formulario
   document.getElementById("formulario-encuesta").reset();
-  Parametros();
-  $("#check_scan").hide();
+  Parametros();// llamar funcion parametros para cargar detalles del usuario
+  $("#check_scan").hide();//ocultar el scanner
 
-  $("#comenzar").on("click", function () {
+  $("#comenzar").on("click", function () {//habilita y muestra el formulario e inicia el tiempo de la encuesta.
     $("#formulario").show();
     $("#contenedor_comenzar").hide();
     $.post(
@@ -161,6 +175,8 @@ $(document).ready(function () {
     );
   }); //fin comenzar
 
+
+  //Comportamiento de checkbox casos especiales
   $(".transporte-hogar").on("click", function () {
     if ($(".4-mas").val() == "") {
       $(".4-mas").val("");
@@ -194,7 +210,7 @@ $(document).ready(function () {
   $(".radio3").on("click", function () {
     $(".3-mas").val("5");
     $(".3-mas").prop("disabled", true);
-    crear_select_rutas("#contenedor_rutas", $(this).val());
+    crear_select_rutas("#contenedor_rutas", $(this).val());//crea los selects segun la cantidad que defina el checkbox
   });
   $(".3-mas").on("keyup", function () {
     var v = $(this).val();
@@ -212,7 +228,7 @@ $(document).ready(function () {
     if ($(this).val() < 5 || $(this).val() == "") {
       $(this).val(5)
     }
-    crear_select_rutas("#contenedor_rutas", $(this).val());
+    crear_select_rutas("#contenedor_rutas", $(this).val());//crea los selects segun input 
   });
   $(".4-mas").on("focusout", function () {
     if ($(this).val() < 5 || $(this).val() == "") {
@@ -241,7 +257,7 @@ $(document).ready(function () {
     if ([".", "e"].includes(tecla)) event.preventDefault();
   });
   $("#TELEFONO").on("focusout",function () {
-    if ($(this).val().length!=8 || $(this).val()<80000000 || $(this).val()> 100000000 ) {
+    if ($(this).val().length!=8 || $(this).val()<30000000 || $(this).val()> 100000000 ) {
       Swal.fire({
         position: "",
         imageUrl: "../src/img/firma.jpg",
@@ -258,11 +274,12 @@ $(document).ready(function () {
     
   })
 
-  $("#guardar").on("click", function () {
-    datos = $("#formulario-encuesta").serialize();
+  $("#guardar").on("click", function () {//boton para enviar encuesta.
+    datos = $("#formulario-encuesta").serialize();//se obtiene todos los datos del formulario
 
-    //validaciones
-    var mensaje_error = [];
+    //validaciones de los campos
+    var mensaje_error = [];//array que contendra todos los errores de los campos
+    //obtener valores de los campos.
     var qr = $("#QR").val();
     var direccion = $("#DIRECCION").val();
 
@@ -283,6 +300,7 @@ $(document).ready(function () {
     var pregunta5 = $("input[id=5]:checked").val();
     var valida6 = 0
 
+    //validar que no hayan campos vacios o no seleccionados.
     if ($("input[id=2]:disabled").attr('disabled') != 'disabled') {
       if ($('.2-mas').val() == "" || $('.2-mas').val() == " ") {
 
@@ -295,9 +313,9 @@ $(document).ready(function () {
       }
     })
 
-    var pregunta6 = $(".rutas").children().prop("selected");
+    var pregunta6 = $(".rutas").children().prop("selected");//extraer datos de rutas.
 
-    if (
+    if (//valida si hay datos vacios, nulos o no aceptables
       qr === "" ||
       identidad === "" ||
       identidad.length < 13 ||
@@ -316,6 +334,7 @@ $(document).ready(function () {
       valida6 > 0
 
     ) {
+      //se compara y se llenan los mensajes solamente con los errores que se encuentren en el array mensaje_error
       if (qr === "" || qr === null) {
         mensaje_error.push("Completa el campo: ESCANER QR<br><br>");
       }
@@ -362,7 +381,7 @@ $(document).ready(function () {
       }
 
 
-      Swal.fire({
+      Swal.fire({// se imprime una alerta con todos los errores encontrados
         position: "",
         imageUrl: "../src/img/firma.jpg",
         imageWidth: 100,
@@ -373,17 +392,17 @@ $(document).ready(function () {
         showConfirmButton: true,
         timer: false,
       });
-    } else {
+    } else {// Si todo esta bien, se ejecuta guardar encuesta.
       $("#guardar").prop("disabled", true)
       $.ajax({
-        url: "../Controlador/encuesta_controlador.php?op=registrar",
+        url: "../Controlador/encuesta_controlador.php?op=registrar",// ruta del controlador
         type: "POST",
         data: datos,
         async: true,
         success: function (data) {
           //esto es para dar un tiempo
           let timerInterval
-          Swal.fire({
+          Swal.fire({//alert de procesando.
             title: 'PROCESANDO',
             html: 'Espera.. se esta enviando la encuesta.',
             timer: 2000,
@@ -398,7 +417,7 @@ $(document).ready(function () {
             willClose: () => {
               clearInterval(timerInterval)
             }
-          }).then((result) => {
+          }).then((result) => {// entonces despues de la alerta.
           // esto ocurre despues del swall
             if (data == 1) {
               Swal.fire({
@@ -435,7 +454,7 @@ $(document).ready(function () {
 
     if ($(this).val() != "" || $(this).val() === "undifined") {
       if (identidad.length == 13) {
-        if (2022 - parseInt(anio) >= 18) {
+        if (2022 - parseInt(anio) >= 1) {
           $.post(
             "../Controlador/encuesta_controlador.php?op=identidad",
             { IDENTIDAD: identidad },
