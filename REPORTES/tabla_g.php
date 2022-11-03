@@ -134,7 +134,7 @@ function listar_general() {
             type: "post",
             data: { op: "general",fecha_g:$("#fecha_general").val() },
             dataType: "json",
-            error: function (e) {
+            complete: function (e) {
                
                 console.log(e.responseText);
                 
