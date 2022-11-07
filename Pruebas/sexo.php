@@ -98,7 +98,7 @@ while ($a= $rsp->fetch_object()) {
     echo $a;
 }
 
-echo $updates;
+//echo $updates;
 
 
 
