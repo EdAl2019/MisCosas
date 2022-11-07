@@ -138,15 +138,15 @@
                   if ($reg->estado_civil==1) {
                     $estado_civil="SOLTERO";
                     # code...
-                  }elseif($estado_civil==2){
+                  }elseif($reg->estado_civil==2){
                     $estado_civil="CASADO";
-                  }elseif($estado_civil==3){
+                  }elseif($reg->estado_civil==3){
                     $estado_civil="DIVORCIADO";
-                  }elseif($estado_civil==4){
+                  }elseif($reg->estado_civil==4){
                     $estado_civil="UNION LIBRE";
-                  }elseif($estado_civil==5){
+                  }elseif($reg->estado_civil==5){
                     $estado_civil="VIUDO";
-                  }elseif($estado_civil==6){
+                  }elseif($reg->estado_civil==6){
                     $estado_civil="OTRO";
                   }
                   $data[] = array(
