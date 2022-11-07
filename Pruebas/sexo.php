@@ -6,7 +6,7 @@ class model{
 
         global $instancia_conexion;
 
-        $sql='select id_persona,edad, identidad from TBL_PERSONAS where id_persona>6682 and id_persona<7682';
+        $sql='select identidad from tbl_personas where edad is null';
        
         return $instancia_conexion->ejecutarConsulta($sql);
     }
