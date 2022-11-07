@@ -96,7 +96,8 @@ while ($a= $rsp->fetch_object()) {
     // $i++;
    
     //     # code...
-    print_r($a);
+    print_r($a); echo " ".$i."<br>";
+    $i++;
     }# code...
     
 }
