@@ -80,27 +80,27 @@ $rsp=$instancia->traerdatos();
 $i=1;
 $updates="";
 while ($a= $rsp->fetch_object()) {
-    // if (!empty($a) and $a->edad=="") {
-    // $ins=new Web_Service_RNP($a->identidad,'');
-    // $r=$ins->Identidad_persona();
-    // $edad=substr($r->FechaDeNacimiento,0,4);
-    // $edad=2022-intval($edad);
-    // if($r->Sexo=="Masculino"){
-    //     $sexo="M";
-    // }else if ($r->Sexo=="Masculino") {
-    //     # code...
-    //     $sexo="F";
-    // }
+    if (!empty($a) and $a->edad=="") {
+    $ins=new Web_Service_RNP($a->identidad,'');
+    $r=$ins->Identidad_persona();
+    $edad=substr($r->FechaDeNacimiento,0,4);
+    $edad=2022-intval($edad);
+    if($r->Sexo=="Masculino"){
+        $sexo="M";
+    }else if ($r->Sexo=="Masculino") {
+        # code...
+        $sexo="F";
+    }
   
-    // $updates=$updates. "<p style='color:red;'> update tbl_personas set edad=$edad , estado_civil='$r->EstadoCivil' , nombres=$r->Nombres, apellidos=$r->Apellidos, sexo=$r->Sexo</p><br>";
-    // $i++;
+    $updates=$updates. "<p style='color:red;'> update tbl_personas set edad=$edad , estado_civil='$r->EstadoCivil' , nombres=$r->Nombres, apellidos=$r->Apellidos, sexo=$r->Sexo</p><br>";
+    $i++;
    
-    //     # code...
-    // }# code...
-    print_r($a);
+        # code...
+    }# code...
+    
 }
 
-//echo $updates;
+echo $updates;
 
 
 
