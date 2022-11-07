@@ -1,6 +1,5 @@
 <?php
 ini_set('display_errors', 1);
-error_reporting('E_ALL');
 require_once('../Produccion/TRANSPORTE/Config/conexion.php');
 $instancia_conexion = new conexion();
 class model{
