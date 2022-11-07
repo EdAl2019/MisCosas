@@ -83,9 +83,14 @@ while ($a= $rsp->fetch_object()) {
     $r=$ins->Identidad_persona();
     $edad=substr($r->FechaDeNacimiento,0,4);
     $edad=2022-intval($edad);
-    $sexo=$r->Sexo;
+    if($r->Sexo=="Masculino"){
+        $sexo="M";
+    }else if ($r->Sexo=="Masculino") {
+        # code...
+        $sexo="F";
+    }
   
-    $updates=$updates. "<p style='color:red;'> ".$instancia->edad($a->id_persona,$edad,$sexo)."</p><br>";
+    $updates=$updates. "<p style='color:red;'> update tbl_personas set edad=$edad , estado_civil='$r->EstadoCivil' , nombres=$r->Nombres, apellidos=$r->Apellidos, sexo=$r->Sexo</p><br>";
     $i++;
    
         # code...
