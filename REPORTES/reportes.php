@@ -18,7 +18,7 @@ if (isset($_SESSION['Usuario'])) { ?>
   require("menu.php");
   ?>
 
-  <div class="col-xs-6">
+  <div class="col-xs-12">
 
    
       <div class="row">
