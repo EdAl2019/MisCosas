@@ -125,9 +125,9 @@
             ],
 
             select: true,
-           
-            scrollX: true,
             responsive: true,
+            scrollX: true,
+           
 
             "ajax": {
                 url: 'controlador.php?op=encuestadores',
