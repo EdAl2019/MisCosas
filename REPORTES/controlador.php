@@ -156,20 +156,21 @@
                     "2" => $reg->fecha_final,
                     "3" => $reg->direccion_ip,
                     "4" => $reg->id_punto_control,
-                    "5" => $reg->nombres,
-                    "6" => $reg->apellidos,
-                    "7" => $reg->identidad,
-                    "8"=>$reg->sexo,
-                    "9" => $reg->edad,
-                    "10"=>$estado_civil,
-                    "11"=> $reg->telefono, 
-                    "12"=> $reg->pregunta1,
-                    "13" => $reg->pregunta2,
-                    "14" => $reg->pregunta3,
-                    "15" => $reg->pregunta4,
-                    "16" => $reg->pregunta5,
-                    "17" => $reg->pregunta6,
-                    "18" => $reg->usuario,
+                    "5"=>$reg->punto_control,
+                    "6" => $reg->nombres,
+                    "7" => $reg->apellidos,
+                    "8" => $reg->identidad,
+                    "9"=>$reg->sexo,
+                    "10" => $reg->edad,
+                    "11"=>$estado_civil,
+                    "12"=> $reg->telefono, 
+                    "13"=> $reg->pregunta1,
+                    "14" => $reg->pregunta2,
+                    "15" => $reg->pregunta3,
+                    "16" => $reg->pregunta4,
+                    "17" => $reg->pregunta5,
+                    "18" => $reg->pregunta6,
+                    "19" => $reg->usuario,
 
                   );
                 }
@@ -240,6 +241,51 @@
                       echo json_encode($results); //enviamos los datos en formato JSON
                   
                       break;
+                      case 'sexo':
+                          # code...
+                          $res=$instancia_modelo->sexo($fecha_gra);
+                          $result=array(); 
+                        
+                          while ($r=$res->fetch_object()) {
+                              # code...
+                             $result[]=$r;
+                             
+                          
+                              
+                          }
+                          print_r (json_encode($result));
+                        
+                        break;
+                        case 'edades':
+                          # code...
+                          $res=$instancia_modelo->edades($fecha_gra);
+                          $result=array(); 
+                        
+                          while ($r=$res->fetch_object()) {
+                              # code...
+                             $result[]=$r;
+                             
+                          
+                              
+                          }
+                          print_r (json_encode($result));
+                        
+                        break;
+                        case 'estado_civil':
+                          # code...
+                          $res=$instancia_modelo->estado_civil($fecha_gra);
+                          $result=array(); 
+                        
+                          while ($r=$res->fetch_object()) {
+                              # code...
+                             $result[]=$r;
+                             
+                          
+                              
+                          }
+                          print_r (json_encode($result));
+                        
+                        break;
         default:
             # code...
             break;

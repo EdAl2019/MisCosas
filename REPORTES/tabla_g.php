@@ -6,6 +6,7 @@
                         <th>FINAL</th>
                         <th>IP</th>
                         <th>ID PUNTO CONTROL</th>
+                        <th>PUNTO DE CONTROL</th>
                         <th>NOMBRE </th>
                         <th>APELLIDO</th>
                         <th>IDENTIDAD</th>
