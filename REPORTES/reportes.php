@@ -111,69 +111,7 @@ if (isset($_SESSION['Usuario'])) { ?>
           </div>
 
         </div>
-        <div class="col-sm-5" style="float: left;">
-          <br>
-          <br>
-          <br>
-          <br>
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">GRÁFICA POR SEXO</div>
-
-              <div><input type="date" id="fecha_grafica_sexo" name="fecha_grafica_sexo" min="2022-10-13" max="2022-12-30" value='2022' class="form-control"> </div>
-
-            </div>
-            <div class="card-body">
-              <div class="col-sm-12">
-                <div id="contenedor_grafico_sexo"></div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-sm-6" style="float: left;">
-          <br>
-          <br>
-          <br>
-          <br>
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">GRÁFICA POR EDADES</div>
-
-              <div><input type="date" id="fecha_grafica_e" name="fecha_grafica_e" min="2022-10-13" max="2022-12-30" value='2022' class="form-control"> </div>
-
-            </div>
-            <div class="card-body">
-              <div class="col-sm-12">
-                <div id="contenedor_grafico_edades"></div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-sm-6" style="float: left;">
-          <br>
-          <br>
-          <br>
-          <br>
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">GRÁFICA ESTADO CIVIL</div>
-
-              <div><input type="date" id="fecha_grafica_estado_civil" name="fecha_grafica_estado_civil" min="2022-10-13" max="2022-12-30" value='2022' class="form-control"> </div>
-
-            </div>
-            <div class="card-body">
-              <div class="col-sm-12">
-                <div id="contenedor_grafico_estado_civil"></div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
+       
         <div class="col-sm-6" style="float: left;">
           <br>
           <br>

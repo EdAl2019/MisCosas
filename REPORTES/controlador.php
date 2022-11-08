@@ -286,6 +286,21 @@
                           print_r (json_encode($result));
                         
                         break;
+                        case 'puntos_control':
+                          # code...
+                          $res=$instancia_modelo->punto_control($fecha_gra);
+                          $result=array(); 
+                        
+                          while ($r=$res->fetch_object()) {
+                              # code...
+                             $result[]=$r;
+                             
+                          
+                              
+                          }
+                          print_r (json_encode($result));
+                        
+                        break;
         default:
             # code...
             break;

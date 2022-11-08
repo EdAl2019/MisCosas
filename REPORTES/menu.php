@@ -35,6 +35,9 @@ if (isset($_SESSION['Usuario'])) {
     <li class="nav-item">
       <a class="nav-link " id="6" aria-current="page" tipo="doughnut" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta6.php">PREGUNTA 6</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link " id="6" aria-current="page" tipo="" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/indicadores.php">INDICADORES</a>
+    </li>
     <li class="nav-item btn-cerrarsesion  flex-fill">
 
    </li>

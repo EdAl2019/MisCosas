@@ -1,8 +1,8 @@
-<canvas id="estado_civil"></canvas>
+<canvas id="puntos_control"></canvas>
 
 
 <script>
-  function crear_grafico4(canva, tipo, titulos, datos, label) {
+  function crear_grafico5(canva, tipo, titulos, datos, label) {
    
    var colort = [];
    var colord = [];
@@ -12,16 +12,16 @@
 
    }
    
-   if (window.grafica_estado) {
-       window.grafica_estado.clear();
-        window.grafica_estado.destroy();
+   if (window.grafica_punto_control) {
+       window.grafica_punto_control.clear();
+        window.grafica_punto_control.destroy();
     }
   
    let ctx = document.getElementById(canva).getContext('2d');
    Chart.defaults.set('plugins.datalabels', {
      color:colort
    });
-   window.grafica_estado = new Chart(ctx, {
+   window.grafica_punto_control = new Chart(ctx, {
        type: tipo,
        data: {
            labels: titulos,
@@ -87,11 +87,11 @@ function colorRGB() {
  return "rgb" + coolor;
 }
 
-function llenar_grafico_sexo(fecha) {
-   
+function llenar_grafico_punto_control(fecha) {
   var fecha=$("#fecha_general").val();
+  
    console.log(fecha);
-   $.post("controlador.php", { op: 'estado_civil', fecha_gra:fecha },
+   $.post("controlador.php", { op: 'puntos_control', fecha_gra:fecha },
    function (data, status) {
        arreglotitulos = [];
        arreglodatos = [];
@@ -102,28 +102,14 @@ function llenar_grafico_sexo(fecha) {
  
        
        
-         arreglotitulos.push("SOLTERO "+datos[0].SOLTERO)
          
-         arreglotitulos.push("CASADO "+datos[0].CASADO)
          
-         arreglotitulos.push("DIVORCIADO"+datos[0].DIVORCIADO)
-         
-         arreglotitulos.push("UNION LIBRE: "+datos[0].UNION_LIBRE)
-         
-         arreglotitulos.push("VIUDO: "+datos[0].VIUDO)
-         
-         arreglotitulos.push("SE DESCONOCE: "+datos[0].IGNORA)
-
-         arreglotitulos.push("OTROS: "+datos[0].OTRO)
-         
-        
-         console.log(arreglotitulos)
-         // arreglodatos.push(valueOfElement);
         
        for (let i = 0; i < datos.length; i++) {
-          
-           arreglodatos.push(datos[0][i]);
-           arreglosuma=arreglosuma+parseInt(datos[i].SOLTERO)+parseInt(datos[i].CASADO)+parseInt(datos[i].DIVORCIADO)+parseInt(datos[i].UNION_LIBRE)+parseInt(datos[i].VIUDO)+parseInt(datos[i].OTRO)+parseInt(datos[i].IGNORA);
+          arreglotitulos.push(datos[i].punto_control)
+           arreglodatos.push(datos[i].cantidad);
+
+           arreglosuma=arreglosuma+parseInt(datos[i].cantidad);
  
  
        }
@@ -131,7 +117,7 @@ function llenar_grafico_sexo(fecha) {
       
        
     
-       crear_grafico4('estado_civil','doughnut',arreglotitulos,[datos[0].DIVORCIADO,datos[0].CASADO,datos[0].DIVORCIADO,datos[0].UNION_LIBRE,datos[0].VIUDO,datos[0].OTRO,datos[0].IGNORA],"Estado Civil "+arreglosuma);
+       crear_grafico5('puntos_control','bar',arreglotitulos,arreglodatos,"Total "+arreglosuma);
  
    }
  
@@ -140,5 +126,5 @@ function llenar_grafico_sexo(fecha) {
    
  }
 
- llenar_grafico_sexo()
+ llenar_grafico_punto_control()
 </script>

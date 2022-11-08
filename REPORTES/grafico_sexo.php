@@ -88,7 +88,7 @@ function colorRGB() {
 }
 
 function llenar_grafico_sexo(fecha) {
-   
+  var fecha=$("#fecha_general").val();
   
    console.log(fecha);
    $.post("controlador.php", { op: 'sexo', fecha_gra:fecha },

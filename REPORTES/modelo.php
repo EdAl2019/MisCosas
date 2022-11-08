@@ -68,21 +68,28 @@ class encuesta
     function sexo($fecha)
     {
         global $instancia_conexion;
-        $consulta = $instancia_conexion->ejecutarConsulta('select (select count(p1.sexo) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.sexo="F") as Femenino,(select count(p2.sexo) from tbl_personas p2,tbl_encuestas e2 where p2.id_persona=e2.id_persona and p2.sexo="M") as Masculino ;');
+        $consulta = $instancia_conexion->ejecutarConsulta('select (select count(p1.sexo) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.sexo="F" and e1.fecha_inicial like "%'.$fecha.'%") as Femenino,(select count(p2.sexo) from tbl_personas p2,tbl_encuestas e2 where p2.id_persona=e2.id_persona and p2.sexo="M" and e2.fecha_inicial like "%'.$fecha.'%") as Masculino ;');
 
         return $consulta;
     }
     function edades($fecha)
     {
         global $instancia_conexion;
-        $consulta = $instancia_conexion->ejecutarConsulta('select (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<19 and p1.edad>=0) as r1, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<26 and p1.edad>=19) as r2,(select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<36 and p1.edad>=26) as r3, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<50 and p1.edad>=36) as r4,(select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<66 and p1.edad>=50) as r5, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and  p1.edad>=66) as r6        ;');
+        $consulta = $instancia_conexion->ejecutarConsulta('select (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<19 and p1.edad>=0 and e1.fecha_inicial like "%'.$fecha.'%") as r1, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<26 and p1.edad>=19 and e1.fecha_inicial like "%'.$fecha.'%") as r2,(select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<36 and p1.edad>=26 and e1.fecha_inicial like "%'.$fecha.'%") as r3, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<50 and p1.edad>=36 and e1.fecha_inicial like "%'.$fecha.'%") as r4,(select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.edad<66 and p1.edad>=50 and e1.fecha_inicial like "%'.$fecha.'%") as r5, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and  p1.edad>=66 and e1.fecha_inicial like "%'.$fecha.'%") as r6        ;');
 
         return $consulta;
     }
     function estado_civil($fecha)
     {
         global $instancia_conexion;
-        $consulta = $instancia_conexion->ejecutarConsulta('select (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=1)as SOLTERO,  (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=2)as CASADO, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=3)as DIVORCIADO, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=4)as UNION_LIBRE, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=5)as VIUDO,  (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=6)as OTRO,  (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=0)as IGNORA;');
+        $consulta = $instancia_conexion->ejecutarConsulta('select (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=1 and e1.fecha_inicial like "%'.$fecha.'%")as SOLTERO,  (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=2 and e1.fecha_inicial like "%'.$fecha.'%")as CASADO, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=3 and e1.fecha_inicial like "%'.$fecha.'%")as DIVORCIADO, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=4 and e1.fecha_inicial like "%'.$fecha.'%")as UNION_LIBRE, (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=5 and e1.fecha_inicial like "%'.$fecha.'%")as VIUDO,  (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=6 and e1.fecha_inicial like "%'.$fecha.'%")as OTRO,  (select count(p1.edad) from tbl_personas p1,tbl_encuestas e1 where p1.id_persona=e1.id_persona and p1.estado_civil=0 and e1.fecha_inicial like "%'.$fecha.'%")as IGNORA;');
+
+        return $consulta;
+    }
+    function punto_control($fecha)
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta('select c.punto_control, count(e.id_encuesta) as cantidad from tbl_encuestas e, tbl_puntos_de_control c where e.id_punto_control=c.id_punto_control and e.fecha_inicial like "%'.$fecha.'%"  group by e.id_punto_control;');
 
         return $consulta;
     }
