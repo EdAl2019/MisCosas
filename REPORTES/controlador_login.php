@@ -10,7 +10,7 @@ switch ($op) {
     case 'entrar':
         if ($instancia_modelo->login_user($usuario, $contraseña)) {
             $_SESSION['Usuario'] = $usuario;
-            $datos=$instancia_modelo->traerdatos($usuario)->fetch_object();
+            $datos=$instancia_modelo->traerdatos($usuario,$contraseña)->fetch_object();
            if ($datos->id_rol==3) {
             # code...
             echo 1;

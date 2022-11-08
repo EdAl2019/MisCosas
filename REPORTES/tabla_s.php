@@ -125,7 +125,7 @@
             ],
 
             select: true,
-            responsive: true,
+            
             scrollX: true,
            
 

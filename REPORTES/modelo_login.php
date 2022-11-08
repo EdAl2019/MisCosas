@@ -11,7 +11,7 @@ class login
     function login_user($user,$contra){
         global $instancia_conexion;
        // $resultado=false;
-        $sql='select * from TBL_USUARIOS where usuario="'.$user.'" and contrasena="'.$contra.'" and id_rol=3 or id_rol=2';
+        $sql='select * from TBL_USUARIOS where usuario="'.$user.'" and contrasena="'.$contra.'" and id_rol=3';
 
         if ($instancia_conexion->validar_select($sql)) {
         
@@ -21,11 +21,11 @@ class login
            return false;
        }
     }
-    function traerdatos($user){
+    function traerdatos($user,$contra){
 
         global $instancia_conexion;
 
-        $sql='select * from TBL_USUARIOS u, TBL_PERSONAS e where u.id_persona=e.id_persona and u.USUARIO="'.$user.'";';
+        $sql='select * from TBL_USUARIOS u where u.USUARIO="'.$user.'" and  u.CONTRASENA="'.$contra.'";';
         return $instancia_conexion->ejecutarConsulta($sql);
     }
 
