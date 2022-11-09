@@ -14,6 +14,9 @@ function imprimirElemento(elemento){
     ventana.close();
     return true;
   }
+
+
+
 	
 
 

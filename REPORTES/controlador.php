@@ -217,6 +217,48 @@
                     echo json_encode($results); //enviamos los datos en formato JSON
                 
                     break;
+                    case "productividad":
+                   
+                      $rspta = $instancia_modelo->productividad(); //instancia a la funcion listar
+                  
+                      //  
+                      //Vamos a declarar un array
+                      
+                      $data = array();
+                      $hora="";
+                      while ($reg = $rspta->fetch_object()) {
+                        if($reg->hora >=6 && $reg->hora <12 ){
+                          $hora=$reg->hora."am";
+                        }else{
+                          $hora=$reg->hora."pm";
+                        }
+                        $data[] = array(
+                  
+                          "0" => $reg->usuario,
+                          "1" => $reg->grupo,
+                          "2" => $reg->dia,
+                          "3" => $reg->fecha,
+                          "4" => $hora,
+                          "5" => $reg->punto_control,
+                          "6" => $reg->cantidad,
+                          
+                        );
+                      }
+                      $suma=0;
+                      for ($i=0; $i < count($data) ; $i++) { 
+                        # code...
+                        $suma=$suma+ $data[$i][6];
+                      }
+                      $results = array(
+                        "sEcho" => 1, //Información para el datatables
+                        "iTotalRecords" => count($data), //enviamos el total registros al datatable
+                        "iTotalDisplayRecords" => count($data), //enviamos el total registros a visualizar
+                        "aaData" => $data,
+                        "total"=> $suma,
+                      );
+                      echo json_encode($results); //enviamos los datos en formato JSON
+                  
+                      break;
                     case "listar_respuesta":
 
                       $rspta = $instancia_modelo->listar_respuesta($_POST['id_pregunta']); //instancia a la funcion listar
@@ -240,6 +282,21 @@
                       );
                       echo json_encode($results); //enviamos los datos en formato JSON
                   
+                      break;
+                      case 'productividad_g':
+                        # code...
+                        $res=$instancia_modelo->productividad_g();
+                        $result=array(); 
+                      
+                        while ($r=$res->fetch_object()) {
+                            # code...
+                           $result[]=$r;
+                           
+                        
+                            
+                        }
+                        print_r (json_encode($result));
+                      
                       break;
                       case 'sexo':
                           # code...

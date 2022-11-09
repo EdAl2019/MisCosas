@@ -93,6 +93,20 @@ class encuesta
 
         return $consulta;
     }
+    function productividad()
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta('select u.id_usuario,u.usuario,u.grupo,DAYNAME(e.fecha_inicial) as dia, date(e.fecha_inicial) as fecha, HOUR(e.fecha_inicial) as hora,p.id_punto_control,p.punto_control,count(e.id_encuesta) as cantidad from tbl_usuarios u, tbl_encuestas e, tbl_puntos_de_control p where p.id_punto_control=e.id_punto_control and e.id_usuario=u.id_usuario and date(e.fecha_inicial) like "%2022%" group by u.usuario,DATE(e.fecha_inicial),HOUR(e.fecha_inicial),p.id_punto_control order by u.usuario');
+
+        return $consulta;
+    }
+    function productividad_g()
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta('select u.grupo,count(e.id_encuesta) as total, hour(e.fecha_inicial) as hora from tbl_encuestas e, tbl_usuarios u where e.id_usuario=u.id_usuario  group by u.grupo, hour(e.fecha_inicial)order by hora');
+
+        return $consulta;
+    }
     function listar_general($fecha)
     {
 
