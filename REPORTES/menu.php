@@ -42,10 +42,13 @@ if (isset($_SESSION['Usuario'])) {
     <li class="nav-item">
       <a class="nav-link " id="6" aria-current="page" tipo="" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/productividad.php">PRODUCTIVIDAD</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link " id="6" aria-current="page" tipo="" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/mapa.php">MAPA</a>
+    </li>
     <li class="nav-item btn-cerrarsesion  flex-fill">
 
    </li>
-    <li class="nav-item btn-cerrarsesion">
+    <li class="nav-item btn-cerrarsesion flex-fill">
     <button id="CERRAR_SESION" class="btn btn-warning">CERRAR SESIÓN</button>
     </li>
     </ul>
