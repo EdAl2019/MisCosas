@@ -21,7 +21,7 @@
     <div class="card-body">
         <div class="row">
         <div class="col-xs-12">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1taZOuvoe3aj8_UBX20NNmqgipmh_lnQ&hl=es&ehbc=2E312F" width="100%" height="300%"></iframe>
+        <iframe src="https://www.google.com/maps/d/embed?mid=1taZOuvoe3aj8_UBX20NNmqgipmh_lnQ&hl=es&ehbc=2E312F" width="100%" height="450%"></iframe>
       </div>
      
     </div>
