@@ -33,6 +33,7 @@ function crear_grafico5(canva, tipo, titulos, datos, label) {
                   color: colort
                 }
             },
+           
           ],
         
           
@@ -47,7 +48,7 @@ function crear_grafico5(canva, tipo, titulos, datos, label) {
               y: {
                 title: {
                     display: true,
-                    text: 'Value'
+                    text: 'Horas'
                   },
                 ticks: {
                     // Include a dollar sign in the ticks
@@ -66,6 +67,18 @@ function crear_grafico5(canva, tipo, titulos, datos, label) {
                         return HORAS+form;
                     },
                     stepSize: 1,
+                },
+               
+              },
+              x: {
+                title: {
+                    display: true,
+                    text: 'GRUPOS'
+                  },
+                ticks: {
+                    // Include a dollar sign in the ticks
+                   
+                   
                 },
                
               }
