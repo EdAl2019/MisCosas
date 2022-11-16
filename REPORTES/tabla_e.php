@@ -24,11 +24,18 @@
             month: 'long',
             day: 'numeric'
         };
+       
+                              
+                                   
 
         options.timeZoneName = 'short';
         var nombre = $("#grupo").val();
 
         var now = today.toLocaleString('es-ES', options);
+        var today2=new Date($('#fecha_encuestadores').val())
+        today2.setDate(today2.getDate() + 1);
+        var now2= today2.toLocaleString('es-ES', options)
+                                    console.log(now2+" "+now)
 
         var tabla = $('#reporte_encuestadores').DataTable({
             "language": {
@@ -92,7 +99,7 @@
 
                                 },{
                                 margin: [10, 15],
-                                 text:Date($('#fecha_encuestadores').val()).toLocaleString('es-ES', options),
+                                 text:""+now2,
                                  fontSize: 12,
                                  bold:true
                                 }],

@@ -139,7 +139,7 @@ function listar_general() {
             dataType: "json",
             complete: function (e) {
                
-                console.log(e.responseText);
+               // console.log(e.responseText);
                 
             }
         }
