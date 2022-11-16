@@ -107,6 +107,21 @@ class encuesta
 
         return $consulta;
     }
+    function productividad_grupo()
+    {
+        global $instancia_conexion;
+        // $consulta = $instancia_conexion->ejecutarConsulta('select count(e.id_encuesta) as total, HOUR(e.fecha_inicial) as hora, u.grupo from tbl_usuarios u, tbl_encuestas e where e.id_usuario=u.id_usuario group by u.grupo, HOUR(e.fecha_inicial) order by u.grupo, HOUR(e.fecha_inicial)');
+        $consulta = $instancia_conexion->ejecutarConsulta('select count(e.id_encuesta) as cantidad,date(e.fecha_inicial) as fecha,hour(e.fecha_inicial)as hora,u.grupo from tbl_encuestas e, tbl_usuarios u where e.id_usuario=u.id_usuario group by u.grupo,date (e.fecha_inicial), hour(e.fecha_inicial) order by u.grupo,hour(e.fecha_inicial)');
+
+        return $consulta;
+    }
+    function encuestas_punto_control()
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta('select count(e.id_encuesta) as cantidad, p.punto_control, p.ubicacion_gps from tbl_encuestas e, tbl_puntos_de_control p where e.id_punto_control=p.id_punto_control group by p.punto_control order by p.punto_control');
+
+        return $consulta;
+    }
     function listar_general($fecha)
     {
 

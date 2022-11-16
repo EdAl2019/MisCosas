@@ -110,6 +110,84 @@ function crear_grafico5(canva, tipo, titulos, datos, label) {
     });
     
  }
+ function crear_grafico6(canva, tipo, datos,total,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12) {
+   
+    var colort = [];
+   
+    
+    if (window.grafica_grupo) {
+        window.grafica_punto.clear();
+         window.grafica_grupo.destroy();
+     }
+   
+    let ctx = document.getElementById(canva).getContext('2d');
+    Chart.defaults.set('plugins.datalabels', {
+      color:colort
+    });
+  
+    window.grafica_grupo = new Chart(ctx, {
+        type: "bar",
+        data: {
+            datasets: [d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12]
+             
+        },
+       
+        options: {
+            parsing: {
+                xAxisKey: 'x',
+                yAxisKey: 'y'
+              },
+          
+          scales: {
+              y: {
+                title: {
+                    display: true,
+                    text: 'Cantidad'
+                  },
+                ticks: {
+                    // Include a dollar sign in the ticks
+                  
+                    stepSize: 1,
+                },
+               
+              },
+              x: {
+                title: {
+                    display: true,
+                    text: 'GRUPOS / Horas'
+                  },
+                ticks: {
+                    // Include a dollar sign in the ticks
+                   
+                   
+                },
+               
+              }
+          },
+          
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                font: {
+                    size: 10
+                }
+            }
+        },
+          plugins: {
+           
+            title: {
+                display: true,
+                text: total,
+                font:{
+                  size:20
+                }
+            }
+        },
+      },
+      
+    });
+    
+ }
  function generarNumero(numero) {
   return (Math.random() * numero).toFixed(0);
  }
@@ -298,7 +376,7 @@ function crear_grafico5(canva, tipo, titulos, datos, label) {
         arreglodatos.push(grupo_3);
         arreglodatos.push(grupo_4);
         arreglodatos.push(grupo_5);
-        console.log(arreglodatos);
+       
        
         
      
@@ -310,8 +388,192 @@ function crear_grafico5(canva, tipo, titulos, datos, label) {
    
     
   }
- 
+  function llenar_grafico_productividad_grupo(fecha) {
+    var fecha=$("#fecha_general").val();
+    
+     console.log(fecha);
+     $.post("controlador.php", { op: 'productividad_grupo', fecha_gra:fecha },
+     function (data, status) {
+        
+         
+         arreglodatos=[];
+         arreglosuma=0;
+
+         
+   
+        
+         datos = JSON.parse(data)
+        var d1=[]
+        var d2=[]
+        var d3=[]
+        var d4=[]
+        var d5=[]
+        var d6=[]
+        var d7=[]
+        var d8=[]
+        var d9=[]
+        var d10=[]
+        var d11=[]
+        var d12=[]
+         
+        $.map(datos, function (elementOrValue, indexOrKey) {
+            
+            $.map(elementOrValue, function (element, index) {
+                
+                if(index==6){
+                    
+                   d6.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                }
+               
+                 if(index==7){
+                    
+                    d7.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==8){
+                    
+                    d8.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==9){
+                    
+                    d9.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==10){
+                    
+                    d10.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==11){
+                    
+                    d11.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==12){
+                    
+                    d12.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==1){
+                    
+                    d1.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==2){
+                    
+                    d2.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==3){
+                    
+                    d3.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==4){
+                    
+                    d4.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 if(index==5){
+                    
+                    d5.push({x:"Grupo "+indexOrKey,y:(Math.round( element.suma/element.dias))})
+                 }
+                 arreglosuma=arreglosuma+element.suma;
+                
+            });
+          
+            
+            
+         });
+           
+
+        d6={
+                
+            label: "6am",
+            data:d6,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d7={
+                
+            label: "7am",
+            data:d7,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d8={
+                
+            label: "8am",
+            data:d8,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d9={
+                
+            label: "9am",
+            data:d9,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d10={
+                
+            label: "10am",
+            data:d10,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d11={
+                
+            label: "11am",
+            data:d11,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d12={
+                
+            label: "12pm",
+            data:d12,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d1={
+                
+            label: "1pm",
+            data:d1,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d2={
+                
+            label: "2pm",
+            data:d2,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d3={
+                
+            label: "3pm",
+            data:d3,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d4={
+                
+            label: "4pm",
+            data:d4,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+         d5={
+                
+            label: "5pm",
+            data:d5,
+            backgroundColor: colorRGB(),
+            borderColor: colorRGB(),
+         }
+        
+         console.log(d6);
+       crear_grafico6('productividad_grupo_hora','bar',arreglodatos,"PROMEDIOS GRUPOS / HORAS",d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12);
+   
+     }
+   
+   );
+    
+     
+   }
   llenar_grafico_productividad()
+  llenar_grafico_productividad_grupo();
 
 
 

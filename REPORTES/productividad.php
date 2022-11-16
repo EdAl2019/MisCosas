@@ -23,8 +23,12 @@
         <div id="contenedor_tabla_p"></div>
       </div>
       <div class="col-sm-6">
+      <canvas id="productividad_grupo_hora" ></canvas>
+      </div>
+      <div class="col-sm-6">
       <canvas id="productividad" ></canvas>
       </div>
+     
     </div>
     </div>
     </div>
