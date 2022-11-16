@@ -92,7 +92,7 @@
 
                                 },{
                                 margin: [10, 15],
-                                 text:now,
+                                 text:Date($('#fecha_encuestadores').val()).toLocaleString('es-ES', options),
                                  fontSize: 12,
                                  bold:true
                                 }],
