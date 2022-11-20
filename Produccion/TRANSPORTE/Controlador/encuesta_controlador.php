@@ -26,6 +26,7 @@ $pregunta4= isset($_POST["4"]) ? limpiarCadena1($_POST["4"]) : "";
 
 //$pregunta5= isset($_POST["5"]) ? limpiarCadena1($_POST["5"]) : "";
 $pregunta6= isset($_POST["6"]) ? limpiarCadena1($_POST["6"]) : "";
+$pregunta7= isset($_POST["7"]) ? limpiarCadena1($_POST["7"]) : "";
 $identidad=str_replace("%20","",$identidad);
 $telefono=str_replace("%20","",$telefono);
 
@@ -68,7 +69,7 @@ switch ($op) {
       # code...
       $pregunta6=$pregunta6.",".$value;
     }
-    $rsencuesta->guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6);
+    $rsencuesta->guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6,$pregunta7);
     if ($rsencuesta) {
       # code...
       echo 1;

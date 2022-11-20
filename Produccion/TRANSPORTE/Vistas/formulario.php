@@ -175,6 +175,19 @@ echo "<script> var id_user=$id_usuario</script>";
                 </h6>
                 <br>
                 <div class="card-body">
+                <div class="form-group col-md-12">
+                    <label for="DONDESEDIRIGE"><strong>RANGO SALARIAL </strong><i class="fa fa-money"
+                        aria-hidden="true"></i>
+                    </label>
+                    <select name="7" id="7" class="form-control">
+                    <option value="MENOS DE 10,000">MENOS DE 10,000</option>
+                      <option value="10,000 - 17,000">10,000 - 17,000</option>
+                      <option value="17,000 - 25,000">17,000 - 25,000</option>
+                      <option value="25,000 EN ADELANTE">25,000 EN ADELANTE</option>
+                      
+                    </select>
+                  </div>
+                  <br>
                   <div class="form-group col-md-12">
                     <label for="DONDESEDIRIGE"><strong>¿A DÓNDE SE DIRIGE? </strong><i class="fa fa-location-arrow"
                         aria-hidden="true"></i>
