@@ -17,7 +17,7 @@ echo "<script> var id_user=$id_usuario</script>";
 
   $f_i = date('06:00:00', time());
 
-  $f_f = date('19:00:00', time());
+  $f_f = date('22:00:00', time());
 
   echo $f_a;
 
