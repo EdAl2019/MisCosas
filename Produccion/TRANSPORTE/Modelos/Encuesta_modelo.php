@@ -177,7 +177,7 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
       }
       else {
         $edad=substr($validar->FechaDeNacimiento,0,4);
-        echo $validar->FechaDeNacimiento;
+        print_r( $validar->FechaDeNacimiento);
         $edad=2022-intval($edad);
         
         if ($edad<18) {
