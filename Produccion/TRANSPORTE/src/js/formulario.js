@@ -514,8 +514,11 @@ $(document).ready(function () {//Funcion que se ejecuta al leer el formulario en
                 $("#reader").hide();
                 $("#check_scan").show();
               }
+              console.log(data);
             }
+            
           );
+
         
       } else {
         Swal.fire({
@@ -534,6 +537,7 @@ $(document).ready(function () {//Funcion que se ejecuta al leer el formulario en
       $("#reader").show();
       $("#check_scan").hide();
     }
+    
   }); //consulta identidad
   $("#QR").val();
   $("#QR").on("change", function () {
