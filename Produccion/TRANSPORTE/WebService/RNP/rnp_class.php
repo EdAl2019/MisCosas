@@ -60,7 +60,7 @@ class Web_Service_RNP
           'UsuarioInstitucion' => $this->UsuarioInstitucion,
       ];
       $inscripcion = $cliente->Qry_InscripcionNacimiento($parametros);
-      return $inscripcion->Qry_InscripcionNacimientoResult->ErrorMsg;
+      return $inscripcion->Qry_InscripcionNacimientoResult;
 
     }
     function Valida_persona_qr(){

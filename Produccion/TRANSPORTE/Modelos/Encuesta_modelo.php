@@ -171,13 +171,13 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
       $instancia_rnp=new Web_Service_RNP($identidad,$qr);
       $validar=$instancia_rnp->Valida_persona();
       
-      if ($validar->TipoDeError==="RNE" || $validar->TipoDeError==="FII" ) {
+      if ($validar->ErrorMsg->TipoDeError==="RNE" || $validar->ErrorMsg->TipoDeError==="FII" ) {
         // code...
         return 1;
       }
       else {
         $edad=substr($validar->FechaDeNacimiento,0,4);
-        print_r( $validar->FechaDeNacimiento);
+        print_r($validar->FechaDeNacimiento);
         $edad=2022-intval($edad);
         
         if ($edad<18) {
