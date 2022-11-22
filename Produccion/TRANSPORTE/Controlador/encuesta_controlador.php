@@ -144,15 +144,18 @@ switch ($op) {
         $validarnp= $instancia_modelo->validar_id($identidad);
         if ($validarnp===1) {
           // code...
-          echo 2;
+          echo 2;// identidad no valida
+        }else if ($validarnp=== 2) {
+          # code...
+          echo 3;// identidad menor de edad
         }
         else {
-          echo 1;
+          echo 1;//identidad valida
         }
       }
       elseif ($valor->personas>0) {
         # code...
-       echo 0;
+       echo 0; //ya existe en la base
 
 
       }

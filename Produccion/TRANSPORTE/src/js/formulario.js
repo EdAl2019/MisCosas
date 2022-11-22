@@ -449,12 +449,12 @@ $(document).ready(function () {//Funcion que se ejecuta al leer el formulario en
   // Identidad
   $("#IDENTIDAD").on("focusout", function () {
     var identidad = $(this).val();
-    var anio = identidad[4] + identidad[5] + identidad[6] + identidad[7];
+    
 
 
     if ($(this).val() != "" || $(this).val() === "undifined") {
       if (identidad.length == 13) {
-        if (2022 - parseInt(anio) >= 1) {
+       
           $.post(
             "../Controlador/encuesta_controlador.php?op=identidad",
             { IDENTIDAD: identidad },
@@ -492,27 +492,31 @@ $(document).ready(function () {//Funcion que se ejecuta al leer el formulario en
 
                 $("#reader").show();
                 $("#check_scan").hide();
+              }else if(data== 3){
+                Swal.fire({
+                  position: "",
+                  imageUrl: "../src/img/firma.jpg",
+                  imageWidth: 100,
+                  imageHeight: 100,
+                  imageAlt: "Custom image",
+                  icon: "warning",
+                  title: "<h2>El número de identidad pertenece a un menor de edad</h2>",
+                  showConfirmButton: true,
+                  timer: false,
+                });
+
+                $("#IDENTIDAD").val("");
+
+                $("#reader").show();
+                $("#check_scan").hide();
+
               } else {
                 $("#reader").hide();
                 $("#check_scan").show();
               }
             }
           );
-        } else {
-          Swal.fire({
-            position: "",
-            imageUrl: "../src/img/firma.jpg",
-            imageWidth: 100,
-            imageHeight: 100,
-            imageAlt: "Custom image",
-            icon: "warning",
-            title:
-              "<h2>El número de identidad pertenece a un menor de edad</h2>",
-            showConfirmButton: true,
-            timer: false,
-          });
-          $("#IDENTIDAD").val("");
-        }
+        
       } else {
         Swal.fire({
           position: "",

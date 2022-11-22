@@ -170,13 +170,21 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
       $qr="";
       $instancia_rnp=new Web_Service_RNP($identidad,$qr);
       $validar=$instancia_rnp->Valida_persona();
+      
       if ($validar->TipoDeError==="RNE" || $validar->TipoDeError==="FII" ) {
         // code...
         return 1;
       }
       else {
+        $edad=substr($validar->FechaDeNacimiento,0,4);
+        if ($edad<18) {
+            return 2;
+            # code...
+        }else{
+            return 0;
+        }
         // code...
-        return 0;
+      
       }
     }
     function validar_qr($qr){
