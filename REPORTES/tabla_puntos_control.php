@@ -1,4 +1,4 @@
-<table id="reporte_general" class="display table-striped table-bordered table-condensed" style="width:200%">
+<table id="reporte_general_puntos" class="display table-striped table-bordered table-condensed" >
                     <thead>
                       <tr>
                         <th>ID</th>
@@ -30,7 +30,7 @@ function listar_productividad() {
         var now = today.toLocaleString('es-ES', options);
    
     //console.log('ejecutandose');
-    $('#reporte_general').DataTable({
+    $('#reporte_general_puntos').DataTable({
         autoWidth: true,
        
         

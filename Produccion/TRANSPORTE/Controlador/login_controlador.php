@@ -96,6 +96,7 @@ switch ($opcion) {
       $zona3="";
       $zona4="";
       $zona5="";
+      $operativo="";
       
       while ($r = $respuesta->fetch_object()) {
         
@@ -124,6 +125,11 @@ switch ($opcion) {
           $zona5= $zona5."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
+        if ($r->id_zona==6) {
+          # code...
+          $operativo= $operativo."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+      
+        }
        
     
         }
@@ -144,8 +150,11 @@ switch ($opcion) {
         echo "<optgroup label='ZONA OESTE'>";
         echo $zona4;
         echo "</optgroup>";
+        echo "<optgroup label='OPERATIVOS'>";
+        echo $operativo;
+        echo "</optgroup>";
        
-      
+        
         
         
         
