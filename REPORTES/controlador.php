@@ -885,6 +885,36 @@ switch ($op) {
     print_r(json_encode($result));
 
     break;
+    case 'puntos_control_horas':
+      # code...
+      $res = $instancia_modelo->puntos_control_hora();
+        //  
+    //Vamos a declarar un array
+    $data = array();
+    while ($reg = $res->fetch_object()) {
+      $data[] = array(
+
+        "0" => $reg->id_punto_control,
+        "1" => $reg->punto_control,
+        "2" => $reg->cantidad,
+        "3" => $reg->hora,
+        "4" => $reg->jornada,
+       
+
+      );
+    }
+    
+   
+    $results = array(
+      "sEcho" => 1, //Información para el datatables
+      "iTotalRecords" => count($data), //enviamos el total registros al datatable
+      "iTotalDisplayRecords" => count($data), //enviamos el total registros a visualizar
+      "aaData" => $data,
+      
+    );
+    echo json_encode($results); //enviamos los datos en formato JSON
+
+      break;
   default:
     # code...
     break;

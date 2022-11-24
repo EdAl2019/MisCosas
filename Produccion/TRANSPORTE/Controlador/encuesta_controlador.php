@@ -98,7 +98,7 @@ switch ($op) {
         $rspta->registrar_persona_menor($nombre,$apellido,$telefono,$edad,$direccion);
       $id_persona=$persona->traer_id_persona_menor($nombre,$apellido,$edad,$telefono)->fetch_object();
 
-      $fecha_f = date('Y-m-d h:i:s', time());
+      $fecha_f = date('Y-m-d H:i:s', time());
 
 
 
@@ -123,7 +123,7 @@ switch ($op) {
       break;
   case 'inicio':
 
-  $TiempoHora = date('Y-m-d h:i:s', time());
+  $TiempoHora = date('Y-m-d H:i:s', time());
   echo $TiempoHora;
     break;
 

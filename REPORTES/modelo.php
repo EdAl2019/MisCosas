@@ -122,6 +122,14 @@ class encuesta
 
         return $consulta;
     }
+    function puntos_control_hora(){
+
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta('select p.id_punto_control, p.punto_control,count( e.id_persona) as cantidad , HOUR(e.fecha_inicial) as hora, e.jornada from tbl_encuestas e, tbl_puntos_de_control p where e.id_punto_control=p.id_punto_control group by p.punto_control, HOUR(e.fecha_inicial) order by p.punto_control,hora');
+
+        return $consulta;
+
+    }
     function listar_general($fecha)
     {
 

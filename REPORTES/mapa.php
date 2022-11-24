@@ -2,9 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php
-    require("./head.php");
-    ?>
+    <?php require './head.php'; ?>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
     <style>
         #map {
@@ -17,10 +15,7 @@
 </head>
 
 <body id="contenedor">
-    <?php
-    require("./menu.php");
-
-    ?>
+    <?php require './menu.php'; ?>
     <br>
 
     <h1 style="color:darkcyan">PUNTOS DE CONTROL</h1>
@@ -66,12 +61,34 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-xs-12">
+
+                               
+                                    
+                                 <h1>PUNTOS DE CONTROL</h1>
+                                    <div class="col-lg-12">
+                                    <div id="contenedor_tabla_puntos">
+
+                                    </div>
+        </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-    <?php
-    require("./pie.php");
-
-    ?>
+    <?php require './pie.php'; ?>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
@@ -110,7 +127,7 @@
         L.Control.geocoder().addTo(maps);
 
         $(document).ready(function(){
-
+            $("#contenedor_tabla_puntos").load('tabla_puntos_control.php')
             $("#puntos_control").on('change', function() {
                 let cords=$(this).val().split(",")
                 maps.flyTo(cords,18);

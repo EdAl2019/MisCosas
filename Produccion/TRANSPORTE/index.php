@@ -15,7 +15,7 @@
 
 
 
-            $f_a = date('H:i:s', time());
+            $f_a = date('a', time());
 
             $f_i = date('06:00:00', time());
 
