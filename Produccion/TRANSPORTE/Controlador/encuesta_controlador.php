@@ -8,6 +8,7 @@ date_default_timezone_set('America/Tegucigalpa');
 
 //Variables a recibir y formatear en caso de ser enviadas.
 $identidad = isset($_POST["IDENTIDAD"]) ? limpiarCadena1($_POST["IDENTIDAD"]) : "";
+$jornada = isset($_POST["JORNADA"]) ? limpiarCadena1($_POST["JORNADA"]) : "";
 
 $edad = isset($_POST["EDAD"]) ? limpiarCadena1($_POST["EDAD"]) : "";
 
@@ -69,7 +70,7 @@ switch ($op) {
       # code...
       $pregunta6=$pregunta6.",".$value;
     }
-    $rsencuesta->guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$ip,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6,$pregunta7);
+    $rsencuesta->guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,$fecha_f,$jornada,$ip,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6,$pregunta7);
     if ($rsencuesta) {
       # code...
       echo 1;

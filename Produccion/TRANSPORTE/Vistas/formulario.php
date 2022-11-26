@@ -14,12 +14,13 @@ echo "<script> var id_user=$id_usuario</script>";
 
 
   $f_a = date('H:i:s', time());
+  $j=date('a');
 
-  $f_i = date('06:00:00 am', time());
+  $f_i = date('06:00:00', time());
 
-  $f_f = date('22:00:00 pm', time());
+  $f_f = date('18:00:00', time());
 
-  echo $f_a;
+  
 
   
   ?>
@@ -127,6 +128,7 @@ echo "<script> var id_user=$id_usuario</script>";
                   <div class="form-group col-md-12" id="contenedor_scaner">
                   <input type="text" id="IP" name="IP" value="<?php echo $data; ?>" hidden>
                     <input type="text" id="FECHAINICIO" name="FECHAINICIO" hidden>
+                    <input type="text" id="JORNADA" name="JORNADA" value=<?php echo date('a'); ?> hidden>
 
                     <label><strong>1. ESCANER QR </strong><i class="fa fa-qrcode" aria-hidden="true"></i>
                     </label>

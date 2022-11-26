@@ -895,10 +895,11 @@ switch ($op) {
       $data[] = array(
 
         "0" => $reg->id_punto_control,
-        "1" => $reg->punto_control,
-        "2" => $reg->cantidad,
-        "3" => $reg->hora,
-        "4" => $reg->jornada,
+        "1" => $reg->zona,
+        "2" => $reg->punto_control,
+        "3" => $reg->cantidad,
+        "4" => $reg->hora,
+        "5" => $reg->jornada,
        
 
       );

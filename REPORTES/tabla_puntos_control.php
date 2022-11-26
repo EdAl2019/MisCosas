@@ -1,7 +1,8 @@
-<table id="reporte_general_puntos" class="display table-striped table-bordered table-condensed" >
+<table id="reporte_general_puntos" class="display table-striped table-bordered table-condensed" style="width:200;">
                     <thead>
                       <tr>
                         <th>ID</th>
+                        <th>ZONA</th>
                         <th>PUNTO DE CONTROL</th>
                         <th>CANTIDAD</th>
                         <th>HORA</th>
@@ -31,7 +32,7 @@ function listar_productividad() {
    
     //console.log('ejecutandose');
     $('#reporte_general_puntos').DataTable({
-        autoWidth: true,
+        autoWidth: false,
        
         
         "language": {
