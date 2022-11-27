@@ -472,5 +472,5 @@ echo "<script> var id_user=$id_usuario</script>";
 } else {# code...
      
   
-     echo "<script> window.location='https://190.130.9.62/TRANSPORTE/Controlador/logout_controlador.php?id=$id_usuario '; </script>";}
+     echo "<script> window.location='../Controlador/logout_controlador.php?id=$id_usuario'; </script>";}
 ?>

@@ -124,7 +124,7 @@ switch ($op) {
       break;
   case 'inicio':
 
-  $TiempoHora = date('Y-m-d H:i:s', time());
+  $TiempoHora = date('Y-m-d h:i:s', time());
   echo $TiempoHora;
     break;
 
