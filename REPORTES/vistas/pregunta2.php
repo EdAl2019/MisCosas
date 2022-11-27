@@ -12,7 +12,7 @@
     ?>
     <br>
     <button id="2" tipo="doughnut" type="button" class="btn btn-primary"><h2>GENERAR GRÁFICO</h2></button>
-    <h1>¿CON QUÉ FRECUENCIA UTILIZA TRANSPORTE URBANO?</h1>
+    <h1 id="hpregunta">¿CON QUÉ FRECUENCIA UTILIZA TRANSPORTE URBANO?</h1>
     
     <div class="col-xg-12" style="padding-top:20px;">
     <div class="card">

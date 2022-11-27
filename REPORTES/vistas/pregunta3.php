@@ -12,7 +12,7 @@
     ?>
     <br>
     <button id="3" tipo="line"type="button" class="btn btn-primary"><h2>GENERAR GRÁFICO</h2></button>
-    <h1>¿CUÁNTAS UNIDADES DE TRANSPORTE UTILIZA PARA LLEGAR A SU DESTINO?</h1>
+    <h1 id="hpregunta">¿CUÁNTAS UNIDADES DE TRANSPORTE UTILIZA PARA LLEGAR A SU DESTINO?</h1>
     
     <div class="col-xg-12" style="padding-top:20px;">
     <div class="card">

@@ -83,24 +83,7 @@ function listar_respuesta() {
                 "sNext": "Siguiente",
                 "sPrevious": "Anterior"
             },
-            "buttons": [
-                {
-                    extends: "excelHtml5",
-                    text: "<i class='fas fa-file-excel'></i>",
-                    tittleAttr: "Exportar a Excel",
-                    classname: "btn btn-success"
-                }, {
-                    extends: "excelHtml5",
-                    text: "<i class='fas fa-file-excel'></i>",
-                    tittleAttr: "Exportar a Excel",
-                    classname: "btn btn-success"
-                }, {
-                    extends: "excelHtml5",
-                    text: "<i class='fas fa-file-excel'></i>",
-                    tittleAttr: "Exportar a Excel",
-                    classname: "btn btn-success"
-                },
-            ],
+            
 
         },
         "oAria": {
@@ -108,6 +91,29 @@ function listar_respuesta() {
             "sSortDescending": ": Activar para ordenar la columna de manera descendente"
         },
         "dom": "Bfrtip",
+        "buttons": [
+            {
+                extend: "excelHtml5",
+                filename: function () {
+                    return "REPORTE PREGUNTA "+$("#hpregunta").html()+""
+                },
+                text: "<i class='fa-fa-file-excel'>EXCEL</i>",
+                tittleAttr: "Exportar a Excel",
+                className: "btn btn-success",
+                title:$("#hpregunta").html(),
+            },
+            {
+                extend: "pdfHtml5",
+                filename: function () {
+                    return "REPORTE PREGUNTA "+$("#hpregunta").html()+""
+                },
+                text: "<i class='fa-fa-file-excel'>PDF</i>",
+                tittleAttr: "Exportar a PDF",
+                classname: "btn btn-success",
+                title:$("#hpregunta").html(),
+               
+            },
+        ],
 
 
 

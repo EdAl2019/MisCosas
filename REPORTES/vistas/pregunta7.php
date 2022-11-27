@@ -13,7 +13,7 @@
     ?>
     <br>
     <button id="7" tipo="bar" type="button" class="btn btn-primary"><h2>GENERAR GRÁFICO</h2></button>
-    <h1>RANGO SALARIAL</h1>
+    <h1 id="hpregunta">RANGO SALARIAL</h1>
     
     <div class="col-xg-12" style="padding-top:20px;">
     <div class="card">

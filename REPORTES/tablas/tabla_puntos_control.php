@@ -63,21 +63,7 @@ function listar_productividad() {
         },
         "dom": "Bfrtip",
         buttons: [
-            'copy',
-          {
-                extend:'print',
-                filename: function () {
-                    var today = new Date();
-                    
-                    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                    options.timeZone = 'UTC';
-                    options.timeZoneName = 'short';
-                    
-                    var now = today.toLocaleString('es-ES', options);
-                    return "REPORTE GENERAL - "+now
-                },
-            
-            },
+        
            
          
             {
@@ -85,20 +71,22 @@ function listar_productividad() {
                 filename: function () {
                     
                    
-                    return "REPORTE GENERAL - "+now
-                }
+                    return "REPORTE PUNTOS DE CONTROL - "+now
+                },
+                title:"ENCUESTAS POR PUNTOS DE CONTROL",
             },
           
             {
                 extend: 'pdf',
                 filename: function () {
-                    var today = new Date();
+                  
                  
-                    return "REPORTE GENERAL - "+now
+                    return "REPORTE PUNTOS DE CONTROL - "+now
                 },
+                title:"ENCUESTAS POR PUNTOS DE CONTROL",
             
                 text: 'PDF',
-                orientation: 'landscape',
+               
                 exportOptions: {
                    
                     
@@ -125,7 +113,7 @@ function listar_productividad() {
             data: { op: "puntos_control_horas"},
             dataType: "json",
             complete: function (e) {
-              console.log(e);
+              
                 
                 
             }

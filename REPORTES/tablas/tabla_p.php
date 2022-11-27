@@ -65,21 +65,7 @@ function listar_productividad() {
         },
         "dom": "Bfrtip",
         buttons: [
-            'copy',
-          {
-                extend:'print',
-                filename: function () {
-                    var today = new Date();
-                    
-                    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                    options.timeZone = 'UTC';
-                    options.timeZoneName = 'short';
-                    
-                    var now = today.toLocaleString('es-ES', options);
-                    return "REPORTE GENERAL - "+now
-                },
-            
-            },
+         
            
          
             {
@@ -87,8 +73,9 @@ function listar_productividad() {
                 filename: function () {
                     
                    
-                    return "REPORTE GENERAL - "+now
-                }
+                    return "REPORTE PRODUCTIVIDAD - "+now
+                },
+                title:"PRODUCTIVIDAD",
             },
           
             {
@@ -96,9 +83,9 @@ function listar_productividad() {
                 filename: function () {
                     var today = new Date();
                  
-                    return "REPORTE GENERAL - "+now
+                    return "REPORTE PRODUCTIVIDAD - "+now
                 },
-            
+                title:"PRODUCTIVIDAD",
                 text: 'PDF',
                 orientation: 'landscape',
                 exportOptions: {

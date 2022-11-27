@@ -13,7 +13,7 @@
     ?>
     <br>
     <button id="1" tipo="bar" type="button" class="btn btn-primary"><h2>GENERAR GRÁFICO</h2></button>
-    <h1>¿A DÓNDE SE DIRIGE?</h1>
+    <h1 id="hpregunta">¿A DÓNDE SE DIRIGE?</h1>
     
     <div class="col-xg-12" style="padding-top:20px;">
     <div class="card">

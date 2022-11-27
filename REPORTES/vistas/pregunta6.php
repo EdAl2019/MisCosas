@@ -12,7 +12,7 @@
     ?>
     <br>
     <button id="6" tipo="doughnut" class="btn btn-primary button"><h2>GENERAR GRÁFICO</h2></button>
-    <h1>¿QUÉ RUTA ESPERA UTILZAR?</h1>
+    <h1 id="hpregunta">¿QUÉ RUTA ESPERA UTILZAR?</h1>
     
     <div class="col-xg-12" style="padding-top:20px;">
     <div class="card">
