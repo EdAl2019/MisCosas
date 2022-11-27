@@ -47,11 +47,11 @@
 
                             <div class="col-xs-12">
 
-                               
-                                    
-                                    <select id="puntos_control" type="text" class="form-control form-control-lg"  aria-label="PUNTO DE CONTROL" aria-describedby="basic-addon2"></select>
-                                   <br>
-                                
+
+
+                                <select id="puntos_control" type="text" class="form-control form-control-lg" aria-label="PUNTO DE CONTROL" aria-describedby="basic-addon2"></select>
+                                <br>
+
                                 <div id="map"></div>
                             </div>
 
@@ -70,14 +70,14 @@
 
                             <div class="col-xs-12">
 
-                               
-                                    
-                                 <h1>PUNTOS DE CONTROL</h1>
-                                    <div class="col-lg-12">
+
+
+                                <h1>PUNTOS DE CONTROL</h1>
+                                <div class="col-lg-12">
                                     <div id="contenedor_tabla_puntos">
 
                                     </div>
-        </div>
+                                </div>
                             </div>
 
                         </div>
@@ -106,32 +106,47 @@
             },
             function(data, status) {
                 rutas = JSON.parse(data);
-                var opt="<option selected disabled>Seleccionar punto de control</option>"
+                var opt = "<option selected disabled>Seleccionar punto de control</option>"
 
 
                 rutas.forEach(function(value, index) {
-                  
-                    if ( value.ubicacion_gps !=null) {
+
+                    if (value.ubicacion_gps != null) {
                         let array = value.ubicacion_gps.split(',')
 
-                    L.marker([array[0], array[1]]).addTo(maps).bindPopup("<h2 style='color:cadetblue;'><u>"+value.punto_control + "</u></h2><br> <h3>Cantidad de encuestas: <strong style='color: red;'>" + value.cantidad+"</strong><h3>");
-                    opt=opt+"<option value='"+value.ubicacion_gps+"'>"+value.punto_control+"</option>"
-                
+                        L.marker([array[0], array[1]]).addTo(maps).bindPopup("<h2 style='color:cadetblue;'><u>" + value.punto_control + "</u></h2><br> <h3>Cantidad de encuestas: <strong style='color: red;'>" + value.cantidad + "</strong><h3>");
+                        opt = opt + "<option value='" + value.ubicacion_gps + "'>" + value.punto_control + "</option>"
+
                     }
-                    });
-                    $("#puntos_control").html(opt).fadeIn()
-               
+                });
+                $("#puntos_control").html(opt).fadeIn()
+
 
             });
-           
+
         L.Control.geocoder().addTo(maps);
 
-        $(document).ready(function(){
+        $(document).ready(function() {
             $("#contenedor_tabla_puntos").load('../tablas/tabla_puntos_control.php')
             $("#puntos_control").on('change', function() {
-                let cords=$(this).val().split(",")
-                maps.flyTo(cords,18);
+                let cords = $(this).val().split(",")
+                maps.flyTo(cords, 18);
             });
+            $("#CERRAR_SESION").on('click', function() {
+
+                $.ajax({
+                    type: "GET",
+                    url: "../controladores/controlador_login.php?op=cerrar",
+
+                    success: function(response) {
+                        console.log(response);
+                        if (response == 1) {
+                            window.location = '../index.php'
+
+                        }
+                    }
+                });
+            })
         });
     </script>
 </body>

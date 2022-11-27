@@ -151,5 +151,5 @@ if (isset($_SESSION['Usuario'])) { ?>
 
   </html>
 <?php } else { # code...
-  echo "<script> window.location='index.php'; </script>";
+  echo "<script> window.location='../index.php'; </script>";
 } ?>
