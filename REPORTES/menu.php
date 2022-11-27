@@ -24,10 +24,10 @@ if (isset($_SESSION['Usuario'])) {
       <a class="nav-link" id="2" tipo="doughnut" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta2.php">PREGUNTA 2</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="3" tipo="line" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta3.php">PREGUNTA 3</a>
+      <a class="nav-link" id="3" tipo="line" href="https://190.130.9.62/REPORTES/preguntas/pregunta3.php">PREGUNTA 3</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="4" tipo="line" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta4.php">PREGUNTA 4</a>
+      <a class="nav-link" id="4" tipo="line" href="https://<?php  echo $_SERVER["REMOTE_ADDR"]; ?>/repositorios/MisCosas/REPORTES/preguntas/pregunta4.php">PREGUNTA 4</a>
     </li>
     <li class="nav-item">
       <a class="nav-link " id="5" tipo="bar" href="https://190.130.9.62/repositorios/MisCosas/REPORTES/preguntas/pregunta5.php">PREGUNTA 5</a>

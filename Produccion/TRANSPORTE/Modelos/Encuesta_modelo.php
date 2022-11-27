@@ -1,6 +1,6 @@
 <?php
 
-use encuesta as GlobalEncuesta;
+
 
 require_once('../Config/conexion.php');
 require_once('../WebService/RNP/rnp_class.php');
@@ -224,7 +224,3 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
 
 
 }
-
-
-
-?>
