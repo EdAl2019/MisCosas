@@ -100,8 +100,9 @@ function colorRGB() {
 function llenar_grafico_equipo(fecha) {
    
   fecha=$("#fecha_grafica_e").val()
+  jornada_e=$("#jornada_grafica").val()
   console.log(fecha);
-  $.post("../controladores/controlador.php", { op: 'equipos', fecha_gra:fecha },
+  $.post("../controladores/controlador.php", { op: 'equipos', fecha_gra:fecha, jornada:jornada_e },
   function (data, status) {
       arreglotitulos = [];
       arreglodatos = [];
@@ -112,11 +113,15 @@ function llenar_grafico_equipo(fecha) {
      
       
       for (let i = 0; i < datos.length; i++) {
-         
+        if (datos[i].grupo>0) {
           arreglotitulos.push(datos[i].grupo)
           arreglodatos.push(datos[i].cantidad)
-          arreglosuma=arreglosuma+parseInt(datos[i].cantidad);
+         
 
+          
+        }
+        arreglosuma=arreglosuma+parseInt(datos[i].cantidad);
+          
 
       }
       console.log(arreglodatos);
@@ -142,6 +147,12 @@ $(document).ready(function () {
     $("#contenedor_tabla_general").load('../tablas/tabla_g.php')
     
     $("#fecha_grafica_e").on("change",function () {
+      var fecha =$(this).val(); 
+      llenar_grafico_equipo(fecha);
+      
+    })
+
+    $("#jornada_grafica").on("change",function () {
       var fecha =$(this).val(); 
       llenar_grafico_equipo(fecha);
       

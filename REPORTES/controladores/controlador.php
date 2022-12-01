@@ -107,7 +107,7 @@ switch ($op) {
       break;
   case 'equipos':
     # code...
-    $res = $instancia_modelo->e_equipos($fecha_gra);
+    $res = $instancia_modelo->e_equipos($fecha_gra,$jornada);
     $result = array();
 
     while ($r = $res->fetch_object()) {
