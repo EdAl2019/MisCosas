@@ -54,16 +54,8 @@ echo "<script> var id_user=$id_usuario</script>";
     <div class="row">
     <?php require 'cabecera.php';
     date_default_timezone_set('America/Tegucigalpa');
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL,  'https://api.ipify.org?format=json'); /** Ingresamos la url de la api o servicio a consumir */
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); /**Permitimos recibir respuesta*/
-    curl_setopt($curl, CURLOPT_HTTPGET,true);
-    curl_setopt($curl, CURLOPT_HEADER, 0);
-    curl_setopt($curl, CURLOPT_POST, false);
-    curl_setopt( $curl, CURLOPT_COOKIEFILE, __DIR__.'/cookies.txt' ); /** Archivo donde guardamos datos de sesion */
-    $data = curl_exec($curl); /** Ejecutamos petición*/
-    $data=json_decode($data)->ip;   
-    curl_close($curl);
+  
+   $data=$_SERVER['REMOTE_ADDR']
    
     ?>
 
@@ -126,7 +118,7 @@ echo "<script> var id_user=$id_usuario</script>";
                 <div class="card-body">
 
                   <div class="form-group col-md-12" id="contenedor_scaner">
-                  <input type="text" id="IP" name="IP" value="<?php echo $data; ?>" hidden>
+                  <input type="text" id="IP" name="IP" value="<?php echo $data; ?>" >
                     <input type="text" id="FECHAINICIO" name="FECHAINICIO" hidden>
                     <input type="text" id="JORNADA" name="JORNADA" value=<?php echo date('a'); ?> hidden>
 
