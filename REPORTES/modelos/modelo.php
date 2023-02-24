@@ -23,6 +23,20 @@ class encuesta
 
         return $consulta;
     }
+    function ubicacion_usuarios()
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta('select * from tbl_usuarios u, tbl_personas e where u.id_persona=e.id_persona and ubicacion_actual != "NULL";');
+
+        return $consulta;
+    }
+    function listar_usuarios_gps()
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta('select * from tbl_usuarios u, tbl_personas e where u.id_persona=e.id_persona and ubicacion_actual != "NULL";');
+
+        return $consulta;
+    }
     function pregunta2()
     {
         global $instancia_conexion;
@@ -65,7 +79,7 @@ class encuesta
 
         return $consulta;
     }
-    function e_equipos($fecha,$jornada)
+    function e_equipos($fecha,$jornada,$fecha_final)
     {
         if ($jornada=="") {
             # code...
@@ -74,7 +88,7 @@ class encuesta
             $jornada="and e.jornada='".$jornada."'";
         }
         global $instancia_conexion;
-        $consulta = $instancia_conexion->ejecutarConsulta('select u.grupo, count(e.id_usuario) as cantidad  from tbl_usuarios u, tbl_encuestas e where e.id_usuario=u.id_usuario and e.fecha_inicial LIKE "%'.$fecha.'%" '.$jornada.' group by u.grupo order by u.grupo');
+        $consulta = $instancia_conexion->ejecutarConsulta('select u.grupo, count(e.id_usuario) as cantidad  from tbl_usuarios u, tbl_encuestas e where e.id_usuario=u.id_usuario and date(e.fecha_inicial)>=date("'.$fecha.'") and date(e.fecha_inicial)<=date("'.$fecha_final.'") '.$jornada.' group by u.grupo order by u.grupo');
 
         return $consulta;
     }

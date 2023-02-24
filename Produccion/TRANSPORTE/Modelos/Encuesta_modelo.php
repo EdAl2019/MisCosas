@@ -125,10 +125,10 @@ function guardar_encuesta($identidad,$qr,$id_usuario,$id_punto_control,$fecha_i,
 
         return $consulta;
     }
-    function listar_rutas($id_zona)
+    function listar_rutas($id_ciudad)
     {
         global $instancia_conexion;
-        $consulta = $instancia_conexion->ejecutarConsulta('select * from TBL_RUTAS order by ruta;');
+        $consulta = $instancia_conexion->ejecutarConsulta("select * from TBL_RUTAS where id_ciudad=$id_ciudad order by ruta;");
 
         return $consulta;
     }

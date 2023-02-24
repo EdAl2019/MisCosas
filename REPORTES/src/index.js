@@ -99,10 +99,12 @@ function colorRGB() {
 }
 function llenar_grafico_equipo(fecha) {
    
-  fecha=$("#fecha_grafica_e").val()
+  fecha_incial=$("#fecha_grafica_e").val()
+  fecha_final=$("#fecha_grafica_e_fin").val()
   jornada_e=$("#jornada_grafica").val()
-  console.log(fecha);
-  $.post("../controladores/controlador.php", { op: 'equipos', fecha_gra:fecha, jornada:jornada_e },
+  
+ 
+  $.post("../controladores/controlador.php", { op: 'equipos', fecha_gra:fecha_incial, jornada:jornada_e,fecha_gra_final:fecha_final },
   function (data, status) {
       arreglotitulos = [];
       arreglodatos = [];
@@ -139,16 +141,40 @@ function llenar_grafico_equipo(fecha) {
 
 
 $(document).ready(function () {
+  
+  let date = new Date()
+
+  let day = date.getDate()
+
+  let month = date.getMonth() + 1
+  let year = date.getFullYear()
+  let d = ""
+  var fecha_inicial
+ 
+  if (month < 10) {
+
+      if (day < 10) {
+          d = "0"
+      }
+      fecha_inicial = `${year}-0${month}-${d}${day}`
+  } else {
+      fecha_inicial = `${year}-${month}-${d}${day}`
+  }
+
+  
+  $("#fecha_grafica_e").val(fecha_inicial)
+  $("#fecha_grafica_e_fin").val(fecha_inicial)
     $("#contenedor_grafico_sexo").load("../graficos/grafico_sexo.php");
     $("#contenedor_grafico_edades").load("../graficos/grafico_edades.php");
     $("#contenedor_grafico_estado_civil").load("../graficos/grafico_estado_civil.php");
   
     $("#contenedor_tabla").load('../tablas/tabla_e.php');
-    $("#contenedor_tabla_general").load('../tablas/tabla_g.php')
+    // $("#contenedor_tabla_general").load('../tablas/tabla_g.php')
     
-    $("#fecha_grafica_e").on("change",function () {
-      var fecha =$(this).val(); 
-      llenar_grafico_equipo(fecha);
+    $(".fecha_grafica_e").on("change",function () {
+      var fecha_inicio =$("#fecha_grafica_e").val(); 
+      var fecha_fin =$("#fecha_grafica_e_fin").val(); 
+      llenar_grafico_equipo(fecha_inicio,fecha_fin);
       
     })
 

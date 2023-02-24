@@ -48,6 +48,7 @@ echo "<script> var id_user=$id_usuario</script>";
 </head>
 
 <body style="background-color:#57D0E1;">
+
   <div class="container">
 
 
@@ -118,7 +119,7 @@ echo "<script> var id_user=$id_usuario</script>";
                 <div class="card-body">
 
                   <div class="form-group col-md-12" id="contenedor_scaner">
-                  <input type="text" id="IP" name="IP" value="<?php echo $data; ?>" >
+                  <input type="text" id="IP" hidden name="IP" value="<?php echo $data; ?>" >
                     <input type="text" id="FECHAINICIO" name="FECHAINICIO" hidden>
                     <input type="text" id="JORNADA" name="JORNADA" value=<?php echo date('a'); ?> hidden>
 
@@ -425,7 +426,57 @@ echo "<script> var id_user=$id_usuario</script>";
   <?php require 'pie.php'; ?>
 
   <script src="../src/js/formulario.js"></script>
+  <script>
+        $("#permisoGPS").click(function(){
+          location.reload()
+            
+        });
+var denegado
+const funcionInit = () => {
+	if (!"geolocation" in navigator) {
+		return alert("Tu navegador no soporta el acceso a la ubicación. Intenta con otro");
+	}
 
+
+
+
+	const onUbicacionConcedida = ubicacion => {
+		console.log("UBICACION BIEN");
+		const coordenadas = ubicacion.coords;
+	    coordenadas.latitude;
+		 coordenadas.longitude;
+         $("#ubicacion").val(coordenadas.latitude+","+coordenadas.longitude)
+         $("#comenzar").removeAttr("disabled")
+    
+		
+	}
+	const onErrorDeUbicacion = err => {
+        $("#comenzar").prop("disabled",true)
+
+        alert("DEBES HABILITAR LA UBICACIÓN GPS EN TU DISPOSITIVO")
+      
+		
+       denegado=true;
+     
+      
+	}
+
+	const opcionesDeSolicitud = {
+		enableHighAccuracy: true, // Alta precisión
+		maximumAge: 0, // No queremos caché
+		timeout: 8000 // Esperar solo 5 segundos
+	};
+
+	
+	navigator.geolocation.getCurrentPosition(onUbicacionConcedida, onErrorDeUbicacion, opcionesDeSolicitud);
+
+};
+setInterval(funcionInit, 8000);
+
+document.addEventListener("DOMContentLoaded", funcionInit);
+
+
+    </script>
 </body>
 
 </html>

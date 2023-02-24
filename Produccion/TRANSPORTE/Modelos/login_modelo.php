@@ -13,10 +13,25 @@ class login
 
         return $consulta;
     }
+    
+    function ubicacion($id,$ubicacion)
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta("update TBL_USUARIOS set ubicacion_actual='$ubicacion' where id_usuario=$id;");
+
+        return $consulta;
+    }
+    function id_ciudad($id)
+    {
+        global $instancia_conexion;
+        $consulta = $instancia_conexion->ejecutarConsulta("select id_ciudad from tbl_puntos_de_control where id_punto_control=$id;");
+
+        return $consulta;
+    }
     function desactivar_sesion($id)
     {
         global $instancia_conexion;
-        $consulta = $instancia_conexion->ejecutarConsulta("update TBL_USUARIOS set estado_session=0 where id_usuario=$id;");
+        $consulta = $instancia_conexion->ejecutarConsulta("update TBL_USUARIOS set estado_session=0, ubicacion_actual=NULL where id_usuario=$id;");
 
         return $consulta;
     }

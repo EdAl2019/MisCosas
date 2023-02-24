@@ -112,39 +112,74 @@ if (isset($_SESSION['Usuario'])) { ?>
 
               <div class="row">
                 <div class="col-sm-6">
+                  <div class="row">
 
-                  <input type="date" id="fecha_grafica_e" name="fecha_grafica_e" min="2022-10-13" max="2022-12-30" value='2022' class="form-control">
+                    <div class="col-sm-6">
+                      <form class="form-inline">
+                        <div class="form-group">
+                          <label for="fecha_grafica_e">INICIO: </label>
+                          <input type="date" id="fecha_grafica_e" name="fecha_grafica_e" min="2022-09-01" max="2023-12-31" value='-' class="form-control fecha_grafica_e">
+                        </div>
+
+                      </form>
+                    </div>
+                    <div class="col-sm-6">
+
+                      <form class="form-inline">
+                        <div class="form-group">
+                          <label for="fecha_grafica_e_fin">FIN: </label> &nbsp; <input type="date" id="fecha_grafica_e_fin" name="fecha_grafica_e_fin" min="2022-09-01" max="2023-12-31" value='-' class="form-control fecha_grafica_e">
+
+                        </div>
+                      </form>
+
+
+                    </div>
+
+                  </div>
                 </div>
-                <div class="col-sm-6">
-                  <select class="form-control" name="jornada_grafica" id="jornada_grafica">
-                    <option value="" disabled selected>SELECCIONE UNA JORNADA</option>
-                    <option value="">COMPLETA</option>
-                    <option value="am">AM</option>
-                    <option value="pm">PM</option>
-                  </select>
+                <div class="col-sm-4">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <form class="form-inline">
+                        <label for="jornada_grafica">JORNADA: </label>
+                        <select class="form-control" name="jornada_grafica" id="jornada_grafica">
+                          <option value="" disabled selected>SELECCIONE UNA JORNADA</option>
+                          <option value="">COMPLETA</option>
+                          <option value="am">AM</option>
+                          <option value="pm">PM</option>
+                        </select>
+                      </form>
+                    </div>
+
+                  </div>
+
                 </div>
+
+
               </div>
 
             </div>
-            <div class="card-body">
-              <div class="col-xs-3">
-                <canvas id="equipos"></canvas>
 
-              </div>
-
-
+          </div>
+          <div class="card-body">
+            <div class="col-xs-3">
+              <canvas id="equipos"></canvas>
 
             </div>
+
+
 
           </div>
 
         </div>
 
-
-
-
-
       </div>
+
+
+
+
+
+    </div>
 
 
     </div>

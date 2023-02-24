@@ -7,12 +7,51 @@ $op = isset($_POST["op"]) ? $_POST["op"] : "";
 $fecha_e = isset($_POST["fecha_e"]) ? $_POST["fecha_e"] : "";
 $fecha_g = isset($_POST["fecha_g"]) ? $_POST["fecha_g"] : "";
 $fecha_gra = isset($_POST["fecha_gra"]) ? $_POST["fecha_gra"] : "";
+$fecha_gra_final = isset($_POST["fecha_gra_final"]) ? $_POST["fecha_gra_final"] : "";
 $gop = isset($_POST["gop"]) ? $_POST["gop"] : "";
 $jornada=isset($_POST["jornada"])? $_POST["jornada"] : "";
 $instancia_modelo = new encuesta();
 
 
 switch ($op) {
+  case "listar_usuarios_gps":
+
+    $rspta = $instancia_modelo->listar_usuarios_gps(); //instancia a la funcion listar
+
+
+    //Vamos a declarar un array
+    $data = array();
+    while ($reg = $rspta->fetch_object()) {
+      $data[] = array(
+
+        "0" => $reg->usuario,
+        "1" => $reg->ubicacion_actual,
+
+      );
+    }
+    $results = array(
+      "sEcho" => 1, //Información para el datatables
+      "iTotalRecords" => count($data), //enviamos el total registros al datatable
+      "iTotalDisplayRecords" => count($data), //enviamos el total registros a visualizar
+      "aaData" => $data
+    );
+    echo json_encode($results); //enviamos los datos en formato JSON
+
+    break;
+  case 'ubicacion_usuarios':
+    # code...
+
+    $res = $instancia_modelo->ubicacion_usuarios();
+    $result = array();
+
+    while ($r = $res->fetch_object()) {
+      # code...
+      $result[] = $r;
+    }
+    print_r(json_encode($result));
+
+
+    break;
   case 'datos1':
     # code...
 
@@ -107,7 +146,7 @@ switch ($op) {
       break;
   case 'equipos':
     # code...
-    $res = $instancia_modelo->e_equipos($fecha_gra,$jornada);
+    $res = $instancia_modelo->e_equipos($fecha_gra,$jornada,$fecha_gra_final);
     $result = array();
 
     while ($r = $res->fetch_object()) {

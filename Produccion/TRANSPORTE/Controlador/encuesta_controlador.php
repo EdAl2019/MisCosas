@@ -201,7 +201,7 @@ switch ($op) {
       if (isset($_POST['activar'])) {
         $data = array();
 
-        $respuesta = $instancia_modelo->listar_rutas($_SESSION["Id_zona"]);
+        $respuesta = $instancia_modelo->listar_rutas($_SESSION["Id_ciudad"]);
         echo '<option  value="null" selected="" disabled="true">..SELECCIONE UNA RUTA ..</option>';
 
         while ($r = $respuesta->fetch_object()) {

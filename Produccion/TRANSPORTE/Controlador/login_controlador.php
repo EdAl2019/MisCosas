@@ -12,6 +12,7 @@ require_once "../Modelos/login_modelo.php"; //refencia del modelo
 $usuario = isset($_POST["usuario"]) ? limpiarCadena1($_POST["usuario"]) : "";
 $contraseña = isset($_POST["contraseña"]) ? limpiarCadena1($_POST["contraseña"]) : "";
 $id_punto_control = isset($_POST["id_punto_control"]) ? limpiarCadena1($_POST["id_punto_control"]) : "";
+$ubicacion=isset($_POST["ubicacion"]) ? limpiarCadena1($_POST["ubicacion"]) : "";
 
 $opcion = isset($_GET["op"]) ? limpiarCadena1($_GET["op"]) : "select_puntos_control";
 
@@ -49,6 +50,7 @@ switch ($opcion) {
           
 
         $activar_estado=$instancia_modelo->estado_session($id_u->id_usuario);
+        $ubicacion_actual=$instancia_modelo->ubicacion($id_u->id_usuario,$ubicacion);
           
         
         while ($res=$datos->fetch_object()) {
@@ -64,7 +66,9 @@ switch ($opcion) {
 
     
         }
+       
         $_SESSION["Id_punto_control"]=$id_punto_control;
+        $_SESSION["Id_ciudad"]=$instancia_modelo->id_ciudad($id_punto_control)->fetch_object()->id_ciudad;
         $zona=$zona->fetch_object();
         $_SESSION["Id_zona"]=$zona->id_zona;
         echo 1;
@@ -97,6 +101,7 @@ switch ($opcion) {
       $zona4="";
       $zona5="";
       $operativo="";
+      $sanpedro="";
       
       while ($r = $respuesta->fetch_object()) {
         
@@ -130,6 +135,11 @@ switch ($opcion) {
           $operativo= $operativo."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
       
         }
+        if ($r->id_zona==7) {
+          # code...
+          $sanpedro= $sanpedro."<option style='color: black;' value='" . $r->id_punto_control . "'> " . $r->punto_control . " </option>";
+      
+        }
        
     
         }
@@ -149,6 +159,9 @@ switch ($opcion) {
         echo "</optgroup>";
         echo "<optgroup label='ZONA OESTE'>";
         echo $zona4;
+        echo "</optgroup>";
+        echo "<optgroup label='SAN PEDRO SULA'>";
+        echo $sanpedro;
         echo "</optgroup>";
         echo "<optgroup label='OPERATIVOS'>";
         echo $operativo;

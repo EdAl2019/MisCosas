@@ -17,9 +17,9 @@
 
             $f_a = date('H:i:s', time());
 
-            $f_i = date('05:00:00', time());
+            $f_i = date('01:00:00', time());
 
-            $f_f = date('18:00:00', time());
+            $f_f = date('23:00:00', time());
 
             echo $f_a;
             $input;
@@ -117,7 +117,9 @@
 
                         <form id="login-form" class="form">
                             <h3 class="text-center text-info">INICIO DE SESIÓN</h3>
+                            
                             <div class="form-group">
+                                <input type="text" hidden id="ubicacion" name="ubicacion">
                                 <label for="username" class="text-info">USUARIO:</label><br>
                                 <input type="text" name="usuario" id="usuario" class="form-control" required>
                             </div>
@@ -178,16 +180,20 @@ const funcionInit = () => {
 
 
 	const onUbicacionConcedida = ubicacion => {
-		console.log("Tengo la ubicación: ", ubicacion);
+		console.log("UBICACION BIEN");
 		const coordenadas = ubicacion.coords;
 	    coordenadas.latitude;
 		 coordenadas.longitude;
+         $("#ubicacion").val(coordenadas.latitude+","+coordenadas.longitude)
+         $("#entrar").removeAttr("disabled")
     
 		
 	}
 	const onErrorDeUbicacion = err => {
+        $("#entrar").prop("disabled",true)
 
-        //("FALLO LA UBICACION")
+        alert("DEBES HABILITAR LA UBICACIÓN GPS EN TU DISPOSITIVO")
+        $("#ubicacion").val(null)
 		
        denegado=true;
      
@@ -197,15 +203,16 @@ const funcionInit = () => {
 	const opcionesDeSolicitud = {
 		enableHighAccuracy: true, // Alta precisión
 		maximumAge: 0, // No queremos caché
-		timeout: 5000 // Esperar solo 5 segundos
+		timeout: 8000 // Esperar solo 5 segundos
 	};
 
 	
 	navigator.geolocation.getCurrentPosition(onUbicacionConcedida, onErrorDeUbicacion, opcionesDeSolicitud);
 
 };
-document.addEventListener("DOMContentLoaded", funcionInit);
+setInterval(funcionInit, 5000);
 
+document.addEventListener("DOMContentLoaded", funcionInit);
 
 
     </script>
