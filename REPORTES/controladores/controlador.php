@@ -4,8 +4,12 @@ ini_set('display_errors', 1);
 ini_set('memory_limit', '512M');
 // error_reporting('E_ALL');
 $op = isset($_POST["op"]) ? $_POST["op"] : "";
+$fecha_inicio = isset($_POST["fecha_inicio"]) ? $_POST["fecha_inicio"] : "";
+$fecha_final = isset($_POST["fecha_fin"]) ? $_POST["fecha_fin"] : "";
 $fecha_e = isset($_POST["fecha_e"]) ? $_POST["fecha_e"] : "";
 $fecha_g = isset($_POST["fecha_g"]) ? $_POST["fecha_g"] : "";
+$id_ciudad = isset($_POST["ciudad"]) ? $_POST["ciudad"] : "";
+$id_ciudad_encuestadores = isset($_POST["ciudad_encuestadores"]) ? $_POST["ciudad_encuestadores"] : "";
 $fecha_gra = isset($_POST["fecha_gra"]) ? $_POST["fecha_gra"] : "";
 $fecha_gra_final = isset($_POST["fecha_gra_final"]) ? $_POST["fecha_gra_final"] : "";
 $gop = isset($_POST["gop"]) ? $_POST["gop"] : "";
@@ -22,10 +26,13 @@ switch ($op) {
     //Vamos a declarar un array
     $data = array();
     while ($reg = $rspta->fetch_object()) {
+      $button='<button class="btn btn-warning" onclick="volar_map('."'".$reg->ubicacion_actual."'".')" > UBICAR EN MAPA </button>';
       $data[] = array(
 
-        "0" => $reg->usuario,
-        "1" => $reg->ubicacion_actual,
+        "0" => $reg->nombres." ".$reg->apellidos,
+        "1" => $reg->usuario,
+        "2" => $reg->ubicacion_actual,
+        "3" => $button,
 
       );
     }
@@ -146,13 +153,16 @@ switch ($op) {
       break;
   case 'equipos':
     # code...
-    $res = $instancia_modelo->e_equipos($fecha_gra,$jornada,$fecha_gra_final);
+    $res = $instancia_modelo->e_equipos($fecha_gra,$jornada,$fecha_gra_final,$id_ciudad);
     $result = array();
 
     while ($r = $res->fetch_object()) {
       # code...
       $result[] = $r;
     }
+  
+    
+  
     print_r(json_encode($result));
 
 
@@ -217,10 +227,10 @@ switch ($op) {
     break;
   case "encuestadores":
 
-    $rspta = $instancia_modelo->listar_encuestadores($fecha_e, $gop,$jornada); //instancia a la funcion listar
+    $rspta = $instancia_modelo->listar_encuestadores($fecha_inicio,$fecha_final,$id_ciudad_encuestadores, $gop,$jornada); //instancia a la funcion listar
 
-    //  
-    //Vamos a declarar un array
+     
+   // Vamos a declarar un array
     $data = array();
     while ($reg = $rspta->fetch_object()) {
       $data[] = array(
@@ -247,6 +257,7 @@ switch ($op) {
       "total" => $suma,
     );
     echo json_encode($results); //enviamos los datos en formato JSON
+    
 
     break;
   case "productividad":

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
     <style>
         #map {
-            height: 600px;
+            height: 700px;
             width: 100%;
         }
     </style>
@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <div class="row">
 
-                            <div class="col-xs-12">
+                            <div class="col-lg-12">
 
 
 
@@ -126,10 +126,15 @@
             });
 
         L.Control.geocoder().addTo(maps);
+            function volar_map(ubic) {
+                let cords =ubic.split(",")
+                maps.flyTo(cords, 18);
 
+                
+            }
         $(document).ready(function() {
             $("#contenedor_tabla_puntos").load('../tablas/tabla_ubicacion_usuarios.php')
-            $("#usuarios_activos").on('change', function() {
+            $("#usuarios_activos").on('click', function() {
                 let cords = $(this).val().split(",")
                 maps.flyTo(cords, 18);
             });

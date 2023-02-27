@@ -97,14 +97,15 @@ function colorRGB() {
   var coolor = "(" + generarNumero(255) + "," + generarNumero(255) + "," + generarNumero(255) + ")";
   return "rgb" + coolor;
 }
-function llenar_grafico_equipo(fecha) {
+function llenar_grafico_equipo() {
    
   fecha_incial=$("#fecha_grafica_e").val()
   fecha_final=$("#fecha_grafica_e_fin").val()
   jornada_e=$("#jornada_grafica").val()
+  ciudad=$("#ciudad").val()
   
  
-  $.post("../controladores/controlador.php", { op: 'equipos', fecha_gra:fecha_incial, jornada:jornada_e,fecha_gra_final:fecha_final },
+  $.post("../controladores/controlador.php", { op: 'equipos', fecha_gra:fecha_incial, jornada:jornada_e,fecha_gra_final:fecha_final,ciudad:ciudad },
   function (data, status) {
       arreglotitulos = [];
       arreglodatos = [];
@@ -164,12 +165,15 @@ $(document).ready(function () {
   
   $("#fecha_grafica_e").val(fecha_inicial)
   $("#fecha_grafica_e_fin").val(fecha_inicial)
+  $("#fecha_encuestadores_inicio").val(fecha_inicial)
+  $("#fecha_encuestadores_fin").val(fecha_inicial)
+  $("#fecha_general").val(fecha_inicial)
     $("#contenedor_grafico_sexo").load("../graficos/grafico_sexo.php");
     $("#contenedor_grafico_edades").load("../graficos/grafico_edades.php");
     $("#contenedor_grafico_estado_civil").load("../graficos/grafico_estado_civil.php");
   
     $("#contenedor_tabla").load('../tablas/tabla_e.php');
-    // $("#contenedor_tabla_general").load('../tablas/tabla_g.php')
+    $("#contenedor_tabla_general").load('../tablas/tabla_g.php')
     
     $(".fecha_grafica_e").on("change",function () {
       var fecha_inicio =$("#fecha_grafica_e").val(); 
@@ -177,12 +181,25 @@ $(document).ready(function () {
       llenar_grafico_equipo(fecha_inicio,fecha_fin);
       
     })
-
-    $("#jornada_grafica").on("change",function () {
-      var fecha =$(this).val(); 
-      llenar_grafico_equipo(fecha);
+    $("#ciudad").on("change",function () {
+      
+       llenar_grafico_equipo();
+       
+     })
+     $("#ciudad_encuestadores").on("change",function () {
+      $("#contenedor_tabla").html(" ");
+        $("#contenedor_tabla").load('../tablas/tabla_e.php');
+        
       
     })
+
+    $("#jornada_grafica").on("change",function () {
+     
+      llenar_grafico_equipo();
+      
+    })
+
+   
   
   
   
@@ -193,7 +210,7 @@ $(document).ready(function () {
        imprimirElemento(div); 
     });
     $("#fecha_general").on("change",function () {
-        console.log("cambie");
+       
         $("#contenedor_tabla_general").html(" ");
         $("#contenedor_tabla_general").load('../tablas/tabla_g.php');
         
@@ -203,8 +220,8 @@ $(document).ready(function () {
     })
    
 
-    $("#fecha_encuestadores").on("change",function () {
-        console.log("cambie");
+    $("#fecha_encuestadores_inicio").on("change",function () {
+       
         $("#contenedor_tabla").html(" ");
         $("#contenedor_tabla").load('../tablas/tabla_e.php');
         
@@ -212,8 +229,17 @@ $(document).ready(function () {
         
         
     })
+    $("#fecha_encuestadores_fin").on("change",function () {
+     
+      $("#contenedor_tabla").html(" ");
+      $("#contenedor_tabla").load('../tablas/tabla_e.php');
+      
+     
+      
+      
+  })
     $("#jornada").on("change",function () {
-      console.log("cambie");
+     
       $("#contenedor_tabla").html(" ");
       $("#contenedor_tabla").load('../tablas/tabla_e.php');
       
@@ -226,13 +252,13 @@ $(document).ready(function () {
 
     
     $("#CERRAR_SESION").on('click',function () {
-      console.log('salir');
+     
       $.ajax({
         type: "GET",
         url: "../controladores/controlador_login.php?op=cerrar",
        
         success: function (response) {
-         console.log(response);
+         
          if (response==1) {
           window.location='../index.php'
           
@@ -242,7 +268,7 @@ $(document).ready(function () {
     })
 
     $("#grupo").on("change",function () {
-      console.log("cambie");
+     
       $("#contenedor_tabla").html(" ");
       $("#contenedor_tabla").load('../tablas/tabla_e.php');
       

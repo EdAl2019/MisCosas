@@ -1,8 +1,10 @@
 <table id="reporte_general_gps_usuarios" class="display table-striped table-bordered table-condensed" style="width:200;">
                     <thead>
                       <tr>
+                      <th>ENCUESTADOR</th>
                         <th>USUARIO</th>
                         <th>UBICACIÓN ACTUAL</th>
+                        <th>UBICAR</th>
 
                       </tr>
                     </thead>
@@ -32,12 +34,12 @@ function listar_productividad() {
             "sProcessing": "Procesando...",
             "sLengthMenu": "Mostrar _MENU_ registros",
             "sZeroRecords": "No se encontraron resultados",
-            "sEmptyTable": "Ningún dato disponible en esta tabla",
+            "sEmptyTable": "Ningún encuestador conectado",
             "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
             "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
             "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
             "sInfoPostFix": "",
-            "sSearch": "Buscar Punto de control:",
+            "sSearch": "Buscar usuario:",
             "sUrl": "",
             "sInfoThousands": ",",
             "sLoadingRecords": "Cargando...",

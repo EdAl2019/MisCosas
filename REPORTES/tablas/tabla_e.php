@@ -148,6 +148,11 @@
             ],
 
             select: true,
+            scrollCollapse: true,
+        responsive: true,
+        "autoWidth": true,
+         scrollY: true,
+        scrollX: false,
 
             
 
@@ -156,13 +161,16 @@
                 type: "post",
                 data: {
                     op: "encuestadores",
-                    fecha_e: $("#fecha_encuestadores").val(),
+                    fecha_inicio: $("#fecha_encuestadores_inicio").val(),
+                    fecha_fin: $("#fecha_encuestadores_fin").val(),
+                    ciudad:$("#ciudad_encuestadores").val(),
                     gop: $("#grupo").val(),
                     jornada:$("#jornada").val()
                 },
                 dataType: "json",
                 complete: function(e) {
-                    e = JSON.parse(e.responseText);
+                    
+                 
                     $("#total_encuestas").val(e.total)
                     llenar_grafico_equipo($("#fecha_grafica_e").val());
 

@@ -45,7 +45,7 @@ function listar_general() {
     datos = "$op=general";
     //console.log('ejecutandose');
     $('#reporte_general').DataTable({
-        autoWidth: true,
+        autoWidth: true, 
        
         
         "language": {
@@ -107,9 +107,9 @@ function listar_general() {
         select: true,
        
 
-
+        scrollCollapse: true,
         responsive: true,
-
+        "lengthChange": false, "autoWidth": true, scrollY: '200px',
         scrollX: true,
 
 

@@ -79,7 +79,7 @@ class encuesta
 
         return $consulta;
     }
-    function e_equipos($fecha,$jornada,$fecha_final)
+    function e_equipos($fecha,$jornada,$fecha_final,$id_ciudad)
     {
         if ($jornada=="") {
             # code...
@@ -87,9 +87,17 @@ class encuesta
         }else {
             $jornada="and e.jornada='".$jornada."'";
         }
+        if ($id_ciudad>0) {
+            $ciudad="puntc.id_ciudad=".$id_ciudad." and";
+            # code...
+        }else{
+            $ciudad="";
+        }
+       
         global $instancia_conexion;
-        $consulta = $instancia_conexion->ejecutarConsulta('select u.grupo, count(e.id_usuario) as cantidad  from tbl_usuarios u, tbl_encuestas e where e.id_usuario=u.id_usuario and date(e.fecha_inicial)>=date("'.$fecha.'") and date(e.fecha_inicial)<=date("'.$fecha_final.'") '.$jornada.' group by u.grupo order by u.grupo');
-
+        $sql='select u.grupo, count(e.id_usuario) as cantidad  from tbl_usuarios u, tbl_encuestas e,tbl_puntos_de_control puntc where '.$ciudad.' e.id_punto_control=puntc.id_punto_control and e.id_usuario=u.id_usuario and date(e.fecha_inicial)>=date("'.$fecha.'") and date(e.fecha_inicial)<=date("'.$fecha_final.'") '.$jornada.' group by u.grupo order by u.grupo';
+        $consulta = $instancia_conexion->ejecutarConsulta($sql);
+       
         return $consulta;
     }
     function sexo($fecha)
@@ -164,7 +172,7 @@ class encuesta
         $sql = "select u.usuario, e.id_encuesta, e.fecha_inicial, e.fecha_final, e.direccion_ip, e.id_punto_control,punt.punto_control,p.id_persona, p.nombres, p.apellidos, p.identidad ,p.telefono,p.estado_civil,p.edad,p.sexo,(select  r.respuesta from tbl_respuestas r, tbl_preguntas preg where preg.id_pregunta=r.id_pregunta and r.id_pregunta=1 and r.id_encuesta=e.id_encuesta limit 1)as pregunta1,(select  r.respuesta from tbl_respuestas r, tbl_preguntas preg where preg.id_pregunta=r.id_pregunta and r.id_pregunta=2 and r.id_encuesta=e.id_encuesta limit 1)as pregunta2,(select r.respuesta from tbl_respuestas r, tbl_preguntas preg where preg.id_pregunta=r.id_pregunta and r.id_pregunta=3 and r.id_encuesta=e.id_encuesta limit 1)as pregunta3,(select r.respuesta from tbl_respuestas r, tbl_preguntas preg where preg.id_pregunta=r.id_pregunta and r.id_pregunta=4 and r.id_encuesta=e.id_encuesta limit 1)as pregunta4,(select r.respuesta from tbl_respuestas r, tbl_preguntas preg where preg.id_pregunta=r.id_pregunta and r.id_pregunta=5 and r.id_encuesta=e.id_encuesta limit 1)as pregunta5 ,(select r.respuesta from tbl_respuestas r, tbl_preguntas preg where preg.id_pregunta=r.id_pregunta and r.id_pregunta=6 and r.id_encuesta=e.id_encuesta limit 1)as pregunta6 from tbl_usuarios u, tbl_personas p, tbl_encuestas e, tbl_puntos_de_control punt where p.id_persona=e.id_persona and e.id_usuario=u.id_usuario and e.id_punto_control=punt.id_punto_control and e.fecha_inicial LIKE '%$fecha%'";
         return $instancia_conexion->ejecutarConsulta($sql);
     }
-    function listar_encuestadores($fecha,$g,$jornada)
+    function listar_encuestadores($fecha_i,$fecha_f,$id_ciudad,$g,$jornada)
     {   
         if ($g=="") {
             # code...
@@ -178,10 +186,17 @@ class encuesta
         }else {
             $jornada="and e.jornada='".$jornada."'";
         }
+        if ($id_ciudad>0) {
+            $ciudad="puntc.id_ciudad=".$id_ciudad." and";
+            # code...
+        }else{
+            $ciudad="";
+        }
 
         global $instancia_conexion;
-        $sql = "select u.grupo , p.nombres, p.apellidos,p.telefono,u.usuario, (select count(e.id_encuesta)from tbl_encuestas e where e.id_usuario=u.id_usuario and e.fecha_inicial like '%$fecha%' $jornada) as cantidad_encuestas from tbl_usuarios u, tbl_personas p where u.id_persona=p.id_persona and u.grupo>0 $g;";
-        return $instancia_conexion->ejecutarConsulta($sql);
+        $sql = "select u.grupo , p.nombres, p.apellidos,p.telefono,u.usuario, (select count(e.id_encuesta)from tbl_encuestas e,tbl_puntos_de_control puntc where $ciudad e.id_punto_control=puntc.id_punto_control and e.id_usuario=u.id_usuario and date(e.fecha_inicial)>=date('$fecha_i') and date(e.fecha_inicial)<=date('$fecha_i') $jornada) as cantidad_encuestas from tbl_usuarios u, tbl_personas p where u.id_persona=p.id_persona and u.grupo>0 $g;";
+         return $instancia_conexion->ejecutarConsulta($sql);
+        
     }
     function listar_rutas($id_zona)
     {
