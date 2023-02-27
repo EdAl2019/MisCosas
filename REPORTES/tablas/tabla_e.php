@@ -163,7 +163,7 @@
                     op: "encuestadores",
                     fecha_inicio: $("#fecha_encuestadores_inicio").val(),
                     fecha_fin: $("#fecha_encuestadores_fin").val(),
-                    ciudad:$("#ciudad_encuestadores").val(),
+                    ciudad_encuestadores:$("#ciudad_encuestadores").val(),
                     gop: $("#grupo").val(),
                     jornada:$("#jornada").val()
                 },

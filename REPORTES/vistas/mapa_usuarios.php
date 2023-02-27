@@ -18,25 +18,8 @@
     <?php require './menu.php'; ?>
     <br>
 
-    <h1 style="color:darkcyan">PUNTOS DE CONTROL</h1>
-    <!-- <div class="container">
-    <div class="row">
-    <div class="col-lg-12" >
-    <div class="card">
-    <div class="card-body">
-        <div class="row">
-        <div class="col-xs-12">
-         <iframe src="https://www.google.com/maps/d/embed?mid=1taZOuvoe3aj8_UBX20NNmqgipmh_lnQ&hl=es&ehbc=2E312F" width="100%" height="450%"></iframe>
-      </div> 
-     
-     
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+    <h1 style="color:darkcyan">USUARIOS ENCUESTADORES</h1>
   
-    </div> -->
 
     <div class="container">
         <div class="row">
